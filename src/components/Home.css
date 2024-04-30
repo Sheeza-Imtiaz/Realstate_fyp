@@ -1,0 +1,133 @@
+.home{
+    width:100%;
+    height:100vh;
+}
+.hero .row{
+    margin-top: 200px;
+}
+.intro span{
+    color: #fc9700;
+}
+.intro .details{
+    color: #1e4f5c;
+}
+.intro h1{
+	font-family:'Montserrat';
+	font-size: 46px;
+	letter-spacing: 3px;
+	color:#236c7e;
+}
+.intro p{
+    color: #064757; font-weight: 500;
+}
+.home-btn{
+	width:110px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    background-color: #236c7e;
+    box-shadow: 5px 10px 30px rgba(2, 82, 255, 0.137);
+    border-radius: 10px;
+	color:#ffffff;
+}
+.home-btn:hover{
+	background-color: #fc9700;
+    transition: all ease 0.5s;
+    color: #ffffff;
+    box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
+}
+/* .intro-img img{
+    border: 2px solid red;
+    padding: ;
+} */
+
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+.how-it-works {
+    padding: 3rem 0;
+    background: #236c7e;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-family: 'Montserrat';
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.how-it-works .flex > div {
+    width: 30%;
+}
+
+.how-it-works h4 {
+    color: #ffffff;
+    margin-top: 1rem;
+}
+.how-it-works p{
+    color: rgb(255, 196, 0);
+}
+
+.how-it-works span.fas {
+    color: #ffffff;
+    font-size: 35px;
+}
+
+.about{
+	width:100%;
+	height: 100vh;
+	background-color:#ffffff;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 50px 5% 0px 5%;
+	/* position: relative; */
+}
+.about-text{
+	width: 50%;
+}
+.about-text h2{
+	font-size: 2rem;
+	color:#236c7e;
+	font-weight: 400;
+}
+.about-text h2{
+	margin: 0px;
+	padding: 0px;
+}
+.about-text p{
+	font-size: 1.2rem;
+	color:#3a3a3a;
+	
+}
+.about-text button{
+	width: 140px;
+	height: 40px;
+	border-radius: 10px;
+	border: none;
+    outline: none;
+    color: #ffffff;
+	background-color:#236c7e;
+}
+.about-text button:hover{
+	background-color: #fc9700;
+    transition: all ease 0.3s;
+    color: #ffffff;
+    box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
+}
+.about-model img{
+    height: 400px;
+}
