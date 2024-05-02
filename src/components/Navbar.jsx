@@ -22,8 +22,8 @@ const Navbar = () => {
         <Link to={"/about"} >
           About
         </Link>
-        <Link to={"/services"} onClick={handleNavClick}>
-          Services
+        <Link to={"/propertIes"} onClick={handleNavClick}>
+          Properties
         </Link>
         <Link to={"/contact"} onClick={handleNavClick}>
           Contact

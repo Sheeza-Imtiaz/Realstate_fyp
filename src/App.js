@@ -2,7 +2,7 @@ import { Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
-import Services from './components/Services';
+import Properties from './components/Properties';
 import Contact from './components/Contact';
 // import Login from './components/Login';
 import Login from './components/Login';
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path='/' exact element={<Home/>} />
         <Route path='/about' exact element={<About/>} />
-        <Route path='/services' exact element={<Services/>} />
+        <Route path='/properties' exact element={<Properties/>} />
         <Route path='/contact' exact element={<Contact/>} />
         <Route path="/Login" exact element={<Login/>} />
         <Route path='/LoginReg' element={<LoginReg/>}></Route>
