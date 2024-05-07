@@ -4,12 +4,11 @@ import Home from './components/Home';
 import About from './components/About';
 import Properties from './components/Properties';
 import Contact from './components/Contact';
-// import Login from './components/Login';
 import Login from './components/Login';
 import LoginReg from './components/LoginReg';
 import Admin from './components/Admin';
 import Footer from './components/Footer';
-import ProCat from './components/ProCat';
+
 
 
 
@@ -26,7 +25,6 @@ function App() {
         <Route path='/LoginReg' element={<LoginReg/>}></Route>
 
         <Route path='/Admin' element={<Admin/>}></Route>
-        <Route path='/ProCat' element={<ProCat/>}></Route>
         <Route path='/Footer' element={<Footer/>}></Route>
 
 

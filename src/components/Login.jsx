@@ -186,7 +186,7 @@ function Login() {
                   onChange={handleChange}
                   required
                 />
-                <button className="mb-4 px-5 p-3 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius:"5px" }}>
+                <button className="mb-4 px-5 p-3 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
                   {isLoggedIn ? 'Logout' : 'Login'}
                 </button>
                 {!isLoggedIn && (
@@ -210,8 +210,17 @@ function Login() {
                 Logout
               </MDBBtn>
             )}
+            
           </div>
         </MDBCol>
+        <MDBCol sm="6" className="d-none d-sm-block px-0">        
+             <img
+              src="/images/login.png"
+              alt="Login image"
+              className="w-100"
+              style={{ objectFit: 'cover', objectPosition: 'left' }}
+            />
+            </MDBCol>
       </MDBRow>
     </MDBContainer>
   );

@@ -58,6 +58,16 @@ const LoginReg = () => {
               Registration
             </h3>
             <form onSubmit={handleSubmit}>
+            <div className="mb-4 mx-5">
+                <label htmlFor="profilephoto" className="form-label ">Profile Image</label>
+                <input
+                  className="form-control rounded-circle"
+                  type="file"
+                  id="profilephoto"
+                  name="profilephoto"
+                  onChange={handleChange}
+                style={{borderRadius:"50%", height:"150px", width:"30%"}}   />
+              </div>
               <MDBInput
                 wrapperClass="mb-4 mx-5 w-100"
                 label="Username"
@@ -92,16 +102,7 @@ const LoginReg = () => {
                 required
               />
               {/* Add file input for profile image */}
-              <div className="mb-4 mx-5 w-100">
-                <label htmlFor="profilephoto" className="form-label">Profile Image</label>
-                <input
-                  className="form-control"
-                  type="file"
-                  id="profilephoto"
-                  name="profilephoto"
-                  onChange={handleChange}
-                />
-              </div>
+             
               <button className="mb-4 px-5 p-3 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
                 Register
               </button>

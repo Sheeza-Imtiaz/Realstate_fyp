@@ -1,19 +1,20 @@
 .Navbar {
-  height: 75px;
+  height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background: #fc9700;
 }
+/* .bold {
+  font-weight: 900;
+  border: 2px solid red;
+} */
 
 .Navbar .nav-logo {
   margin: 15px;
   color: #1e4f5c;
 }
 
-/* .Navbar .nav-logo img{
-    height: 65px;
-} */
 .Navbar .nav-items a {
   color: #1e4f5c;
   font-size: 16px;
@@ -50,7 +51,7 @@
   padding: 0.8em 1.2em 0.8em 1em;
   transition: all ease-in-out 0.2s;
   font-size: 15px;
-  text-decoration: none;
+ 
 }
 
 .Navbar .nav-items button span {
@@ -59,15 +60,19 @@
   align-items: center;
   color: #fff;
   font-weight: 600;
+  text-decoration: none !important;
+
 }
 
 .Navbar .nav-items button:hover {
   background-color: #fc9700;
   color: #1e4f5c;
+  text-decoration: none !important;
 }
 
 .Navbar .nav-toggle {
-  display: none;
+  display: none; 
+  text-decoration: none !important;
 }
 
 @media (max-width: 700px) {
@@ -76,7 +81,7 @@
     top: 75px;
     display: flex;
     flex-direction: column;
-    background: #181823;
+    background: white;
     left: 0;
     width: 100%;
     transform: translateX(-100%);
@@ -85,7 +90,7 @@
 
   .Navbar .nav-items button {
     margin: 0 0 15px 8px;
-    width: 30%;
+    width: 80%;
   }
 
   .Navbar .nav-items a::before {
@@ -103,6 +108,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    text-decoration: none !important;
+
   }
 
   .nav-toggle .hamburger {

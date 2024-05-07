@@ -16,31 +16,30 @@ const Navbar = () => {
       </span>
 
       <div className={`nav-items ${active && "switch"}`}>
-        <Link to={"/"} onClick={handleNavClick}>
+        <NavLink exact to={"/"} onClick={handleNavClick} activeClassName="bold">
           Home
-        </Link>
-        <Link to={"/about"} >
+        </NavLink>
+        <NavLink to={"/about"} activeClassName="bold">
           About
-        </Link>
-        <Link to={"/propertIes"} onClick={handleNavClick}>
+        </NavLink>
+        <NavLink to={"/propertIes"} onClick={handleNavClick} activeClassName="bold">
           Properties
-        </Link>
-        <Link to={"/contact"} onClick={handleNavClick}>
+        </NavLink>
+        <NavLink to={"/contact"} onClick={handleNavClick} activeClassName="bold">
           Contact
-        </Link>
+        </NavLink>
 
-        <Link to={"/Login"} onClick={handleNavClick}>
+        <NavLink to={"/Login"} onClick={handleNavClick} activeClassName="bold">
           <button>
             <span>Login/Registration</span>
           </button>
-        </Link>
+        </NavLink>
       </div>
 
       <div
         className={`nav-toggle ${active && "switch"}`}
         onClick={() => isActive(!active)}
       >
-        <div className="hamburger"></div>
       </div>
     </div>
   );
