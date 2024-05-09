@@ -6,7 +6,7 @@ const About = () => {
     <>
       <div className=' container-fluid about mt-2'>
                 <div className='col-lg-6 about-model spimg'>
-                    <img src="/images/about.jpg " alt='about image' />
+                    <img src="/images/about.jpg " alt='Our Team' />
                 </div>
                 <div className='col-lg-6 about-text' >
                     <h2>We are the Best <br /><span> Real Estate Company</span></h2>
@@ -24,8 +24,9 @@ const About = () => {
             <p><i className="fa fa-check me-3" style={{color:"#1e4f5c"}}></i>Tempor erat elitr rebum at clita</p>
             <p><i className="fa fa-check me-3" style={{color:"#1e4f5c"}}></i>Aliqu diam amet diam et eos</p>
             <p><i className="fa fa-check me-3" style={{color:"#1e4f5c"}}></i>Clita duo justo magna dolore erat amet</p>
-            <a className="btn py-3 px-5 mt-3" href="" style={{backgroundColor:"#1e4f5c", color:"white"}}>Read More</a>
-          </div>  
+            <button className="btn py-3 px-5 mt-3"style={{backgroundColor:"#1e4f5c", color:"white", border: "none", textDecoration: "underline", cursor: "pointer"}}>
+  Read More
+</button>          </div>  
           <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
             <div className="about-img position-relative overflow-hidden p-5 pe-0">
               <img className="img-fluid w-100" src="images/property-6.jpg" alt="About" />

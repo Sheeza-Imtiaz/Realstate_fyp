@@ -51,10 +51,18 @@ function Contact() {
               </div>
             </div>
             <div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <iframe className="position-relative rounded w-100 h-100"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435519.2274261047!2d74.00472033834701!3d31.48310365791054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1714132651819!5m2!1sen!2s" width="600" height="450"
- frameBorder="0" style={{ minHeight: '400px', border: '0' }} allowFullScreen="" aria-hidden="false"
-                tabIndex="0"></iframe>
+            <iframe
+  className="position-relative rounded w-100 h-100"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435519.2274261047!2d74.00472033834701!3d31.48310365791054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1714132651819!5m2!1sen!2s"
+  width="600"
+  height="450"
+  frameBorder="0"
+  style={{ minHeight: '400px', border: '0' }}
+  allowFullScreen=""
+  aria-hidden="false"
+  tabIndex="0"
+  title="Google Maps Embed"
+></iframe>
             </div>
             <div className="col-md-6">
               <div className="wow fadeInUp" data-wow-delay="0.5s">

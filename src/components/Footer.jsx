@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="container-fluid footer mt-5 wow fadeIn"  data-wow-delay="0.1s" style={{backgroundColor:"#eef3f0", height:"vh", paddingTop:"40px"}}>
+    <div className="container-fluid footer mt-5 wow fadeIn" data-wow-delay="0.1s" style={{ backgroundColor: "#eef3f0", height: "vh", paddingTop: "40px" }}>
       <div className="container ">
         <div className="row ">
           <div className="col-lg-3 col-md-6">
@@ -19,11 +19,11 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Quick Links</h5>
-            <a className="btn btn-link text-dark fs-7" href="">About Us</a>
-            <a className="btn btn-link text-dark fs-7" href="">Contact Us</a>
-            <a className="btn btn-link text-dark fs-7" href="">Our Services</a>
-            <a className="btn btn-link text-dark fs-7" href="">Privacy Policy</a>
-            <a className="btn btn-link text-dark fs-7" href="">Terms & Condition</a>
+            <a className="btn btn-link text-dark fs-7">About Us</a>
+            <a className="btn btn-link text-dark fs-7" >Contact Us</a>
+            <a className="btn btn-link text-dark fs-7" >Our Services</a>
+            <a className="btn btn-link text-dark fs-7" >Privacy Policy</a>
+            <a className="btn btn-link text-dark fs-7">Terms & Condition</a>
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4
@@ -54,8 +54,8 @@ const Footer = () => {
             <p className='fs-7'>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
             <div className="position-relative mx-auto" style={{ maxWidth: "400px" }}>
               <input className="form-control w-100 py-3 ps-4 pe-5 fs-7" type="text" placeholder="Your email" />
-              <button style={{ backgroundColor:'#236c7e', color:'white' }}
- type="button" className="btn py-2 position-absolute top-0 end-0 mt-2 me-6">SignUp</button>
+              <button style={{ backgroundColor: '#236c7e', color: 'white' }}
+                type="button" className="btn py-2 position-absolute top-0 end-0 mt-2 me-6">SignUp</button>
             </div>
           </div>
         </div>

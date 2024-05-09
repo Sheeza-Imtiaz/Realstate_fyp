@@ -2,8 +2,6 @@ import React from 'react';
 import Footer from './Footer';
 import "./Home.css";
 import HoverCarousel from "hover-carousel";
-import TopUpButton from './TopUpButton';
-
 
 const Home = () => {
 
@@ -35,7 +33,7 @@ const Home = () => {
       {/* about section  */}
       <div className=' container-fluid about'>
         <div className='col-lg-6 about-model spimg'>
-          <img src="/images/about.jpg " alt='about image' />
+          <img src="/images/about.jpg " alt='our team' />
         </div>
         <div className='col-lg-6 about-text' >
           <h2>We are the Best <br /><span> Real Estate Company</span></h2>
@@ -56,7 +54,7 @@ const Home = () => {
               <a className="cat-item d-block bg-light text-center rounded p-3" >
                 <div className="rounded p-4">
                   <div className="icon mb-3">
-                    <img className="img-fluid" src="/images/icon-apartment.png" alt="Apartment Icon" />
+                    <img className="img-fluid" src="/images/icon-apartment.png" alt="Apartment" />
                   </div>
                   <h6>Apartment</h6>
                   <span>123 Properties</span>

@@ -101,7 +101,7 @@ const Properties = () => {
                     <h5 class="card-title">{item.color}</h5>
                     <h5 class="card-title">{item.price}</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <button className="btn btn-primary">Add to Cart</button>
                   </div>
                 </div>
               </div>
