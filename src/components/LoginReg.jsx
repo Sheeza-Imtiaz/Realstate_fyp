@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 
 const LoginReg = () => {
   const [formData, setFormData] = useState({
@@ -33,45 +33,6 @@ const LoginReg = () => {
       console.error('Error uploading data:', error);
     }
   };
-
-  // const handleChange = (e) => {
-  //   const { name, value, type, files } = e.target;
-
-  //   if (type === 'file') {
-  //     setFormData({ 
-  //       ...formData,
-  //       profile_photo: files[0]
-  //     });
-  //   } else {
-  //     setFormData({
-  //       ...formData,
-  //       [name]: value
-  //     });
-  //   }
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-    
-  //   try {
-  //     // Create FormData object to send form data including files
-  //     const formDataToSend = new FormData();
-  //     formDataToSend.append('username', formData.username);
-  //     formDataToSend.append('email', formData.email);
-  //     formDataToSend.append('password', formData.password);
-  //     formDataToSend.append('profile_photo', formData.profile_photo); // Append profilephoto
-
-  //     const resp = await axios.post('http://192.168.12.109:8000/real_estate/users/', formDataToSend, {
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data'
-  //       }
-  //     });
-
-  //     console.log(resp.data); // Assuming the server returns data
-  //   } catch (error) {
-  //     console.error('Error occurred:', error);
-  //   }
-  // };
 
   return (
     <MDBContainer fluid>
