@@ -75,7 +75,7 @@ const Properties = () => {
   const [stated, upstated] = useState([]);
   useEffect(() => {
     const fetchit = async () => {
-      const data = await fetch('http://127.0.0.1:8000/product/products/');
+      const data = await fetch('http://192.168.0.115:8000/real_estate/products/');
       const resu = await data.json();
       // console.log(resu)
       upstated(resu);

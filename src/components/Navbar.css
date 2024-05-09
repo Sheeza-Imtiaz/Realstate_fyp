@@ -1,23 +1,32 @@
 .Navbar {
-  height: 100px;
+  height: 90px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; 
   align-items: center;
-  background: #fc9700;
+  background: #eef3f0;
+  font-family: "Heebo", sans-serif;
+  border-radius: 5px;
+  width: 95%;
+  margin: 30px auto;
 }
-/* .bold {
-  font-weight: 900;
-  border: 2px solid red;
-} */
+.Navbar .nav-logo{
+  display: flex;
+}
+.Navbar .nav-logo img{
+ width: 120px;
+ height: 80px;
+}
+.Navbar h3{
+ color: #236c7e;
+ font-size: 35px;
+margin-top: 15px;
+margin-left: 10px;
+ }
 
-.Navbar .nav-logo {
-  margin: 15px;
-  color: #1e4f5c;
-}
 
 .Navbar .nav-items a {
-  color: #1e4f5c;
-  font-size: 16px;
+  color: black;
+  font-size: 18px;
   text-decoration: none;
   margin: 15px;
   position: relative;
@@ -26,7 +35,7 @@
 
 .Navbar .nav-items a:hover {
   opacity: 1;
-  color: #0e5e74;
+  color: #236c7e;
 }
 
 .Navbar .nav-items a::before {
@@ -36,7 +45,7 @@
   bottom: 0;
   width: 0;
   height: 2px;
-  background: #337c91;
+  background: #236c7e;
   transition: all 0.45s;
 }
 
@@ -45,13 +54,14 @@
 }
 
 .Navbar .nav-items button {
-  border: 2px solid #094353;
-  background-color: #1e4f5c;
-  border-radius: 0.9em;
-  padding: 0.8em 1.2em 0.8em 1em;
-  transition: all ease-in-out 0.2s;
-  font-size: 15px;
- 
+  border: 2px solid #236c7e;
+  background-color: #236c7e;
+  border-radius:4px;
+  padding: 0.5em 1.2em 0.5em 1em;
+}
+.Navbar button :hover{
+  background-color: #fc9700;
+    box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
 }
 
 .Navbar .nav-items button span {
@@ -59,22 +69,13 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-weight: 600;
-  text-decoration: none !important;
-
-}
-
-.Navbar .nav-items button:hover {
-  background-color: #fc9700;
-  color: #1e4f5c;
-  text-decoration: none !important;
+  font-family: "Heebo", sans-serif;
+  font-size: 18px;
 }
 
 .Navbar .nav-toggle {
   display: none; 
-  text-decoration: none !important;
 }
-
 @media (max-width: 700px) {
   .Navbar .nav-items {
     position: absolute;
@@ -87,7 +88,6 @@
     transform: translateX(-100%);
     transition: all 0.45s;
   }
-
   .Navbar .nav-items button {
     margin: 0 0 15px 8px;
     width: 80%;
@@ -109,7 +109,6 @@
     justify-content: center;
     cursor: pointer;
     text-decoration: none !important;
-
   }
 
   .nav-toggle .hamburger {

@@ -96,49 +96,105 @@ const Admin = () => {
     name: '',
     area: '',
     size: '',
-    price: ''
+    price: '',
+    product_picture: null 
   });
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await axios.post('http://192.168.0.115:8000/real_estate/products/', formData);
+
+  //     console.log('Response:', response.data);
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value
+  //   });
+  // };
+
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: files ? files[0] : value // handle file input
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    const formDataToSend = new FormData();
+    for (const key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
+  
     try {
-      const response = await axios.post('http://192.168.0.115:8000/real_estate/products/', formData);
-
-      console.log('Response:', response.data);
+      const response = await axios.post('http://192.168.0.115:8000/real_estate/products/', formDataToSend);
+      console.log(response.data);
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error uploading data:', error);
     }
   };
+  
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+   
+  // const formDataToSend = new FormData();
+  // for (const key in formData) {
+  //   formDataToSend.append(key, formData[key]);
+  // }
+
+  // try {
+  //   const response = await axios.post('http://192.168.0.115:8000/real_estate/products/', formData);
+  //   console.log(response.data);
+  // } catch (error) {
+  //   console.error('Error uploading data:', error);
+  // }
+  // };
+
+  // const handleChange = (e) => {
+  //   const { name, value, files } = e.target;
+  //   setFormData(prevState => ({
+  //     ...prevState,
+  //     [name]: files ? files[0] : value // handle file input
+  //   }));
+  // };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="post" enctype="multipart/form-data">
         <div className="mb-3">
           <label htmlFor="price" className="form-label">Price</label>
           <input type="number" className="form-control" name="price" onChange={handleChange} id="price" placeholder="" />
         </div>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">Property</label>
+          <label htmlFor="name" className="form-label">Name</label>
           <input type="text" className="form-control" name="name" onChange={handleChange} id="name" placeholder="" />
         </div>
         <div className="mb-3">
           <label htmlFor="type" className="form-label">Location</label>
-          <input type="text" className="form-control" name="area" onChange={handleChange} id="type" placeholder="" />
+          <input type="text" className="form-control" name="location" onChange={handleChange} id="type" placeholder="" />
         </div>
         <div className="mb-3">
           <label htmlFor="size" className="form-label">Size</label>
           <input type="text" className="form-control" name="size" onChange={handleChange} id="size" placeholder="" />
         </div>
+        <div className="form-group">
+        <label>Profile Photo:</label>
+        <input className="form-control-file" type="file" name="product_picture" accept="image/*" onChange={handleChange} />
+      </div>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </>

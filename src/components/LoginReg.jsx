@@ -7,47 +7,71 @@ const LoginReg = () => {
     username: '',
     email: '',
     password: '',
-    profilephoto: '',
+    profile_photo: null,
   });
 
   const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
-
-    if (type === 'file') {
-      setFormData({
-        ...formData,
-        profilephoto: files[0]
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value
-      });
-    }
+    const { name, value, files } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: files ? files[0] : value // handle file input
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+  
+    const formDataToSend = new FormData();
+    for (const key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
+  
     try {
-      // Create FormData object to send form data including files
-      const formDataToSend = new FormData();
-      formDataToSend.append('username', formData.username);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('password', formData.password);
-      formDataToSend.append('profilephoto', formData.profilephoto); // Append profilephoto
-
-      const resp = await axios.post('http://192.168.12.109:8000/real_estate/users/', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-
-      console.log(resp.data); // Assuming the server returns data
+      const response = await axios.post('http://192.168.0.115:8000/real_estate/users/', formDataToSend);
+      console.log(response.data);
     } catch (error) {
-      console.error('Error occurred:', error);
+      console.error('Error uploading data:', error);
     }
   };
+
+  // const handleChange = (e) => {
+  //   const { name, value, type, files } = e.target;
+
+  //   if (type === 'file') {
+  //     setFormData({ 
+  //       ...formData,
+  //       profile_photo: files[0]
+  //     });
+  //   } else {
+  //     setFormData({
+  //       ...formData,
+  //       [name]: value
+  //     });
+  //   }
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+    
+  //   try {
+  //     // Create FormData object to send form data including files
+  //     const formDataToSend = new FormData();
+  //     formDataToSend.append('username', formData.username);
+  //     formDataToSend.append('email', formData.email);
+  //     formDataToSend.append('password', formData.password);
+  //     formDataToSend.append('profile_photo', formData.profile_photo); // Append profilephoto
+
+  //     const resp = await axios.post('http://192.168.12.109:8000/real_estate/users/', formDataToSend, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data'
+  //       }
+  //     });
+
+  //     console.log(resp.data); // Assuming the server returns data
+  //   } catch (error) {
+  //     console.error('Error occurred:', error);
+  //   }
+  // };
 
   return (
     <MDBContainer fluid>
@@ -57,17 +81,11 @@ const LoginReg = () => {
             <h3 className="fw-normal mb-3 ps-5 pb-3" style={{ letterSpacing: '1px' }}>
               Registration
             </h3>
-            <form onSubmit={handleSubmit}>
-            <div className="mb-4 mx-5">
-                <label htmlFor="profilephoto" className="form-label ">Profile Image</label>
-                <input
-                  className="form-control rounded-circle"
-                  type="file"
-                  id="profilephoto"
-                  name="profilephoto"
-                  onChange={handleChange}
-                style={{borderRadius:"50%", height:"150px", width:"30%"}}   />
-              </div>
+            <form onSubmit={handleSubmit} method="post" enctype="multipart/form-data">
+            <div className="form-group">
+        <label>Profile Photo:</label>
+        <input className="form-control-file" type="file"  name="profile_photo" accept="image/*" onChange={handleChange} />
+      </div>
               <MDBInput
                 wrapperClass="mb-4 mx-5 w-100"
                 label="Username"
