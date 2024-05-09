@@ -51,7 +51,7 @@ const Home = () => {
           <div className="row">
             {/* Apartment */}
             <div className="col-lg-3 col-sm-6 ">
-              <a className="cat-item d-block bg-light text-center rounded p-3" >
+              <div className="cat-item d-block bg-light text-center rounded p-3" >
                 <div className="rounded p-4">
                   <div className="icon mb-3">
                     <img className="img-fluid" src="/images/icon-apartment.png" alt="Apartment" />
@@ -59,11 +59,11 @@ const Home = () => {
                   <h6>Apartment</h6>
                   <span>123 Properties</span>
                 </div>
-              </a>
+              </div>
             </div>
             {/* Villa */}
             <div className="col-lg-3 col-sm-6">
-              <a className="cat-item dz-block bg-light text-center rounded p-3" >
+              <div className="cat-item dz-block bg-light text-center rounded p-3" >
                 <div className="rounded p-4">
                   <div className="icon mb-4">
                     <img className="img-fluid" src="/images/icon-villa.png" alt="Villa Icon" />
@@ -71,11 +71,11 @@ const Home = () => {
                   <h6>Villa</h6>
                   <span>123 Properties</span>
                 </div>
-              </a>
+              </div>
             </div>
             {/* House */}
             <div className="col-lg-3 col-sm-6">
-              <a className="cat-item d-block bg-light text-center rounded p-3" >
+              <div className="cat-item d-block bg-light text-center rounded p-3" >
                 <div className="rounded p-4">
                   <div className="icon mb-4">
                     <img className="img-fluid" src="/images/icon-house.png" alt="House Icon" />
@@ -83,11 +83,11 @@ const Home = () => {
                   <h6>Home</h6>
                   <span>123 Properties</span>
                 </div>
-              </a>
+              </div>
             </div>
             {/* Office */}
             <div className="col-lg-3 col-sm-6">
-              <a className="cat-item d-block bg-light text-center rounded p-3">
+              <div className="cat-item d-block bg-light text-center rounded p-3">
                 <div className="rounded p-4">
                   <div className="icon mb-4">
                     <img className="img-fluid" src="/images/icon-deal.png" alt="Office Icon" />
@@ -95,7 +95,7 @@ const Home = () => {
                   <h6 >Office</h6>
                   <span>123 Properties</span>
                 </div>
-              </a>
+              </div>
             </div>
             {/* Repeat the same structure for other property types */}
           </div>
