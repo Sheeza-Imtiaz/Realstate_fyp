@@ -19,11 +19,11 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Quick Links</h5>
-            <a href="/about" className="btn btn-link text-dark fs-7">About Us</a>
-            <a href="/contact" className="btn btn-link text-dark fs-7">Contact Us</a>
-            <a href="/services" className="btn btn-link text-dark fs-7">Our Services</a>
-            <a href="/privacy-policy" className="btn btn-link text-dark fs-7">Privacy Policy</a>
-            <a href="/terms-and-conditions" className="btn btn-link text-dark fs-7">Terms & Condition</a>
+            <h4  className="btn btn-link text-dark fs-7">About Us</h4>
+            <h4 className="btn btn-link text-dark fs-7">Contact Us</h4>
+            <h4  className="btn btn-link text-dark fs-7">Our Services</h4>
+            <h4  className="btn btn-link text-dark fs-7">Privacy Policy</h4>
+            <h4  className="btn btn-link text-dark fs-7">Terms & Condition</h4>
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Photo Gallery</h5>
@@ -61,16 +61,16 @@ const Footer = () => {
       <div className="container">
         <div className="copyright">
           <div className="row">
-            <div className="col-md-6 text-center text-md-start mb-3 mb-md-0 fs-6">
-              &copy; <a href="#" className="border-bottom">Your Site Name</a>, All Right Reserved.
-              Designed By <a href="" className="border-bottom">HTML React</a>
+            <div className="col-md-6 text-center text-md-start mb-3 mb-md-0 fs-7">
+              &copy; <h4  className="border-bottom">Your Site Name</h4>, All Right Reserved.
+              Designed By <h4  className="border-bottom">HTML React</h4>
             </div>
             <div className="col-md-6 text-center text-md-end text-dark">
               <div className="footer-menu">
-                <a href="#" className='text-dark fs-6'>Home</a>
-                <a href="#" className='text-dark fs-6'>Cookies</a>
-                <a href="#" className='text-dark fs-6'>Help</a>
-                <a href="#" className='text-dark fs-6'>FQAs</a>
+                <h4 className='text-dark fs-6'>Home</h4>
+                <h4  className='text-dark fs-6'>Cookies</h4>
+                <h4  className='text-dark fs-6'>Help</h4>
+                <h4 className='text-dark fs-6'>FQAs</h4>
               </div>
             </div>
           </div>

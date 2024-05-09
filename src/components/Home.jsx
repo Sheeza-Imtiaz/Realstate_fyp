@@ -63,7 +63,7 @@ const Home = () => {
             </div>
             {/* Villa */}
             <div className="col-lg-3 col-sm-6">
-              <a className="cat-item d-block bg-light text-center rounded p-3" >
+              <a className="cat-item dz-block bg-light text-center rounded p-3" >
                 <div className="rounded p-4">
                   <div className="icon mb-4">
                     <img className="img-fluid" src="/images/icon-villa.png" alt="Villa Icon" />
@@ -140,7 +140,7 @@ const Home = () => {
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }}>
                   <div className="position-relative overflow-hidden">
-                    <a href="#"><img className="img-fluid" src="images/property-1.jpg" alt="" /></a>
+                    <img className="img-fluid" src="images/property-1.jpg" alt="" />
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{
                       color: "#236c7e", fontSize: "18px", fontWeight: "600"
                     }}>Appartment</div>
@@ -149,7 +149,7 @@ const Home = () => {
                     <h5 className="mb-3" style={{
                       color: "#fc9700"
                     }}>$12,345</h5>
-                    <a className="d-block h5 mb-2" href="#">Golden Urban House For Sell</a>
+                    <h4 className="d-block h5 mb-2" >Golden Urban House For Sell</h4>
                     <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ const Home = () => {
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }}>
                   <div className="position-relative overflow-hidden">
-                    <a href="#"><img className="img-fluid" src="images/property-2.jpg" alt="" /></a>
+                    <img className="img-fluid" src="images/property-2.jpg" alt="" />
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{
                       color: "#236c7e", fontSize: "18px", fontWeight: "600"
                     }}>Appartment</div>
@@ -166,7 +166,7 @@ const Home = () => {
                     <h5 className="mb-3" style={{
                       color: "#fc9700"
                     }}>$12,345</h5>
-                    <a className="d-block h5 mb-2" href="#">Golden Urban House For Sell</a>
+                    <h4 className="d-block h5 mb-2" >Golden Urban House For Sell</h4>
                     <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ const Home = () => {
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }}>
                   <div className="position-relative overflow-hidden">
-                    <a href="#"><img className="img-fluid" src="images/property-3.jpg" alt="" /></a>
+                   <img className="img-fluid" src="images/property-3.jpg" alt="" />
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{
                       color: "#236c7e", fontSize: "18px", fontWeight: "600"
                     }}>Building</div>
@@ -183,7 +183,7 @@ const Home = () => {
                     <h5 className="mb-3" style={{
                       color: "#fc9700"
                     }}>$12,345</h5>
-                    <a className="d-block h5 mb-2" href="#">Golden Urban House For Sell</a>
+                    <h4 className="d-block h5 mb-2" >Golden Urban House For Sell</h4>
                     <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
                   </div>
                 </div>
@@ -191,7 +191,7 @@ const Home = () => {
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }}>
                   <div className="position-relative overflow-hidden">
-                    <a href="#"><img className="img-fluid" src="images/property-4.jpg" alt="" /></a>
+                   <img className="img-fluid" src="images/property-4.jpg" alt="" />
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{
                       color: "#236c7e", fontSize: "18px", fontWeight: "600"
                     }}>Appartment</div>
@@ -200,7 +200,7 @@ const Home = () => {
                     <h5 className="mb-3" style={{
                       color: "#fc9700"
                     }}>$12,345</h5>
-                    <a className="d-block h5 mb-2" href="#">Golden Urban House For Sell</a>
+                    <h4 className="d-block h5 mb-2" >Golden Urban House For Sell</h4>
                     <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
                   </div>
                 </div>
@@ -208,7 +208,7 @@ const Home = () => {
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }}>
                   <div className="position-relative overflow-hidden">
-                    <a href="#"><img className="img-fluid" src="images/property-5.jpg" alt="" /></a>
+                    <img className="img-fluid" src="images/property-5.jpg" alt="" />
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{
                       color: "#236c7e", fontSize: "18px", fontWeight: "600"
                     }}>Office</div>
@@ -217,7 +217,7 @@ const Home = () => {
                     <h5 className="mb-3" style={{
                       color: "#fc9700"
                     }}>$12,345</h5>
-                    <a className="d-block h5 mb-2" href="#">Golden Urban House For Sell</a>
+                    <h4 className="d-block h5 mb-2" >Golden Urban House For Sell</h4>
                     <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ const Home = () => {
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }}>
                   <div className="position-relative overflow-hidden">
-                    <a href="#"><img className="img-fluid" src="images/property-6.jpg" alt="" /></a>
+                    <img className="img-fluid" src="images/property-6.jpg" alt="" />
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{
                       color: "#236c7e", fontSize: "18px", fontWeight: "600"
                     }}>House</div>
@@ -234,7 +234,7 @@ const Home = () => {
                     <h5 className="mb-3" style={{
                       color: "#fc9700"
                     }}>$12,345</h5>
-                    <a className="d-block h5 mb-2" href="#">Golden Urban House For Sell</a>
+                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
                     <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
                   </div>
                 </div>
