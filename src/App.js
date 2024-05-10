@@ -8,6 +8,7 @@ import Login from './components/Login';
 import LoginReg from './components/LoginReg';
 import Admin from './components/Admin';
 import Footer from './components/Footer';
+import CustomNavbar from './components/Navbar';
 
 
 
@@ -15,7 +16,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div>
-      <Navbar/>
+      <CustomNavbar />
       <Routes>
         <Route path='/' exact element={<Home/>} />
         <Route path='/about' exact element={<About/>} />

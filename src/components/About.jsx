@@ -1,19 +1,23 @@
 import React from 'react';
 import Footer from './Footer';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 const About = () => {
   return (
     <>
-      <div className=' container-fluid about mt-2'>
-                <div className='col-lg-6 about-model spimg'>
-                    <img src="/images/about.jpg " alt='Our Team' />
-                </div>
-                <div className='col-lg-6 about-text' >
-                    <h2>We are the Best <br /><span> Real Estate Company</span></h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde vel, sit accusamus veritatis excepturi mollitia saepe laborum eos molestias nostrum dicta molestiae soluta, vitae voluptatibus. Animi voluptate voluptatum voluptates. Quisquam.</p>
-                    <button>View More Details</button>
-                </div>
-            </div>
+      
+      <div className='container-fluid about'>
+      <Row>
+        <Col lg={6} className='about-model spimg'>
+          <img src="/images/about.jpg" alt='our team' />
+        </Col>
+        <Col lg={6} className='about-text'>
+          <h2>We are the Best <br /><span> Real Estate Company</span></h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde vel, sit accusamus veritatis excepturi mollitia saepe laborum eos molestias nostrum dicta molestiae soluta, vitae voluptatibus. Animi voluptate voluptatum voluptates. Quisquam.</p>
+          <Button>View More Details</Button>
+        </Col>
+      </Row>
+    </div>
     <div className="container-fluid py-5">
       <div className="about-section">
         <div className="row g-5 align-items-center">

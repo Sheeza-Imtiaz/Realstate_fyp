@@ -39,16 +39,16 @@ const LoginReg = () => {
       <MDBRow>
         <MDBCol sm="6">
           <div className="d-flex flex-column justify-content-center h-custom-2 w-75 pt-4">
-            <h3 className="fw-normal mb-3 ps-5 pb-3" style={{ letterSpacing: '1px' }}>
+            <h3 className="fw-normal mb-1 ps-5 pb-3" style={{ letterSpacing: '1px' }}>
               Registration
             </h3>
             <form onSubmit={handleSubmit} method="post" enctype="multipart/form-data">
-            <div className="form-group">
+            <div className="form-group mb-2 mx-5 w-100">
         <label>Profile Photo:</label>
         <input className="form-control-file" type="file"  name="profile_photo" accept="image/*" onChange={handleChange} />
       </div>
               <MDBInput
-                wrapperClass="mb-4 mx-5 w-100"
+                wrapperClass="mb-1 mx-5 w-100"
                 label="Username"
                 id="username"
                 name="username"
@@ -59,7 +59,7 @@ const LoginReg = () => {
                 required
               />
               <MDBInput
-                wrapperClass="mb-4 mx-5 w-100"
+                wrapperClass="mb-1 mx-5 w-100"
                 label="Email address"
                 id="email"
                 name="email"
@@ -70,7 +70,7 @@ const LoginReg = () => {
                 required
               />
               <MDBInput
-                wrapperClass="mb-4 mx-5 w-100"
+                wrapperClass="mb-1 mx-5 w-100"
                 label="Password"
                 id="password"
                 name="password"
@@ -82,7 +82,7 @@ const LoginReg = () => {
               />
               {/* Add file input for profile image */}
              
-              <button className="mb-4 px-5 p-3 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
+              <button className="mb-1 px-5 p-2 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
                 Register
               </button>
             </form>

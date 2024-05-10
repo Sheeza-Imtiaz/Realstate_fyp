@@ -10,7 +10,7 @@ function Contact() {
         <div className="container-fluid py-5">
           <div className="container">
             <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
-              <h1 className="mb-3">Contact Us</h1>
+              <h1 className="mb-3" style={{color:"#236c7e", fontSize:"50px"}}>Contact Us</h1>
               <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div className="row g-4">
@@ -18,7 +18,7 @@ function Contact() {
                 <div className="row gy-4">
                   <div className="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
                     <div className="bg-light p-3">
-                      <div className="d-flex align-items-center bg-white rounded p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
+                      <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
                           <i className="fa fa-map-marker-alt text-primary"></i>
                         </div>
@@ -27,9 +27,9 @@ function Contact() {
                     </div>
                   </div>
                   <div className="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div className="bg-light rounded p-3">
-                      <div className="d-flex align-items-center bg-white rounded p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
-                        <div className="icon me-3" style={{ width: '45px', height: '45px' }}>
+                    <div className="bg-light p-3">
+                      <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
+                        <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
                           <i className="fa fa-envelope-open text-primary"></i>
                         </div>
                         <span>info@example.com</span>
@@ -37,9 +37,9 @@ function Contact() {
                     </div>
                   </div>
                   <div className="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div className="bg-light rounded p-3">
-                      <div className="d-flex align-items-center bg-white rounded p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: '90px' }}>
-                        <div className="icon me-3" style={{ width: '45px', height: '45px' }}>
+                    <div className="bg-light p-3">
+                      <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: '90px' }}>
+                        <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
                           <i className="fa fa-phone-alt text-primary"></i>
                         </div>
                         <span>+012 345 6789</span>
@@ -50,7 +50,7 @@ function Contact() {
               </div>
               <div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <iframe
-                  className="position-relative rounded w-100 h-100"
+                  className="position-relative w-100 h-100"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435519.2274261047!2d74.00472033834701!3d31.48310365791054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1714132651819!5m2!1sen!2s"
                   width="600"
                   height="450"
@@ -92,7 +92,7 @@ function Contact() {
                         </div>
                       </div>
                       <div className="col-12">
-                        <button className="btn w-100 py-3" type="submit">Send Message</button>
+                        <button className="btn w-100 py-3" type="submit" style={{backgroundColor:"#1e4f5c"}}>Send Message</button>
                       </div>
                     </div>
                   </form>

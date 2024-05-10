@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from './Footer';
 import "./Home.css";
 import HoverCarousel from "hover-carousel";
+import { Row, Col, Button } from 'react-bootstrap';
+
 
 const Home = () => {
 
@@ -31,17 +33,21 @@ const Home = () => {
         </div>
       </div>
       {/* about section  */}
-      <div className=' container-fluid about'>
-        <div className='col-lg-6 about-model spimg'>
-          <img src="/images/about.jpg " alt='our team' />
-        </div>
-        <div className='col-lg-6 about-text' >
+    
+      <div className='container-fluid about'>
+      <Row>
+        <Col lg={6} className='about-model spimg'>
+          <img src="/images/about.jpg" alt='our team' />
+        </Col>
+        <Col lg={6} className='about-text'>
           <h2>We are the Best <br /><span> Real Estate Company</span></h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde vel, sit accusamus veritatis excepturi mollitia saepe laborum eos molestias nostrum dicta molestiae soluta, vitae voluptatibus. Animi voluptate voluptatum voluptates. Quisquam.</p>
-          <button>View More Details</button>
-        </div>
-      </div>
+          <Button>View More Details</Button>
+        </Col>
+      </Row>
+    </div>
       {/* property type  */}
+      <div>
       <div className="container-fluid py-3 ">
         <div className="container property">
           <div className="text-center mx-auto mb-5">
@@ -100,10 +106,9 @@ const Home = () => {
             {/* Repeat the same structure for other property types */}
           </div>
         </div>
-      </div>
+      </div></div>
       {/* how it works  */}
       <div className='how-it-works'>
-
         <div className=' container'>
           <h2>How It Works</h2>
           <div className='flex'>
@@ -243,15 +248,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-
-
       <div> <Footer /></div>
-      
-
     </div>
-
-
   )
 };
 export default Home;

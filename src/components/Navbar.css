@@ -1,34 +1,41 @@
 .Navbar {
   height: 90px;
   display: flex;
-  justify-content: space-around; 
-  align-items: center;
+  column-gap: 30px !important;
   background: #eef3f0;
   font-family: "Heebo", sans-serif;
   border-radius: 5px;
   width: 95%;
   margin: 30px auto;
 }
-.Navbar .nav-logo{
+
+.Navbar .nav-logo {
   display: flex;
 }
-.Navbar .nav-logo img{
- width: 120px;
- height: 80px;
-}
-.Navbar h3{
- color: #236c7e;
- font-size: 35px;
-margin-top: 15px;
-margin-left: 10px;
- }
 
+.Navbar .nav-logo img {
+  width: 100px;
+  height: 70px;
+}
+
+.Navbar h3 {
+  color: #236c7e;
+  font-size: 35px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.Navbar .nav-items {
+  display: flex;
+  align-items: center;
+  margin-left: 55px;
+}
 
 .Navbar .nav-items a {
   color: black;
   font-size: 18px;
   text-decoration: none;
-  margin: 15px;
+  margin: 0 15px;
   position: relative;
   opacity: 0.9;
 }
@@ -44,7 +51,7 @@ margin-left: 10px;
   left: 0;
   bottom: 0;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: #236c7e;
   transition: all 0.45s;
 }
@@ -56,12 +63,13 @@ margin-left: 10px;
 .Navbar .nav-items button {
   border: 2px solid #236c7e;
   background-color: #236c7e;
-  border-radius:4px;
-  padding: 0.5em 1.2em 0.5em 1em;
+  border-radius: 4px;
+  padding: 0.5em 1em 0.5em 1em;
 }
-.Navbar button :hover{
+
+.Navbar .nav-items button:hover {
   background-color: #fc9700;
-    box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
+  box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
 }
 
 .Navbar .nav-items button span {
@@ -72,85 +80,47 @@ margin-left: 10px;
   font-family: "Heebo", sans-serif;
   font-size: 18px;
 }
-
 .Navbar .nav-toggle {
-  display: none; 
+  display: none;
+  cursor: pointer;
 }
-@media (max-width: 700px) {
-  .Navbar .nav-items {
-    position: absolute;
-    top: 75px;
-    display: flex;
+
+@media (max-width: 750px) {
+  .nav-items {
+    background-color: #eef3f0;
+  }
+}
+/* @media (max-width: 750px) {
+  .Navbar {
     flex-direction: column;
-    background: white;
+    align-items: flex-start;
+   
+  }
+
+  .Navbar .nav-logo {
+    margin-bottom: 20px;
+  }
+
+  .Navbar .nav-items {
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
     left: 0;
+    background: white;
     width: 100%;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
     transition: all 0.45s;
   }
-  .Navbar .nav-items button {
-    margin: 0 0 15px 8px;
-    width: 80%;
+
+  .Navbar .nav-items.active {
+    transform: translateY(0);
   }
 
-  .Navbar .nav-items a::before {
-    background: transparent;
-  }
-
-  .Navbar .nav-items.switch {
-    transform: translateX(0);
+  .Navbar .nav-items a {
+    margin: 15px 0;
   }
 
   .Navbar .nav-toggle {
     display: flex;
-    width: 50px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    text-decoration: none !important;
   }
-
-  .nav-toggle .hamburger {
-    position: relative;
-    width: 32px;
-    height: 2px;
-    background: #ffffff;
-    transition: all 0.45s ease-in-out;
-  }
-
-  .nav-toggle .hamburger::before,
-  .nav-toggle .hamburger::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    background: #ffffff;
-    border-radius: 2px;
-    transition: all 0.45s ease-in-out;
-  }
-
-  .nav-toggle .hamburger::before {
-    width: 32px;
-    transform: translateY(-8px);
-    right: 0;
-  }
-
-  .nav-toggle .hamburger::after {
-    width: 32px;
-    transform: translateY(8px);
-  }
-
-  .nav-toggle.switch .hamburger {
-    transform: translateX(-40px);
-    background: transparent;
-  }
-
-  .nav-toggle.switch .hamburger::before {
-    width: 32px;
-    transform: rotate(45deg) translate(26px, -26px);
-  }
-
-  .nav-toggle.switch .hamburger::after {
-    transform: rotate(-45deg) translate(26px, 26px);
-  }
-}
+} */

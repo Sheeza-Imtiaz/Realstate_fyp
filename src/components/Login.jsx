@@ -54,7 +54,7 @@ function Login() {
             {!isLoggedIn && (
               <form onSubmit={handleSubmit}>
                 <MDBInput
-                  wrapperClass="mb-4 mx-5 w-100"
+                  wrapperClass="mb-1 mx-5 w-100"
                   label="Email address"
                   id="email"
                   name="username"
@@ -65,7 +65,7 @@ function Login() {
                   required
                 />
                 <MDBInput
-                  wrapperClass="mb-4 mx-5 w-100"
+                  wrapperClass="mb-1 mx-5 w-100"
                   label="Password"
                   id="password"
                   name="password"
@@ -75,11 +75,11 @@ function Login() {
                   onChange={handleChange}
                   required
                 />
-                <button className="mb-4 px-5 p-3 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
+                <button className="mb-1 px-5 p-2 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
                   {isLoggedIn ? 'Logout' : 'Login'}
                 </button>
                 {!isLoggedIn && (
-                  <p className="small mb-5 pb-lg-3 ms-5">
+                  <p className="small mb-1 pb-lg-3 ms-5">
                     <a className="text-muted" href="#!">
                       Forgot password?
                     </a>
