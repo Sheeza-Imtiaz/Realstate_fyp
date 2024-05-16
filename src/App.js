@@ -8,7 +8,10 @@ import LoginReg from './components/LoginReg';
 import Admin from './components/Admin';
 import Footer from './components/Footer';
 import CustomNavbar from './components/Navbar';
-
+import TestimonialSlider from './components/testimonial/testimonial';
+import Mydetail from './components/Mydetail';
+// import Detailpro from './components/detailpro';
+// import Detailpro from './components/Detailpro';
 
 
 
@@ -24,8 +27,13 @@ function App() {
         <Route path="/Login" exact element={<Login/>} />
         <Route path='/LoginReg' element={<LoginReg/>}></Route>
 
+
         <Route path='/Admin' element={<Admin/>}></Route>
+        <Route path='/detailpro' element={<detailpro/>}></Route>
         <Route path='/Footer' element={<Footer/>}></Route>
+        <Route path='/testimonial' element={<TestimonialSlider/>}></Route>
+        {/* <Route path='/detailpro' element={<Detailpro/>}></Route> */}
+<Route path='/mydetail' element={<Mydetail/>}></Route>
 
 
 

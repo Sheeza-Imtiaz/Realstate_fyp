@@ -89,7 +89,22 @@
   .nav-items {
     background-color: #eef3f0;
   }
+  .Navbar .nav-logo img {
+    width: 70px;
+    height: 50px;
+    margin-top: 4px;
+  }
+  .Navbar h3 {
+    color: #236c7e;
+    font-size: 30px;
+    margin-top: 11px;
+    margin-left: 1px;
+  }
+  .Navbar .nav-toggle {
+      margin-left: 0;
+  }
 }
+
 /* @media (max-width: 750px) {
   .Navbar {
     flex-direction: column;

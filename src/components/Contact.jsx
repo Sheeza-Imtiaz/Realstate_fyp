@@ -20,7 +20,7 @@ function Contact() {
                     <div className="bg-light p-3">
                       <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
-                          <i className="fa fa-map-marker-alt text-primary"></i>
+                          <i className="fa fa-map-marker-alt" style={{color:'#1e4f5c'}}></i>
                         </div>
                         <span>123 Street, Lahore, Pakistan</span>
                       </div>
@@ -30,7 +30,7 @@ function Contact() {
                     <div className="bg-light p-3">
                       <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
-                          <i className="fa fa-envelope-open text-primary"></i>
+                          <i className="fa fa-envelope-open" style={{color:'#1e4f5c'}}></i>
                         </div>
                         <span>info@example.com</span>
                       </div>
@@ -40,7 +40,7 @@ function Contact() {
                     <div className="bg-light p-3">
                       <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: '90px' }}>
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
-                          <i className="fa fa-phone-alt text-primary"></i>
+                          <i className="fa fa-phone-alt" style={{color:'#1e4f5c'}}></i>
                         </div>
                         <span>+012 345 6789</span>
                       </div>
@@ -92,7 +92,7 @@ function Contact() {
                         </div>
                       </div>
                       <div className="col-12">
-                        <button className="btn w-100 py-3" type="submit" style={{backgroundColor:"#1e4f5c"}}>Send Message</button>
+                        <button className="btn w-100 py-3" type="submit" style={{backgroundColor:"#1e4f5c", color:'white'}}>Send Message</button>
                       </div>
                     </div>
                   </form>
@@ -102,7 +102,7 @@ function Contact() {
           </div>
         </div>
       </div> 
-       <Footer />
+      <Footer />
     </>
   );
 }

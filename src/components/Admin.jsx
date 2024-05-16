@@ -100,26 +100,6 @@ const Admin = () => {
     product_picture: null 
   });
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await axios.post('http://192.168.0.115:8000/real_estate/products/', formData);
-
-  //     console.log('Response:', response.data);
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-
-  //   setFormData({
-  //     ...formData,
-  //     [name]: value
-  //   });
-  // };
 
 
   const handleChange = (e) => {
@@ -139,7 +119,7 @@ const Admin = () => {
     }
   
     try {
-      const response = await axios.post('http://192.168.0.115:8000/real_estate/products/', formDataToSend);
+      const response = await axios.post('http://192.168.0.115:8000/real_estate/products/' , formDataToSend);
       console.log(response.data);
     } catch (error) {
       console.error('Error uploading data:', error);
