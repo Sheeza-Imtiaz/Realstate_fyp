@@ -27,16 +27,6 @@ const Sidebar = ({ onClickLogout }) => {
                             <i className="fas fa-user-plus"> Properties</i> 
                         </NavLink>
                     </li>
-                    {/* <li>
-                        <NavLink to="" activeClassName="active">
-                            <i className="fas fa-list-alt"> Admission</i> 
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="" activeClassName="active">
-                            <i className="fas fa-chalkboard-teacher"> Teachers</i> 
-                        </NavLink>
-                    </li> */}
                     <li>
                         <NavLink to="" activeClassName="active">
                             <i className="fas fa-user-edit"> Profile</i> 

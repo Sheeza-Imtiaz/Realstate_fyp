@@ -1,10 +1,12 @@
 import React from 'react';
 import './style.css';
 import Footer from './Footer';
+import CustomNavbar from './Navbar';
 
 function Contact() {
   return (
     <>
+    <CustomNavbar/>
       <div className="container bg-white p-0">
         {/* Spinner and Header */}
         <div className="container-fluid py-5">

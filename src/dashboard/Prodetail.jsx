@@ -4,7 +4,7 @@ import Sidebar from '../dashboard/Sidebar';
 
 const Prodetail = () => {
     const [stated, upstated] = useState([]);
-    const [user, setUser] = useState(null);
+    const [setUser] = useState(null);
 
     useEffect(() => {
         const userData = JSON.parse(sessionStorage.getItem('ulogin'));

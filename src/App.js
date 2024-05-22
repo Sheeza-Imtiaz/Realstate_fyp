@@ -20,7 +20,7 @@ import Prodetail from './dashboard/Prodetail';
 function App() {
   return (
     <div>
-      <CustomNavbar />
+      {/* <CustomNavbar /> */}
       <Routes>
         <Route path='/' exact element={<Home/>} />
         <Route path='/about' exact element={<About/>} />

@@ -1,12 +1,14 @@
 import React from 'react';
 import Footer from './Footer';
 import { Row, Col, Button } from 'react-bootstrap';
+import CustomNavbar from './Navbar';
 
 const About = () => {
   return (
     <>
-      
-      <div className='container-fluid about'>
+    <div>
+    <CustomNavbar/>
+    <div className='container-fluid about'>
       <Row>
         <Col lg={6} className='about-model spimg'>
           <img src="/images/about.jpg" alt='our team' />
@@ -40,6 +42,10 @@ const About = () => {
       </div>
     </div>
         <Footer/>
+
+    </div>
+      
+     
     </>
   );
 };

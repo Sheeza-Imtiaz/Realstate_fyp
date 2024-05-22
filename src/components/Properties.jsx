@@ -1,9 +1,7 @@
-
-
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import CustomNavbar from './Navbar';
 
 const Properties = () => {
 const navigate=useNavigate();
@@ -27,12 +25,11 @@ const navigate=useNavigate();
       sessionStorage.setItem('editdata', JSON.stringify(res.data));
       navigate('/mydetail'); 
     })
-    
-
   }
   return (
-
-    <div className='container'>
+<>
+<CustomNavbar/>
+<div className='container'>
       <div className='row'>
         {stated.map((item, val) => {
           return (
@@ -40,7 +37,6 @@ const navigate=useNavigate();
               <div className='col-md-4 mt-5 newproduct'>
                 <div className="card">
                   <img src={item.product_picture} class="card-img-top" alt="checkit" />
-
                   <div className="card-body" key={val}>
                     <h5 className="card-title">{item.name}</h5>
                     <h4 className="card-title">{item.size}</h4>
@@ -52,18 +48,15 @@ const navigate=useNavigate();
                   </div>
                 </div>
               </div>
-
-
             </>
           )
-
         })}
       </div>
     </div>
-
+</>
+   
   )
 }
-
 export default Properties
 
 
