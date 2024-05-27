@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Card, CardContent, CardMedia, Typography, Button, Grid, Box, Avatar } from '@mui/material';
-// import CustomNavbar from './Navbar';
-import Footer from './Footer';
-
+// import Footer from './Footer';
 
 const Mydetail = () => {
   const data = JSON.parse(sessionStorage.getItem('editdata'));
-  console.log(data.id);
+  console.log(data)
+
+
   return (
     <>
       <Box sx={{ maxWidth: 1200, margin: 'auto', padding: 2 }}>
@@ -14,36 +15,36 @@ const Mydetail = () => {
           <CardMedia
             component="img"
             height="350"
-            image="/images/property-3.jpg"
+            image={data.product_picture || "/images/data-3.jpg"} // Use default image if none is provided
           />
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12} md={8}>
                 <Typography variant="h5" component="div" gutterBottom style={{ color: "#236c7e", fontWeight: "600" }}>
-                  $480,000
+                  ${data.price}
                 </Typography>
                 <Typography variant="subtitle1" color="text.secondary">
                   Est. Mortgage: $3,500/mo
                 </Typography>
                 <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-                  213 Hoyne Ave, Chicago, IL 60608
+                  {data.location}
                 </Typography>
                 <Grid container spacing={2}>
                   <Grid item xs={4} style={{ color: "#fc9700", fontWeight: "600" }}>
-                    <Typography variant="h6">7 Beds</Typography>
+                    <Typography variant="h6">{data.beds} Beds</Typography>
                   </Grid>
                   <Grid item xs={4} style={{ color: "#fc9700", fontWeight: "600" }}>
-                    <Typography variant="h6">5 Baths</Typography>
+                    <Typography variant="h6">{data.baths} Baths</Typography>
                   </Grid>
                   <Grid item xs={4} style={{ color: "#fc9700", fontWeight: "600" }}>
-                    <Typography variant="h6">1,860 Sqft</Typography>
+                    <Typography variant="h6">{data.size} Sqft</Typography>
                   </Grid>
                 </Grid>
                 <Typography variant="body1" color="text.primary" mt={2} style={{ color: "#236c7e", fontWeight: "600" }}>
                   ABOUT THIS PROPERTY
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  This gem home is where historic charm meets modern convenience! This legal two-flat residence is perfect for anyone looking to house hackers seeking modern character. The home also holds the potential to serve as a single-family home, catering to diverse lifestyles.
+                  {data.descriptions}
                 </Typography>
                 <Typography variant="body1" color="text.primary" mt={2} style={{ color: "#236c7e", fontWeight: "600" }}>
                   PROPERTY FEATURES
@@ -51,17 +52,7 @@ const Mydetail = () => {
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
                     <ul>
-                      <li>5 Bedrooms</li>
-                      <li>3 Bathrooms</li>
-                      <li>2 Patios</li>
-                      <li>2 Garage Spaces</li>
-                    </ul>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <ul>
-                      <li>Built in 2020</li>
-                      <li>20 min from city centre</li>
-                      <li>Listed 2 days ago</li>
+                      <li>{data.features}</li>
                     </ul>
                   </Grid>
                 </Grid>
@@ -85,34 +76,34 @@ const Mydetail = () => {
               </Grid>
               <Grid item xs={12} md={4}>
                 <Box sx={{
-                  border: ' black dotted',
+                  border: 'black dotted',
                   width: '100%',
-                  height: '100vh',
+                  height: '80vh',
                   borderRadius: '80px 50px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  textAlign: 'center'
+                  textAlign: 'center',
                 }} mt={33}>
-                  <Typography variant="body1" color="text.primary">
+                  <Typography variant="body1" color="#fc9700" fontWeight={600}>
                     OPEN HOUSE AVAILABILITY
                   </Typography>
                   <Box mt={2}>
-                    <Button variant="contained" color="primary" sx={{ mr: 2 }}>Register</Button>
+                    <Button style={{ backgroundColor: "#236c7e" }} variant="contained" sx={{ mr: 2 }}>Register</Button>
                   </Box>
-                  <Typography variant="body1" color="text.primary" mt={2}>
+                  <Typography variant="body1" fontWeight={600} mt={2}>
                     LISTED BY
                   </Typography>
                   <Box display="flex" alignItems="center" mt={2}>
-                    <Avatar alt="Glenn Marlow Jr." src="./images/s1.png" />
+                    <Avatar alt="profile" src="./images/s1.png" />
                     <Box ml={2}>
-                      <Typography variant="body1">Glenn Marlow Jr.</Typography>
-                      <Button variant="outlined" color="primary">Chat with Me</Button>
+                      <Typography variant="body1">{data.user.email}</Typography>
+                      <Button variant="outlined" style={{color:'#fc9700', fontWeight:"600"}}>Chat with Me</Button>
                     </Box>
                   </Box>
-                  <Typography variant="body1" color="text.primary" mt={2}>
-                    Installment rate starting at $2,842
+                  <Typography variant="body1" fontWeight={600} mt={2}>
+                    Installment rate starting at <br></br>$2,842
                   </Typography>
                 </Box>
               </Grid>
@@ -122,7 +113,7 @@ const Mydetail = () => {
       </Box>
       {/* <div><Footer/></div> */}
     </>
-
   );
 }
+
 export default Mydetail;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import CustomNavbar from './Navbar';
-import Login from './Login';
+// import Login from './Login';
 
 const LoginReg = () => {
   const navigate = useNavigate(); // Hook to navigate programmatically
@@ -32,7 +32,7 @@ const LoginReg = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.0.115:8000/real_estate/register/', formDataToSend);
+      const response = await axios.post('http://192.168.0.116:8000/real_estate/register/', formDataToSend);
       console.log(response.data);
       // Handle successful registration here
       navigate('/Login'); // Navigate to login page

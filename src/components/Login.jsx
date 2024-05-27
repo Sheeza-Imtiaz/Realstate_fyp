@@ -27,15 +27,15 @@ function Login() {
 
     }
   }, [isLoggedIn]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.0.115:8000/real_estate/login/', formData);
-      // console.log(resp.data.access);
-      setIsLoggedIn(true);
-      sessionStorage.setItem('logdata',JSON.stringify(resp.data));
+      const resp = await axios.post('http://192.168.0.116:8000/real_estate/login/', formData);
+
+      sessionStorage.setItem('logdata', JSON.stringify(resp.data));
+      sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       navigate('/Sidebar');
+
     } catch (error) {
       console.error('Error occurred:', error);
     }
@@ -45,7 +45,7 @@ function Login() {
     setIsLoggedIn(false);
     setUserData(null);
   };
-
+  
   return (
     <>
       <CustomNavbar />

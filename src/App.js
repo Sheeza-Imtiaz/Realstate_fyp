@@ -6,7 +6,7 @@ import Contact from './components/Contact';
 import Login from './components/Login';
 import LoginReg from './components/LoginReg';
 import Footer from './components/Footer';
-import CustomNavbar from './components/Navbar';
+// import CustomNavbar from './components/Navbar';
 import TestimonialSlider from './components/testimonial/testimonial';
 import Mydetail from './components/Mydetail';
 // import Detailpro from './components/detailpro';

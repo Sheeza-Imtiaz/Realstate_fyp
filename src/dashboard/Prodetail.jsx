@@ -5,16 +5,14 @@ import Sidebar from '../dashboard/Sidebar';
 const Prodetail = () => {
     const [stated, upstated] = useState([]);
     const [setUser] = useState(null);
-
     useEffect(() => {
         const userData = JSON.parse(sessionStorage.getItem('ulogin'));
         if (userData) {
             setUser(userData);
         }
-
         const fetchit = async () => {
             try {
-                const response = await fetch('http://192.168.0.115:8000/real_estate/products/');
+                const response = await fetch('http://192.168.0.116:8000/real_estate/products/');
                 const resu = await response.json();
                 upstated(resu);
             } catch (error) {
@@ -22,10 +20,10 @@ const Prodetail = () => {
             }
         };
         fetchit();
-    }, []);
+    }, );
 
     const deleteProduct = (productId) => {
-        axios.delete(`http://192.168.0.115:8000/real_estate/products/${productId}/`)
+        axios.delete(`http://192.168.0.116:8000/real_estate/products/${productId}/`)
             .then((res) => {
                 console.log(res.data);
                 upstated(prevState => prevState.filter(item => item.id !== productId));
@@ -34,7 +32,6 @@ const Prodetail = () => {
                 console.error(err);
             });
     };
-
     return (
         <div className='container-fluid' style={{ display: 'flex', margin:'0'}}>
             <div className="sidebar" style={{ flex: '0 0 auto' }}>
@@ -60,5 +57,4 @@ const Prodetail = () => {
         </div>
     );
 }
-
 export default Prodetail;

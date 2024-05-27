@@ -332,7 +332,7 @@ const Home = () => {
   </div>
 </div>
 {/* model  6*/}
-<div className="modal fade" id="propertyModal" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+<div className="modal fade" id="propertyModal6" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
   <div className="modal-dialog">
     <div className="modal-content">
       <div className="modal-header">
