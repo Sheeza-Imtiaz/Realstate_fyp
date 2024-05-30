@@ -52,13 +52,14 @@ const navigate=useNavigate();
     <div className="position-relative overflow-hidden">
       <img className="img-fluid" src={item.product_picture} alt={item.name} />
       <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: " 18px", fontWeight: "600" }}>
-        {item.name}
+        {item.type}
       </div>
     </div>
     <div className="p-4">
+    <h4 className="d-block h5 mb-2">{item.name}</h4>
       <h5 className="mb-3" style={{ color: "#fc9700" }}>${item.price}</h5>
       <h4 className="d-block h5 mb-2">{item.size}</h4>
-      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>{item.color}</p>
+      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>{item.location}</p>
       <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <button className="btn" style={{ backgroundColor: "#236c7e", color: "white" }} onClick={() => seeit(item.id)}>Details</button>
     </div>

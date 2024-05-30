@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css'
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -26,7 +26,7 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="" activeClassName="active">
+                        <NavLink to="/Users" activeClassName="active">
                             <i className="fas fa-users"> Users</i>
                         </NavLink>
                     </li>
@@ -46,9 +46,9 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="" onClick={() => onClickLogout()}>
+                        <NavLink onClick={() => onClickLogout()}>
                             <i className="fas fa-sign-out-alt"> Logout</i>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

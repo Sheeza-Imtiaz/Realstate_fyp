@@ -15,6 +15,9 @@ import Mydetail from './components/Mydetail';
 import Sidebar from './dashboard/Sidebar';
 import Addpro from './dashboard/Addpro';
 import Prodetail from './dashboard/Prodetail';
+import Users from './dashboard/Users';
+import Userbar from './user/Userbar';
+
 
 
 function App() {
@@ -37,6 +40,15 @@ function App() {
         <Route path='/Prodetail' element={<Prodetail/>}></Route>
         <Route path='/mydetail' element={<Mydetail/>}></Route>
         <Route path='/Sidebar' element={<Sidebar/>}></Route>
+        <Route path='/Users' element={<Users/>}></Route>
+
+
+
+        <Route path='/Userbar' element={<Userbar/>}></Route>
+
+
+
+
 
 
       </Routes>

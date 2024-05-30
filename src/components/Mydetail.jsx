@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
 import { Card, CardContent, CardMedia, Typography, Button, Grid, Box, Avatar } from '@mui/material';
 // import Footer from './Footer';
 
@@ -10,13 +10,14 @@ const Mydetail = () => {
 
   return (
     <>
-      <Box sx={{ maxWidth: 1200, margin: 'auto', padding: 2 }}>
+      <Box sx={{ maxWidth: 1200, margin: 'auto', padding: '2'  }}>
         <Card>
-          <CardMedia
-            component="img"
-            height="350"
-            image={data.product_picture || "/images/data-3.jpg"} // Use default image if none is provided
-          />
+        <CardMedia
+      component="img"
+      height="350"
+      image={data.product_picture || "/images/data-3.jpg"}
+      alt="Product"
+    />
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12} md={8}>
@@ -96,7 +97,7 @@ const Mydetail = () => {
                     LISTED BY
                   </Typography>
                   <Box display="flex" alignItems="center" mt={2}>
-                    <Avatar alt="profile" src="./images/s1.png" />
+                    <Avatar alt="pro" src={data.user.profile_photo} />
                     <Box ml={2}>
                       <Typography variant="body1">{data.user.email}</Typography>
                       <Button variant="outlined" style={{color:'#fc9700', fontWeight:"600"}}>Chat with Me</Button>

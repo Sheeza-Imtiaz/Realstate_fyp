@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,7 @@ const Addpro = () => {
   const accessToken = getdata ? getdata.access : null;
 
   const [formData, setFormData] = useState({
+    type:'',
     name: '',
     location: '',
     size: '',
@@ -43,26 +44,48 @@ const Addpro = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      toast.success('Property added successfully!', {
-        position: "toast.POSITION.BOTTOM_RIGHT",
+
+      if (response.data && response.data.user && response.data.user.id) {
+        alert('Property added successfully!');
+        toast.success('Property added successfully!', {
+          position: toast.POSITION.BOTTOM_RIGHT,
         });
-      setFormData({
-        name: '',
-        location: '',
-        size: '',
-        price: '',
-        beds: '',
-        baths: '',
-        features: '',
-        descriptions: '',
-        user_id: getdata ? getdata.id : null,
-        product_picture: null,
-      });
+        
+        setFormData({
+          type:'',
+          name: '',
+          location: '',
+          size: '',
+          price: '',
+          beds: '',
+          baths: '',
+          features: '',
+          descriptions: '',
+          user_id: getdata ? getdata.id : null,
+          product_picture: null,
+        });
+      } else {
+        alert('Sorry for the inconvenience');
+      }
     } catch (error) {
       console.error('Error uploading data:', error);
-      toast.error('Failed to add property. Please try again later.', {
-        position: "toast.POSITION.BOTTOM_RIGHT",
-      });
+
+      if (error.response && Array.isArray(error.response.data)) {
+        error.response.data.forEach(errMsg => {
+          console.error(`Error: ${errMsg}`);
+          alert(`Error: ${errMsg}`);
+          toast.error(`Error: ${errMsg}`, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+        });
+      } else {
+        // const errorMsg = 'Failed to add property. Please try again later.';
+        // console.error(errorMsg);
+        // alert(errorMsg);
+        // toast.error(errorMsg, {
+        //   position: toast.POSITION.TOP_RIGHT,
+        // });
+      }
     }
   };
 
@@ -78,6 +101,10 @@ const Addpro = () => {
         </div>
         <div className="form" style={{ flex: '1', marginLeft: "60px"}}>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <div className="mb-3">
+              <label htmlFor="type" className="form-label">type</label>
+              <input type="text" className="form-control" name="type" value={formData.type} onChange={handleChange} id="type" placeholder="" />
+            </div>
             <div className="mb-3">
               <label htmlFor="price" className="form-label">Price</label>
               <input type="number" className="form-control" name="price" value={formData.price} onChange={handleChange} id="price" placeholder="" />
@@ -124,4 +151,3 @@ const Addpro = () => {
 };
 
 export default Addpro;
- 

@@ -12,7 +12,7 @@ function Login() {
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
-  const history = useNavigate();
+  useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,11 +31,17 @@ function Login() {
     e.preventDefault();
     try {
       const resp = await axios.post('http://192.168.0.116:8000/real_estate/login/', formData);
-
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
-      navigate('/Sidebar');
+      navigate('/');
 
+      // const isAdmin = resp.data.is_admin; 
+      // if (isAdmin) {
+      //   navigate('/sidebar');
+      // } else {
+      //   navigate('/');
+      // }
+      
     } catch (error) {
       console.error('Error occurred:', error);
     }
@@ -45,7 +51,7 @@ function Login() {
     setIsLoggedIn(false);
     setUserData(null);
   };
-  
+
   return (
     <>
       <CustomNavbar />
@@ -59,27 +65,9 @@ function Login() {
               {!isLoggedIn && (
                 <form onSubmit={handleSubmit}>
                   <MDBInput
-                    wrapperClass="mb-1 mx-5 w-100"
-                    label="Email address"
-                    id="email"
-                    name="username"
-                    type="text"
-                    size="lg"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
+                    wrapperClass="mb-1 mx-5 w-100" label="Email address" id="email" name="username" type="text" size="lg" value={formData.email} onChange={handleChange} required />
                   <MDBInput
-                    wrapperClass="mb-1 mx-5 w-100"
-                    label="Password"
-                    id="password"
-                    name="password"
-                    type="password"
-                    size="lg"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                  />
+                    wrapperClass="mb-1 mx-5 w-100" label="Password" id="password" name="password" type="password" size="lg" value={formData.password} onChange={handleChange} required />
                   <button className="mb-1 px-5 p-2 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
                     {isLoggedIn ? 'Logout' : 'Login'}
                   </button>

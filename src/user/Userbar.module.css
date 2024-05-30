@@ -1,0 +1,269 @@
+:root {
+  --background: #236c7e;
+  --navbar-width: 256px;
+  --navbar-width-min: 80px;
+  --navbar-dark-primary: #eef3f0;
+  --navbar-dark-secondary: #2c3e50;
+  --navbar-light-primary: #fc9700;
+  --navbar-light-secondary: black;
+}
+
+html,
+body {
+  margin: 0;
+  /* background: var(--background); */
+}
+
+.navBar {
+  position: absolute;
+  left: 1vw;
+  top: 1vw;
+  height: calc(100% - 2vw);
+  background: var(--navbar-dark-primary);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  color: var(--navbar-light-primary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+.navBar hr {
+  margin: 0;
+  position: relative;
+  left: 16px;
+  width: calc(100% - 32px);
+  border: none;
+  border-top: solid 1px var(--navbar-dark-secondary);
+}
+
+.navBar a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.navBar input[type="checkbox"] {
+  display: none;
+}
+
+.navHeader {
+  position: relative;
+  width: var(--navbar-width);
+  left: 16px;
+  width: calc(var(--navbar-width) - 16px);
+  min-height: 80px;
+  background: var(--navbar-dark-primary);
+  border-radius: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: width 0.2s;
+}
+
+.navHeader img{
+  height: 50px;
+  width: 70px;
+}
+
+.navTitle {
+  font-size: 1.5rem;
+  transition: opacity 1s;
+}
+
+.navToggleLabel {
+  position: absolute;
+  right: 0;
+  width: 3rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.navToggleBurger {
+  position: relative;
+  width: 16px;
+  height: 2px;
+  background: var(--navbar-dark-primary);
+  border-radius: 99px;
+  transition: background 0.2s;
+}
+
+.navToggleBurger::before,
+.navToggleBurger::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 10px;
+  height: 2px;
+  background: var(--navbar-light-primary);
+  border-radius: 99px;
+  transform: translate(2px, 8px) rotate(30deg);
+  transition: 0.2s;
+}
+
+.navToggleBurger::after {
+  top: 6px;
+  transform: translate(2px, -8px) rotate(-30deg);
+}
+
+.navContent {
+  margin: -16px 0;
+  padding: 16px 0;
+  position: relative;
+  flex: 1;
+  width: var(--navbar-width);
+  background: var(--navbar-dark-primary);
+  box-shadow: 0 0 0 16px var(--navbar-dark-primary);
+  direction: rtl;
+  overflow-x: hidden;
+  transition: width 0.2s;
+}
+
+.navContent::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.navContent::-webkit-scrollbar-thumb {
+  border-radius: 99px;
+  background-color: #fc9700;
+}
+
+.navContent::-webkit-scrollbar-button {
+  height: 16px;
+}
+
+.navContentHighlight {
+  position: absolute;
+  left: 16px;
+  top: -54px - 16px;
+  width: calc(100% - 16px);
+  height: 54px;
+  background: var(--background);
+  background-attachment: fixed;
+  border-radius: 16px 0 0 16px;
+  transition: top 0.2s;
+}
+
+.navContentHighlight::before,
+.navContentHighlight::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-shadow: 16px 16px var(--background);
+}
+
+.navContentHighlight::after {
+  top: 100%;
+  box-shadow: 16px -16px var(--background);
+}
+
+.navButton {
+  position: relative;
+  margin-left: 16px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  color: var(--navbar-light-secondary);
+  direction: ltr;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.navButton span {
+  transition: opacity 1s;
+}
+
+.navButton .fas {
+  transition: min-width 0.2s;
+}
+
+.navBar .fas {
+  min-width: 3rem;
+  text-align: center;
+}
+
+.navToggle:checked ~ .navHeader {
+  width: calc(var(--navbar-width-min) - 16px);
+}
+
+.navToggle:checked ~ .navContent
+{
+    width: var(--navbar-width-min);
+}
+
+.navToggle:checked ~ .navHeader .navTitle {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s;
+}
+
+.navToggle:checked ~ .navHeader .navToggleLabel {
+  left: calc(50% - 8px);
+  transform: translate(-50%);
+}
+
+.navToggle:checked ~ .navHeader .navToggleBurger {
+  background: var(--navbar-light-primary);
+}
+
+.navToggle:checked ~ .navHeader .navToggleBurger::before,
+.navToggle:checked ~ .navHeader .navToggleBurger::after {
+  width: 16px;
+  background: var(--navbar-light-secondary);
+  transform: translate(0, 0) rotate(0deg);
+}
+
+.navToggle:checked ~ .navContent .navButton span {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.navToggle:checked ~ .navContent .navButton .fas {
+  min-width: calc(100% - 16px);
+}
+
+.navButton:nth-of-type(1):hover ~ .navContentHighlight {
+  top: calc(1 * 54px + 16px);
+}
+
+.navButton:nth-of-type(2):hover ~ .navContentHighlight {
+  top: calc(2 * 54px + 16px);
+}
+
+.navButton:nth-of-type(3):hover ~ .navContentHighlight {
+  top: calc(3 * 54px + 16px);
+}
+
+.navButton:nth-of-type(4):hover ~ .navContentHighlight {
+  top: calc(4 * 54px + 16px);
+}
+
+.navButton:nth-of-type(5):hover ~ .navContentHighlight {
+  top: calc(5 * 54px + 16px);
+}
+
+.navButton:nth-of-type(6):hover ~ .navContentHighlight {
+  top: calc(6 * 54px + 16px);
+}
+
+.navButton:nth-of-type(7):hover ~ .navContentHighlight {
+  top: calc(7 * 54px + 16px);
+}
+
+.navButton:nth-of-type(8):hover ~ .navContentHighlight {
+  top: calc(8 * 54px + 16px);
+}
+
+.icon {
+  min-width: 3rem;
+  text-align: center;
+}
