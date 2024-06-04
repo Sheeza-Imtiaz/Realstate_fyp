@@ -39,7 +39,7 @@ const Addpro = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.0.116:8000/real_estate/products/', formDataToSend, {
+      const response = await axios.post('http://192.168.0.109:8000/real_estate/products/', formDataToSend, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

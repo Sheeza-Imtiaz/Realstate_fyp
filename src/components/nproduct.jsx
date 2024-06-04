@@ -5,7 +5,7 @@ const nproduct = () => {
     const [stated, upstated] = useState([]);
     useEffect(() => {
         const fetchit = async () => {
-            const data = await fetch('http://127.0.0.1:8000/product/products/');
+            const data = await fetch('http://127.0.0.104/product/products/');
             const resu = await data.json();
             // console.log(resu)
             upstated(resu);

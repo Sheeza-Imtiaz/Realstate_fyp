@@ -58,21 +58,18 @@ const CustomNavbar = () => {
             <NavDropdown
               title={
                 <span>
-                  <img src={user?.profile_photo_url} alt="Profile" className="profile-pic"/>
+                  <img src={user?.profile_photo_url} alt="Profile" className="profile-pic" />
                   {user?.username}
                 </span>
               }
-              id="basic-nav-dropdown"
-              className="nav-link"
-            >
-              <NavDropdown.Item onClick={() => navigate('/Userbar')}>Profile</NavDropdown.Item>
+              id="basic-nav-dropdown" className="nav-link" >
+              <NavDropdown.Item className="custom-dropdown-item" onClick={() => navigate('/Userprofile')}>Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+              <NavDropdown.Item className="custom-dropdown-item" onClick={handleLogout}>Logout</NavDropdown.Item>
             </NavDropdown>
           ) : (
             <NavLink to={"/login"} onClick={handleNavClick} activeClassName="bold" className="nav-link">
               <button className="nav-link-button">
-
                 <span>Login/Registration</span>
               </button>
             </NavLink>

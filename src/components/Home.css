@@ -1,7 +1,7 @@
 .home {
+  font-family: "Josefin Sans", sans-serif !important;
   width: 100%;
   height: 100vh;
-  font-family: "Heebo", sans-serif;
 }
 
 .intro span {
@@ -11,7 +11,6 @@
   color: #1e4f5c;
 }
 .intro h1 {
-  font-family: "Heebo", sans-serif;
   font-size: 60px;
   letter-spacing: 2px;
  font-weight:600;
@@ -126,14 +125,12 @@
 }
 
 .property h1 {
-  font-family: "Heebo", sans-serif;
   font-size: 40px;
   letter-spacing: 2px;
  font-weight:600;
   color: #236c7e;
 }
 .property p {
-  font-family: "Heebo", sans-serif;
   font-size: 18px;
 }
 

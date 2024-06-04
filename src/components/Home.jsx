@@ -17,8 +17,9 @@ const Home = () => {
     "images/property-6.jpg",
   ]
   return (
+    <>
     <div className='home'>
-    <CustomNavbar/>
+      <CustomNavbar />
       {/* header section  */}
       <div className=' hero'>
         <div className='parent'>
@@ -143,223 +144,224 @@ const Home = () => {
             </div>
             {/* card */}
             <div className='row g-4'>
-               {/* card 1  */}
+              {/* card 1  */}
               <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-  <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal1">
-    <div className="position-relative overflow-hidden">
-      <img className="img-fluid" src="images/property-1.jpg" alt="" />
-      <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
-    </div>
-    <div className="p-4">
-      <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
-      <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
-    </div>
-  </div>
-</div>
-{/* model 1 */}
-<div className="modal fade" id="propertyModal1" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <img className="img-fluid mb-3" src="images/property-1.jpg" alt="" />
-        <p><strong>Price:</strong> $12,345</p>
-        <p><strong>Location:</strong> 123 Street, New York, USA</p>
-        <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn" style={{backgroundColor:"#236c7e" , color:'white'}}  >Contact Agent</button>
-      </div>
-    </div>
-  </div>
-</div>
+                <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal1">
+                  <div className="position-relative overflow-hidden">
+                    <img className="img-fluid" src="images/property-1.jpg" alt="" />
+                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
+                  </div>
+                  <div className="p-4">
+                    <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
+                  </div>
+                </div>
+              </div>
+              {/* model 1 */}
+              <div className="modal fade" id="propertyModal1" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      <img className="img-fluid mb-3" src="images/property-1.jpg" alt="" />
+                      <p><strong>Price:</strong> $12,345</p>
+                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
+                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn" style={{ backgroundColor: "#236c7e", color: 'white' }}  >Contact Agent</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
- {/* card 2 */}
- <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-  <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal2">
-    <div className="position-relative overflow-hidden">
-      <img className="img-fluid" src="images/property-2.jpg" alt="" />
-      <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
-    </div>
-    <div className="p-4">
-      <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
-      <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
-    </div>
-  </div>
-</div>
-{/* model 2 */}
-<div className="modal fade" id="propertyModal2" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <img className="img-fluid mb-3" src="images/property-2.jpg" alt="" />
-        <p><strong>Price:</strong> $12,34567</p>
-        <p><strong>Location:</strong> 123 Street, New York, USA</p>
-        <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn" style={{backgroundColor:"#236c7e" , color:'white'}}  >Contact Agent</button>
-      </div>
-    </div>
-  </div>
-</div>
- {/* card 3  */}
- <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-  <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal3">
-    <div className="position-relative overflow-hidden">
-      <img className="img-fluid" src="images/property-3.jpg" alt="" />
-      <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
-    </div>
-    <div className="p-4">
-      <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
-      <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
-    </div>
-  </div>
-</div>
-{/* model 3 */}
-<div className="modal fade" id="propertyModal3" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <img className="img-fluid mb-3" src="images/property-3.jpg" alt="" />
-        <p><strong>Price:</strong> $12,345</p>
-        <p><strong>Location:</strong> 123 Street, New York, USA</p>
-        <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn" style={{backgroundColor:"#236c7e" , color:'white'}}  >Contact Agent</button>
-      </div>
-    </div>
-  </div>
-</div>
+              {/* card 2 */}
+              <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal2">
+                  <div className="position-relative overflow-hidden">
+                    <img className="img-fluid" src="images/property-2.jpg" alt="" />
+                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Building</div>
+                  </div>
+                  <div className="p-4">
+                    <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
+                  </div>
+                </div>
+              </div>
+              {/* model 2 */}
+              <div className="modal fade" id="propertyModal2" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      <img className="img-fluid mb-3" src="images/property-2.jpg" alt="" />
+                      <p><strong>Price:</strong> $12,34567</p>
+                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
+                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn" style={{ backgroundColor: "#236c7e", color: 'white' }}  >Contact Agent</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* card 3  */}
+              <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal3">
+                  <div className="position-relative overflow-hidden">
+                    <img className="img-fluid" src="images/property-3.jpg" alt="" />
+                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Home</div>
+                  </div>
+                  <div className="p-4">
+                    <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
+                  </div>
+                </div>
+              </div>
+              {/* model 3 */}
+              <div className="modal fade" id="propertyModal3" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      <img className="img-fluid mb-3" src="images/property-3.jpg" alt="" />
+                      <p><strong>Price:</strong> $12,345</p>
+                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
+                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn" style={{ backgroundColor: "#236c7e", color: 'white' }}  >Contact Agent</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
- {/* card 4  */}
- <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-  <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal4">
-    <div className="position-relative overflow-hidden">
-      <img className="img-fluid" src="images/property-4.jpg" alt="" />
-      <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
-    </div>
-    <div className="p-4">
-      <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
-      <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
-    </div>
-  </div>
-</div>
-{/* model 4 */}
-<div className="modal fade" id="propertyModal4" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <img className="img-fluid mb-3" src="images/property-4.jpg" alt="" />
-        <p><strong>Price:</strong> $12,345</p>
-        <p><strong>Location:</strong> 123 Street, New York, USA</p>
-        <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn" style={{backgroundColor:"#236c7e" , color:'white'}}  >Contact Agent</button>
-      </div>
-    </div>
-  </div>
-</div>
+              {/* card 4  */}
+              <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal4">
+                  <div className="position-relative overflow-hidden">
+                    <img className="img-fluid" src="images/property-4.jpg" alt="" />
+                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Villa</div>
+                  </div>
+                  <div className="p-4">
+                    <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
+                  </div>
+                </div>
+              </div>
+              {/* model 4 */}
+              <div className="modal fade" id="propertyModal4" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      <img className="img-fluid mb-3" src="images/property-4.jpg" alt="" />
+                      <p><strong>Price:</strong> $12,345</p>
+                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
+                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn" style={{ backgroundColor: "#236c7e", color: 'white' }}  >Contact Agent</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
- {/* card 5 */}
- <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-  <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal5">
-    <div className="position-relative overflow-hidden">
-      <img className="img-fluid" src="images/property-5.jpg" alt="" />
-      <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
-    </div>
-    <div className="p-4">
-      <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
-      <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
-    </div>
-  </div>
-</div>
-{/* model 5 */}
-<div className="modal fade" id="propertyModal5" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <img className="img-fluid mb-3" src="images/property-5.jpg" alt="" />
-        <p><strong>Price:</strong> $12,345</p>
-        <p><strong>Location:</strong> 123 Street, New York, USA</p>
-        <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn" style={{backgroundColor:"#236c7e" , color:'white'}}  >Contact Agent</button>
-      </div>
-    </div>
-  </div>
-</div>
+              {/* card 5 */}
+              <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal5">
+                  <div className="position-relative overflow-hidden">
+                    <img className="img-fluid" src="images/property-5.jpg" alt="" />
+                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>office</div>
+                  </div>
+                  <div className="p-4">
+                    <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
+                  </div>
+                </div>
+              </div>
+              {/* model 5 */}
+              <div className="modal fade" id="propertyModal5" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      <img className="img-fluid mb-3" src="images/property-5.jpg" alt="" />
+                      <p><strong>Price:</strong> $12,345</p>
+                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
+                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn" style={{ backgroundColor: "#236c7e", color: 'white' }}  >Contact Agent</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
- {/* card 6 */}
- <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-  <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal6">
-    <div className="position-relative overflow-hidden">
-      <img className="img-fluid" src="images/property-6.jpg" alt="" />
-      <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
-    </div>
-    <div className="p-4">
-      <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
-      <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-      <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
-    </div>
-  </div>
-</div>
-{/* model  6*/}
-<div className="modal fade" id="propertyModal6" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="propertyModalLabel6">Golden Urban House For Sell</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <img className="img-fluid mb-3" src="images/property-6.jpg" alt="" />
-        <p><strong>Price:</strong> $12,345</p>
-        <p><strong>Location:</strong> 123 Street, New York, USA</p>
-        <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn" style={{backgroundColor:"#236c7e" , color:'white'}} >Contact Agent</button>
-      </div>
-    </div>
-  </div>
-</div>
+              {/* card 6 */}
+              <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal6">
+                  <div className="position-relative overflow-hidden">
+                    <img className="img-fluid" src="images/property-6.jpg" alt="" />
+                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#236c7e", fontSize: "18px", fontWeight: "600" }}>Villa</div>
+                  </div>
+                  <div className="p-4">
+                    <h5 className="mb-3" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#236c7e" }}></i>123 Street, New York, USA</p>
+                  </div>
+                </div>
+              </div>
+              {/* model  6*/}
+              <div className="modal fade" id="propertyModal6" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="propertyModalLabel6">Golden Urban House For Sell</h5>
+                      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                      <img className="img-fluid mb-3" src="images/property-6.jpg" alt="" />
+                      <p><strong>Price:</strong> $12,345</p>
+                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
+                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn" style={{ backgroundColor: "#236c7e", color: 'white' }} >Contact Agent</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       {/* testimonial section  */}
-  <div> <TestimonialSlider/></div>
-      <div> <Footer /></div>
-
+      <div> <TestimonialSlider /></div>
+      {/* footer section  */}
+      <div><Footer /></div>
     </div>
+    </>
   )
 };
 

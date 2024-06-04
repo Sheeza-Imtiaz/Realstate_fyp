@@ -3,6 +3,8 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import CustomNavbar from './Navbar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const navigate = useNavigate();
@@ -12,7 +14,6 @@ function Login() {
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
-  useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,24 +25,22 @@ function Login() {
 
   useEffect(() => {
     if (isLoggedIn) {
-
+      toast.success('Login successful!', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     }
   }, [isLoggedIn]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.0.116:8000/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.0.109:8000/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
+      setIsLoggedIn(true);
+      setUserData(resp.data);
       navigate('/');
 
-      // const isAdmin = resp.data.is_admin; 
-      // if (isAdmin) {
-      //   navigate('/sidebar');
-      // } else {
-      //   navigate('/');
-      // }
-      
     } catch (error) {
       console.error('Error occurred:', error);
     }
@@ -56,6 +55,7 @@ function Login() {
     <>
       <CustomNavbar />
       <MDBContainer fluid>
+        <ToastContainer />
         <MDBRow>
           <MDBCol sm="6">
             <div className="d-flex flex-column justify-content-center h-custom-2 w-75 pt-4">
@@ -106,7 +106,6 @@ function Login() {
         </MDBRow>
       </MDBContainer>
     </>
-
   );
 }
 

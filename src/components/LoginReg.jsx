@@ -32,7 +32,7 @@ const LoginReg = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.0.116:8000/real_estate/register/', formDataToSend);
+      const response = await axios.post('http://192.168.0.109:8000/real_estate/register/', formDataToSend);
       console.log(response.data);
       // Handle successful registration here
       navigate('/Login'); // Navigate to login page

@@ -17,6 +17,9 @@ import Addpro from './dashboard/Addpro';
 import Prodetail from './dashboard/Prodetail';
 import Users from './dashboard/Users';
 import Userbar from './user/Userbar';
+import Useradd from './user/Useradd';
+import Userprofile from './user/Userprofile';
+import Userpro from './user/Userpro';
 
 
 
@@ -45,6 +48,12 @@ function App() {
 
 
         <Route path='/Userbar' element={<Userbar/>}></Route>
+        <Route path='/Useradd' element={<Useradd/>}></Route>
+        <Route path='/Userprofile' element={<Userprofile/>}></Route>
+        <Route path='/Userpro' element={<Userpro/>}></Route>
+
+
+
 
 
 

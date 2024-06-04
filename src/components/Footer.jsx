@@ -19,11 +19,11 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Quick Links</h5>
-            <h4  className="btn btn-link text-dark fs-7">About Us</h4>
-            <h4 className="btn btn-link text-dark fs-7">Contact Us</h4>
-            <h4  className="btn btn-link text-dark fs-7">Our Services</h4>
-            <h4  className="btn btn-link text-dark fs-7">Privacy Policy</h4>
-            <h4  className="btn btn-link text-dark fs-7">Terms & Condition</h4>
+            <h4  className="btn btn-link text-light">About Us</h4>
+            <h4 className="btn btn-link text-light">Contact Us</h4>
+            <h4  className="btn btn-link text-light">Our Services</h4>
+            <h4  className="btn btn-link text-light">Privacy Policy</h4>
+            <h4  className="btn btn-link text-light">Terms & Condition</h4>
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Photo Gallery</h5>
@@ -61,16 +61,16 @@ const Footer = () => {
       <div className="container">
         <div className="copyright">
           <div className="row">
-            <div className="col-md-6 text-center text-md-start mb-3 mb-md-0 fs-7">
-              &copy; <h4  className="border-bottom">Your Site Name</h4>, All Right Reserved.
-              Designed By <h4  className="border-bottom">HTML React</h4>
+            <div className="col-md-6 text-center text-md-start">
+              &copy; <h6  className="border-bottom">Your Site Name</h6>, All Right Reserved.
+              Designed By <h6  className="border-bottom">HTML React</h6>
             </div>
             <div className="col-md-6 text-center text-md-end text-dark">
               <div className="footer-menu">
-                <h4 className='text-dark fs-6'>Home</h4>
-                <h4  className='text-dark fs-6'>Cookies</h4>
-                <h4  className='text-dark fs-6'>Help</h4>
-                <h4 className='text-dark fs-6'>FQAs</h4>
+                <h6 className='text-dark'>Home</h6>
+                <h6  className='text-dark'>Cookies</h6>
+                <h6  className='text-dark'>Help</h6>
+                <h6 className='text-dark'>FQAs</h6>
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ const navigate=useNavigate();
   const [stated, upstated] = useState([]);
   useEffect(() => {
     const fetchit = async () => {
-      const data = await fetch('http://192.168.0.116:8000/real_estate/products/');
+      const data = await fetch('http://192.168.0.109:8000/real_estate/products/');
       const resu = await data.json();
       console.log(resu)
       // console.log(resu)
@@ -20,7 +20,7 @@ const navigate=useNavigate();
 
   const seeit=(id)=>{
     // console.log(id)
-    axios.get(`http://192.168.0.116:8000/real_estate/products/${id}/`).then((res)=>{
+    axios.get(`http://192.168.0.109:8000/real_estate/products/${id}/`).then((res)=>{
       // console.log(res.data);
       sessionStorage.setItem('editdata', JSON.stringify(res.data));
       navigate('/mydetail'); 

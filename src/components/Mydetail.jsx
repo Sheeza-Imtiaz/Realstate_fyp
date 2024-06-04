@@ -1,7 +1,7 @@
 // import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
 import { Card, CardContent, CardMedia, Typography, Button, Grid, Box, Avatar } from '@mui/material';
-// import Footer from './Footer';
+import Footer from './Footer';
 
 const Mydetail = () => {
   const data = JSON.parse(sessionStorage.getItem('editdata'));
@@ -99,6 +99,7 @@ const Mydetail = () => {
                   <Box display="flex" alignItems="center" mt={2}>
                     <Avatar alt="pro" src={data.user.profile_photo} />
                     <Box ml={2}>
+                    <Typography variant="body1">{data.username}</Typography>
                       <Typography variant="body1">{data.user.email}</Typography>
                       <Button variant="outlined" style={{color:'#fc9700', fontWeight:"600"}}>Chat with Me</Button>
                     </Box>
@@ -112,7 +113,7 @@ const Mydetail = () => {
           </CardContent>
         </Card>
       </Box>
-      {/* <div><Footer/></div> */}
+      <div><Footer/></div>
     </>
   );
 }
