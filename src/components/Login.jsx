@@ -34,7 +34,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.0.109:8000/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.0.111:8000/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       setIsLoggedIn(true);

@@ -21,7 +21,7 @@ const Userprofile = () => {
 
     useEffect(() => {
         if (userId && accessToken) {
-            axios.get(`http://192.168.0.109:8000/real_estate/users/${userId}/`, {
+            axios.get(`http://192.168.0.111:8000/real_estate/users/${userId}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -40,7 +40,7 @@ const Userprofile = () => {
                 });
 
             // Fetch properties added by the user
-            axios.get(`http://192.168.0.109:8000/real_estate/products/?user_id=${userId}`, {
+            axios.get(`http://192.168.0.111:8000/real_estate/products/?user_id=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -75,7 +75,7 @@ const Userprofile = () => {
         }
 
         try {
-            const response = await axios.put(`http://192.168.0.109:8000/real_estate/users/${userId}/`, updatedData, {
+            const response = await axios.put(`http://192.168.0.111:8000/real_estate/users/${userId}/`, updatedData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },

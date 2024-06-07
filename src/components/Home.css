@@ -14,13 +14,13 @@
   font-size: 60px;
   letter-spacing: 2px;
  font-weight:600;
-  color: #236c7e;
+  color: #1e4f5c;
 }
 .bg-shiza{
-    background-color: #236c7e;
+    background-color: #1e4f5c;
 }
 .intro p {
-  color: #064757;
+  color: #1e4f5c;
   font-size: 18px;
 }
 
@@ -54,7 +54,7 @@
 }
 .about-text h2 {
   font-size: 40px;
-  color: #236c7e;
+  color: #1e4f5c;
  font-weight:600 ;
 }
 .about-text p {
@@ -71,7 +71,7 @@
   border: none;
   outline: none;
   color: #ffffff;
-  background-color: #236c7e;
+  background-color: #1e4f5c;
   font-size: 18px;
 }
 .about-text button:hover {
@@ -91,7 +91,7 @@
 }
 .how-it-works {
   padding: 2rem 0;
-  background: #236c7e;
+  background: #1e4f5c;
   text-align: center;
 }
 
@@ -128,7 +128,7 @@
   font-size: 40px;
   letter-spacing: 2px;
  font-weight:600;
-  color: #236c7e;
+  color: #1e4f5c;
 }
 .property p {
   font-size: 18px;

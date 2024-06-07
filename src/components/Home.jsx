@@ -5,6 +5,7 @@ import HoverCarousel from "hover-carousel";
 import { Row, Col, Button } from 'react-bootstrap';
 import TestimonialSlider from './testimonial/testimonial';
 import CustomNavbar from './Navbar';
+// import Pricing from './Pricecard/Price';
 
 const Home = () => {
 
@@ -358,6 +359,7 @@ const Home = () => {
       </div>
       {/* testimonial section  */}
       <div> <TestimonialSlider /></div>
+
       {/* footer section  */}
       <div><Footer /></div>
     </div>

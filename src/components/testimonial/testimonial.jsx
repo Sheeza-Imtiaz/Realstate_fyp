@@ -63,7 +63,7 @@ const TestimonialSlider = () => {
                     {testimonials.map(testimonial => (
                         <div key={testimonial.id}>
                             <img src={testimonial.image} alt={testimonial.name} />
-                            <h3>{testimonial.name}</h3>
+                            <h3 style={{color:"#1e4f5c"}}>{testimonial.name}</h3>
                             <p style={{color:"#fc9700"}}>{testimonial.role}</p>
                             <p>{testimonial.quote}</p>
                             <div className="stars" style={{color:"#fc9700"}}>

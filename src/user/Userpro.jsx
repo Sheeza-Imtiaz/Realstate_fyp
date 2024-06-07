@@ -20,7 +20,7 @@ const Userprofile = () => {
 
     useEffect(() => {
         if (userId) {
-            axios.get(`http://192.168.0.109:8000/real_estate/users/${userId}/`, {
+            axios.get(`http://192.168.0.111:8000/real_estate/users/${userId}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -36,8 +36,8 @@ const Userprofile = () => {
                 console.error('Error fetching user profile data:', error);
             });
 
-            // Fetch properties added by the user
-            axios.get(`http://192.168.0.109:8000/real_estate/products/?user_id=${userId}`, {
+            
+            axios.get(`http://192.168.0.111:8000/real_estate/products/?user_id=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -63,7 +63,7 @@ const Userprofile = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`http://192.168.0.109:8000/real_estate/users/${userId}/`, profileData, {
+            const response = await axios.put(`http://192.168.0.111:8000/real_estate/users/${userId}/`, profileData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -99,7 +99,7 @@ const Userprofile = () => {
                         <ul className="property-list">
                             {userProperties.map(property => (
                                 <li key={property.id} className="property-item">
-                                <img src={property.product_picture}/> 
+                                <img  alt="" src={property.product_picture}/> 
                                     <h5>{property.name}</h5>
                                     <p><strong>Location:</strong> {property.location}</p>
                                     <p><strong>Price:</strong> {property.price}</p>

@@ -41,6 +41,11 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li>
+                        <NavLink to="/Pricingplan" activeClassName="active">
+                            <i className="fas fa-user-plus"> Pricing Plan</i>
+                        </NavLink>
+                    </li>
+                    <li>
                         <NavLink to="profile" activeClassName="active">
                             <i className="fas fa-user-edit"> Profile</i>
                         </NavLink>
