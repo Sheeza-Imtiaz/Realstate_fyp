@@ -12,7 +12,7 @@ const Prodetail = () => {
         }
         const fetchit = async () => {
             try {
-                const response = await fetch('http://192.168.0.111:8000/real_estate/products/');
+                const response = await fetch('http://192.168.0.101:8000/real_estate/products/');
                 const resu = await response.json();
                 upstated(resu);
             } catch (error) {
@@ -23,7 +23,7 @@ const Prodetail = () => {
     }, );
 
     const deleteProduct = (productId) => {
-        axios.delete(`http://192.168.0.111:8000/real_estate/products/${productId}/`)
+        axios.delete(`http://192.168.0.101:8000/real_estate/products/${productId}/`)
             .then((res) => {
                 console.log(res.data);
                 upstated(prevState => prevState.filter(item => item.id !== productId));

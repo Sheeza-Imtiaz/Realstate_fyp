@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Userbar from '../user/Userbar';
 import './Userprofile.css'; 
@@ -10,7 +10,7 @@ const Userprofile = () => {
     const accessToken = getdata ? getdata.access : null;
     const userId = getdata ? getdata.id : null;
 
-    const [profileData, setProfileData] = useState({
+    const [setProfileData] = useState({
         username: '',
         email: '',
         password: '',
@@ -20,7 +20,7 @@ const Userprofile = () => {
 
     useEffect(() => {
         if (userId) {
-            axios.get(`http://192.168.0.111:8000/real_estate/users/${userId}/`, {
+            axios.get(`http://192.168.0.101:8000/real_estate/users/${userId}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -37,7 +37,7 @@ const Userprofile = () => {
             });
 
             
-            axios.get(`http://192.168.0.111:8000/real_estate/products/?user_id=${userId}`, {
+            axios.get(`http://192.168.0.101:8000/real_estate/products/?user_id=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -49,38 +49,39 @@ const Userprofile = () => {
                 console.error('Error fetching user properties:', error);
             });
         }
-    }, [userId, accessToken]);
+    }, 
+);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProfileData(prevState => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
+    // const handleChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setProfileData(prevState => ({
+    //         ...prevState,
+    //         [name]: value,
+    //     }));
+    // };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
 
-        try {
-            const response = await axios.put(`http://192.168.0.111:8000/real_estate/users/${userId}/`, profileData, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
+    //     try {
+    //         const response = await axios.put(`http://192.168.0.101:8000/real_estate/users/${userId}/`, profileData, {
+    //             headers: {
+    //                 Authorization: `Bearer ${accessToken}`,
+    //             },
+    //         });
 
-            if (response.data) {
-                toast.success('Profile updated successfully!', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                });
-            }
-        } catch (error) {
-            console.error('Error updating profile data:', error);
-            toast.error('Failed to update profile. Please try again later.', {
-                position: toast.POSITION.BOTTOM_RIGHT,
-            });
-        }
-    };
+    //         if (response.data) {
+    //             toast.success('Profile updated successfully!', {
+    //                 position: toast.POSITION.BOTTOM_RIGHT,
+    //             });
+    //         }
+    //     } catch (error) {
+    //         console.error('Error updating profile data:', error);
+    //         toast.error('Failed to update profile. Please try again later.', {
+    //             position: toast.POSITION.BOTTOM_RIGHT,
+    //         });
+    //     }
+    // };
 
     if (!accessToken) {
         return <div>Error: You must be logged in to view this page.</div>;
