@@ -18,7 +18,7 @@ const PricingForm = () => {
         };
 
         try {
-            const response = await axios.post('http://192.168.0.101:8000/real_estate/plans/', pricingData);
+            const response = await axios.post('http://192.168.0.108:8000/real_estate/plans/', pricingData);
             console.log('Pricing data submitted successfully:', response.data);
             setName('');
             setPrice('');

@@ -20,7 +20,7 @@ import Addpro from './dashboard/Addpro';
 import Prodetail from './dashboard/Prodetail';
 import Users from './dashboard/Users';
 import Pricingplan from './dashboard/Pricingplan';
-
+import Dashboard from './dashboard/Dashboard';
 
 import Userbar from './user/Userbar';
 import Useradd from './user/Useradd';
@@ -50,6 +50,7 @@ function App() {
         <Route path='/Prodetail' element={<Prodetail/>}></Route>
         <Route path='/mydetail' element={<Mydetail/>}></Route>
         <Route path='/Sidebar' element={<Sidebar/>}></Route>
+        <Route path='/Dashboard' element={<Dashboard/>}></Route>
         <Route path='/Users' element={<Users/>}></Route>
         <Route path='/Pricingplan' element={<Pricingplan/>}></Route>
 

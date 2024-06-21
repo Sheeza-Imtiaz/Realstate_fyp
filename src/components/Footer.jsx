@@ -19,11 +19,11 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Quick Links</h5>
-            <h4  className="btn btn-link text-light">About Us</h4>
-            <h4 className="btn btn-link text-light">Contact Us</h4>
-            <h4  className="btn btn-link text-light">Our Services</h4>
-            <h4  className="btn btn-link text-light">Privacy Policy</h4>
-            <h4  className="btn btn-link text-light">Terms & Condition</h4>
+            <h4  className="btn btn-link text-dark bg-white">About Us</h4>
+            <h4 className="btn btn-link text-dark bg-white">Contact Us</h4>
+            <h4  className="btn btn-link text-dark bg-white">Our Services</h4>
+            <h4  className="btn btn-link text-dark bg-white">Privacy Policy</h4>
+            <h4  className="btn btn-link text-dark bg-white">Terms & Condition</h4>
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Photo Gallery</h5>
@@ -52,8 +52,8 @@ const Footer = () => {
             <h5 className="text mb-4 fs-4">Newsletter</h5>
             <p className='fs-7'>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
             <div className="position-relative mx-auto" style={{ maxWidth: "400px" }}>
-              <input className="form-control w-100 py-3 ps-4 pe-5 fs-7" type="text" placeholder="Your email" />
-              <button style={{ backgroundColor: '#236c7e', color: 'white' }} type="button" className="btn py-2 position-absolute top-0 end-0 mt-2 me-6">SignUp</button>
+              <input className="form-control w-100 py-2 ps-4 pe-3 fs-7" type="text" placeholder="Your email" />
+              <button style={{ backgroundColor: '#236c7e', color: 'white' }} type="button" className="btn py-1 position-absolute top-0 end-0 mt-1 me-6">SignUp</button>
             </div>
           </div>
         </div>

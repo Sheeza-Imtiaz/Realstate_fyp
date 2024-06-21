@@ -60,11 +60,6 @@ body {
   transition: width 0.2s;
 }
 
-/* .navHeader img{
-  height: 50px;
-  width: 70px;
-} */
-
 .navTitle {
   font-size: 1.5rem;
   transition: opacity 1s;

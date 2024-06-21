@@ -1,9 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Userbar.module.css';
-// import Useradd from './Useradd'
+
 const Userbar = () => {
     const [navToggled, setNavToggled] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [setUser] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const loggedInUser = JSON.parse(sessionStorage.getItem('logdata'));
+        if (loggedInUser) {
+            setIsLoggedIn(true);
+            setUser(loggedInUser);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        console.log("it called");
+        sessionStorage.removeItem('logdata');
+        sessionStorage.removeItem('token');
+        setIsLoggedIn(false);
+        setUser(null);
+        navigate('/');
+    };
 
     return (
         <div className={styles.navBar}>
@@ -33,7 +53,15 @@ const Userbar = () => {
                 <NavButton icon="fas fa-chart-line" text="Trending" to="/trending" />
                 <hr />
                 <NavButton icon="fas fa-home" text="Home" to="/" />
-                <NavButton icon="fas fa-gem" text="Logout" to="/logout" />
+
+                {isLoggedIn ? (
+                    <button onClick={handleLogout} className={`${styles.navButton} ${styles.logoutButton}`} style={{ marginRight: '9rem' }}>
+                        <i className="fas fa-gem"></i>
+                        <span>Logout</span>
+                    </button>
+                ) : (
+                    <NavButton icon="fas fa-sign-in-alt" text="Login" to="/login" />
+                )}
                 <div id="nav-content-highlight" className={styles.navContentHighlight}></div>
             </div>
         </div>
@@ -48,4 +76,3 @@ const NavButton = ({ icon, text, to }) => (
 );
 
 export default Userbar;
-    

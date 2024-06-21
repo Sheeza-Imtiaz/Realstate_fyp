@@ -4,23 +4,36 @@ import { useNavigate } from 'react-router-dom';
 import CustomNavbar from './Navbar';
 
 const Properties = () => {
+  const token=JSON.parse(sessionStorage.getItem('token'));
 const navigate=useNavigate();
   const [stated, upstated] = useState([]);
   useEffect(() => {
-    const fetchit = async () => {
-      const data = await fetch('http://192.168.0.101:8000/real_estate/products/');
-      const resu = await data.json();
-      console.log(resu)
-      // console.log(resu)
-      upstated(resu);
-    }
-    fetchit();
+    // const fetchit = async () => {
+    //   const data = await fetch('http://192.168.0.108:8000/real_estate/products/');
+    //   const resu = await data.json();
+    //   console.log(resu);
+    //   // console.log(resu)
+    //   upstated(resu);
+    // }
+    // fetchit();
+    axios.get('http://192.168.0.108:8000/real_estate/products/',{
+      headers:{
+        Authorization: `Bearer ${token}`,
+      }
+    }).then((res)=>{
+      upstated(res.data);
+      console.log(res.data)
+    })
   }, [])
   console.log(stated);
 
   const seeit=(id)=>{
     // console.log(id)
-    axios.get(`http://192.168.0.101:8000/real_estate/products/${id}/`).then((res)=>{
+    axios.get(`http://192.168.0.108:8000/real_estate/products/${id}/`,{
+      headers:{
+        Authorization: `Bearer ${token}`,
+      }
+    }).then((res)=>{
       // console.log(res.data);
       sessionStorage.setItem('editdata', JSON.stringify(res.data));
       navigate('/mydetail'); 

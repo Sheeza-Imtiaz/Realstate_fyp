@@ -66,16 +66,24 @@ const Addpro = () => {
         });
       } else {
         alert('Sorry for the inconvenience');
+        console.log(response)
+        console.log(response.data)
       }
     } catch (error) {
+      debugger
       console.error('Error uploading data:', error);
+      console.log(error.response.data[0])
+      console.error('Data:', error);
+      const data="Buy Out A plan";
+      console.log(data)
+
 
       if (error.response && Array.isArray(error.response.data)) {
         error.response.data.forEach(errMsg => {
           console.error(`Error: ${errMsg}`);
           alert(`Error: ${errMsg}`);
           toast.error(`Error: ${errMsg}`, {
-            position: toast.POSITION.BOTTOM_RIGHT,
+            position: toast?.POSITION?.BOTTOM_RIGHT||"",
           });
         });
       } else {

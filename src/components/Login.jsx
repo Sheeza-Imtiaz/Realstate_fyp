@@ -34,7 +34,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.0.101:8000/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.0.108:8000/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       setIsLoggedIn(true);
@@ -64,10 +64,12 @@ function Login() {
               </h3>
               {!isLoggedIn && (
                 <form onSubmit={handleSubmit}>
-                  <MDBInput
-                    wrapperClass="mb-1 mx-5 w-100" label="Email address" id="email" name="username" type="text" size="lg" value={formData.email} onChange={handleChange} required />
-                  <MDBInput
-                    wrapperClass="mb-1 mx-5 w-100" label="Password" id="password" name="password" type="password" size="lg" value={formData.password} onChange={handleChange} required />
+                  <label htmlFor="email" className="mb-1 mx-5 w-100">Email address</label>
+                  <MDBInput wrapperClass="mb-1 mx-5 w-100" id="email" name="username" type="text" size="lg" value={formData.username} onChange={handleChange} required />
+
+                  <label htmlFor="password" className="mb-1 mx-5 w-100">Password</label>
+                  <MDBInput wrapperClass="mb-4 mx-5 w-100" id="password" name="password" type="password" size="lg" value={formData.password} onChange={handleChange} required/>
+
                   <button className="mb-1 px-5 p-2 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
                     {isLoggedIn ? 'Logout' : 'Login'}
                   </button>
@@ -80,19 +82,18 @@ function Login() {
                   )}
                   <p className="ms-5">
                     {!isLoggedIn && (
-                      <span>
-                        Don't have an account? <NavLink to="/LoginReg" className="link-info">Register here</NavLink>
-                      </span>
+                        <span> Don't have an account? 
+                        <NavLink to="/LoginReg" className="link-info">Register here</NavLink> 
+                        </span>
                     )}
                   </p>
                 </form>
               )}
               {isLoggedIn && (
-                <MDBBtn className=" w-100" size="lg" onClick={handleLogout} style={{ backgroundColor: "#1e4f5c" }}>
+                <MDBBtn className="w-100" size="lg" onClick={handleLogout} style={{ backgroundColor: "#1e4f5c" }}>
                   Logout
                 </MDBBtn>
               )}
-
             </div>
           </MDBCol>
           <MDBCol sm="6" className="d-none d-sm-block px-0">

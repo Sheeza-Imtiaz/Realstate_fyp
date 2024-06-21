@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,7 +38,7 @@ const Useradd = () => {
         }
 
         try {
-            const response = await axios.post('http://192.168.0.101:8000/real_estate/products/', formDataToSend, {
+            const response = await axios.post('http://192.168.0.108:8000/real_estate/products/', formDataToSend, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -68,13 +68,15 @@ const Useradd = () => {
                 });
             }
         } catch (error) {
+            debugger
             console.error('Error uploading data:', error);
 
             if (error.response && Array.isArray(error.response.data)) {
                 error.response.data.forEach(errMsg => {
-                    toast.error(`Error: ${errMsg}`, {
-                        position: toast.POSITION.BOTTOM_RIGHT,
-                    });
+                    alert(errMsg);
+                    // toast.error(`Error: ${errMsg}`, {
+                    //     position: toast.POSITION.BOTTOM_RIGHT,
+                    // });
                 });
             } else {
                 toast.error('Failed to add property. Please try again later.', {

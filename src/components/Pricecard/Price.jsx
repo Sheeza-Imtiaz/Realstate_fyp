@@ -8,7 +8,7 @@ const Pricing = () => {
     useEffect(() => {
         const fetchPricingPlans = async () => {
             try {
-                const response = await axios.get('http://192.168.0.101:8000/real_estate/plans/');
+                const response = await axios.get('http://192.168.0.108:8000/real_estate/plans/');
                 setPricingPlans(response.data);
             } catch (error) {
                 console.error('Error fetching pricing plans:', error);
