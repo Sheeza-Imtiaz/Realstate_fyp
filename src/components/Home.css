@@ -35,9 +35,9 @@
   width: 100%;
 }
 .spimg img {
-  height: 90vh !important ;
+  height: 80vh !important ;
   /* margin-left: 5rem; */
- width: 90%;
+ width: 100%;
 }
 .about {
   width: 100%;
@@ -46,7 +46,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 .about-text {
   width: 30%;

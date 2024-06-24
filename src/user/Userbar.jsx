@@ -5,14 +5,14 @@ import styles from './Userbar.module.css';
 const Userbar = () => {
     const [navToggled, setNavToggled] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [setUser] = useState(null);
+    // const [setUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         const loggedInUser = JSON.parse(sessionStorage.getItem('logdata'));
         if (loggedInUser) {
             setIsLoggedIn(true);
-            setUser(loggedInUser);
+            // setUser(loggedInUser);
         }
     }, []);
 
@@ -21,7 +21,7 @@ const Userbar = () => {
         sessionStorage.removeItem('logdata');
         sessionStorage.removeItem('token');
         setIsLoggedIn(false);
-        setUser(null);
+        // setUser(null);
         navigate('/');
     };
 

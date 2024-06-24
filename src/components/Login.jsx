@@ -34,12 +34,16 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.0.108:8000/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.0.117:8000/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       setIsLoggedIn(true);
       setUserData(resp.data);
-      navigate('/');
+      if(resp.data.role === "user"){
+        navigate('/');
+      }else{
+        navigate('/Sidebar'); 
+      }
 
     } catch (error) {
       console.error('Error occurred:', error);

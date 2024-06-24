@@ -218,6 +218,8 @@ const About = () => {
           </Steps>
         </WhyChooseUs>
 
+
+        <AboutUsContainer>
         <div className="container-fluid about">
           <Row>
             <Col lg={6} className="about-text">
@@ -238,10 +240,15 @@ const About = () => {
             </Col>
           </Row>
         </div>
+        </AboutUsContainer>
+
+
       </div>
+
       <div>
         <Pricing />
       </div>
+
       <div>
         <Footer />
       </div>

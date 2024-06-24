@@ -19,11 +19,11 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Quick Links</h5>
-            <h4  className="btn btn-link text-dark bg-white">About Us</h4>
-            <h4 className="btn btn-link text-dark bg-white">Contact Us</h4>
-            <h4  className="btn btn-link text-dark bg-white">Our Services</h4>
-            <h4  className="btn btn-link text-dark bg-white">Privacy Policy</h4>
-            <h4  className="btn btn-link text-dark bg-white">Terms & Condition</h4>
+            <h4  className="btn btn-link text-dark bg-transparent">About Us</h4>
+            <h4 className="btn btn-link text-dark bg-transparent">Contact Us</h4>
+            <h4  className="btn btn-link text-dark bg-transparent">Our Services</h4>
+            <h4  className="btn btn-link text-dark bg-transparent">Privacy Policy</h4>
+            <h4  className="btn btn-link text-dark bg-transparent">Terms & Condition</h4>
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Photo Gallery</h5>

@@ -12,18 +12,19 @@ const Prodetail = () => {
         }
         const fetchit = async () => {
             try {
-                const response = await fetch('http://192.168.0.108:8000/real_estate/products/');
+                const response = await fetch('http://192.168.0.117:8000/real_estate/allproducts/');
                 const resu = await response.json();
                 upstated(resu);
+                console.log(resu)
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
         };
         fetchit();
-    }, );
+    }, []);
 
     const deleteProduct = (productId) => {
-        axios.delete(`http://192.168.0.108:8000/real_estate/products/${productId}/`)
+        axios.delete(`http://192.168.0.117:8000/real_estate/products/${productId}/`)
             .then((res) => {
                 console.log(res.data);
                 upstated(prevState => prevState.filter(item => item.id !== productId));
@@ -33,7 +34,7 @@ const Prodetail = () => {
             });
     };
     return (
-        <div className='container-fluid' style={{ display: 'flex', margin:'0'}}>
+        <div className='container-fluid' style={{ display: 'flex', margin: '0' }}>
             <div className="sidebar" style={{ flex: '0 0 auto' }}>
                 <Sidebar />
             </div>
@@ -41,6 +42,8 @@ const Prodetail = () => {
                 {stated.map((item, index) => (
                     <div className='col-md-4 mt-5 newproduct' key={index}>
                         <div className="card">
+                            <div>Post by:</div>
+                            <div>{item.user.username}</div>
                             <img src={item.product_picture} className="card-img-top" alt={item.name} />
                             <div className="card-body">
                                 <h5 className="card-title">{item.name}</h5>

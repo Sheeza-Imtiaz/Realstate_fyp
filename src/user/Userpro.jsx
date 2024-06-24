@@ -20,7 +20,7 @@ const Userprofile = () => {
 
     useEffect(() => {
         if (userId) {
-            axios.get(`http://192.168.0.108:8000/real_estate/users/${userId}/`, {
+            axios.get(`http://192.168.0.117:8000/real_estate/users/${userId}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -37,7 +37,7 @@ const Userprofile = () => {
             });
 
             
-            axios.get(`http://192.168.0.108:8000/real_estate/products/?user_id=${userId}`, {
+            axios.get(`http://192.168.0.117:8000/real_estate/products/?user_id=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -64,7 +64,7 @@ const Userprofile = () => {
     //     e.preventDefault();
 
     //     try {
-    //         const response = await axios.put(`http://192.168.0.108:8000/real_estate/users/${userId}/`, profileData, {
+    //         const response = await axios.put(`http://192.168.0.117:8000/real_estate/users/${userId}/`, profileData, {
     //             headers: {
     //                 Authorization: `Bearer ${accessToken}`,
     //             },
