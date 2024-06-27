@@ -12,7 +12,7 @@ const Prodetail = () => {
         }
         const fetchit = async () => {
             try {
-                const response = await fetch('http://192.168.0.117:8000/real_estate/allproducts/');
+                const response = await fetch('http://192.168.12.102:8001/real_estate/allproducts/');
                 const resu = await response.json();
                 upstated(resu);
                 console.log(resu)
@@ -24,7 +24,7 @@ const Prodetail = () => {
     }, []);
 
     const deleteProduct = (productId) => {
-        axios.delete(`http://192.168.0.117:8000/real_estate/products/${productId}/`)
+        axios.delete(`http://192.168.12.102:8001/real_estate/products/${productId}/`)
             .then((res) => {
                 console.log(res.data);
                 upstated(prevState => prevState.filter(item => item.id !== productId));
@@ -34,8 +34,8 @@ const Prodetail = () => {
             });
     };
     return (
-        <div className='container-fluid' style={{ display: 'flex', margin: '0' }}>
-            <div className="sidebar" style={{ flex: '0 0 auto' }}>
+        <div className='container-fluid' style={{ display: "flex", height: "100vh" }}>
+            <div className="sidebar" style={{ flex: "0 0 200px", borderRight: "1px solid #ddd" }}>
                 <Sidebar />
             </div>
             <div className='container row'>

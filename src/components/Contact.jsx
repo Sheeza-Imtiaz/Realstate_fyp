@@ -1,18 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import Footer from './Footer';
 import CustomNavbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name) {
+      newErrors.name = 'Name is required';
+    }
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email address is invalid';
+    }
+    if (!formData.subject) {
+      newErrors.subject = 'Subject is required';
+    }
+    if (!formData.message) {
+      newErrors.message = 'Message is required';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [id]: '',
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    fetch('http://192.168.12.102:8001/real_estate/contact/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          toast('Message Sent Successfully', {
+          });
+          setTimeout(() => {
+            navigate('/');
+          }, 3000);
+        } else {
+          toast('Message Not Sent, Try Again');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        toast('An error occurred while submitting the form.');
+      });
+  };
+
   return (
     <>
-    <CustomNavbar/>
+      <CustomNavbar />
       <div className="container bg-white p-0">
         {/* Spinner and Header */}
         <div className="container-fluid py-5">
           <div className="container">
             <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
-              <h1 className="mb-3" style={{color:"#236c7e", fontSize:"50px"}}>Contact Us</h1>
+              <h1 className="mb-3" style={{ color: "#1e4f5c", fontSize: "50px" }}>Contact Us</h1>
               <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div className="row g-4">
@@ -22,7 +101,7 @@ function Contact() {
                     <div className="bg-light p-3">
                       <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
-                          <i className="fa fa-map-marker-alt" style={{color:'#1e4f5c'}}></i>
+                          <i className="fa fa-map-marker-alt" style={{ color: '#1e4f5c' }}></i>
                         </div>
                         <span>123 Street, Lahore, Pakistan</span>
                       </div>
@@ -32,7 +111,7 @@ function Contact() {
                     <div className="bg-light p-3">
                       <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: "90px" }}>
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
-                          <i className="fa fa-envelope-open" style={{color:'#1e4f5c'}}></i>
+                          <i className="fa fa-envelope-open" style={{ color: '#1e4f5c' }}></i>
                         </div>
                         <span>info@example.com</span>
                       </div>
@@ -42,7 +121,7 @@ function Contact() {
                     <div className="bg-light p-3">
                       <div className="d-flex align-items-center bg-white p-3" style={{ border: '1px dashed rgba(0, 185, 142, .3)', height: '90px' }}>
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
-                          <i className="fa fa-phone-alt" style={{color:'#1e4f5c'}}></i>
+                          <i className="fa fa-phone-alt" style={{ color: '#1e4f5c' }}></i>
                         </div>
                         <span>+012 345 6789</span>
                       </div>
@@ -66,35 +145,71 @@ function Contact() {
               </div>
               <div className="col-md-6">
                 <div className="wow fadeInUp" data-wow-delay="0.5s">
-                  <p className="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax &, height PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                  <form>
+                  <p className="mb-4">Whether you have questions about our services, need assistance with your account, or want to provide feedback, we're here to help. Please fill out the form below, and our team will get back to you as soon as possible. 
+                  {/* <a href="https://htmlcodex.com/contact-form"> Download Now </a>. */}
+                  </p>
+                  <form onSubmit={handleSubmit}>
                     <div className="row g-3">
                       <div className="col-md-6">
                         <div className="form-floating">
-                          <input type="text" className="form-control" id="name" placeholder="Your Name" />
+                          <input
+                            type="text"
+                            className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                            id="name"
+                            placeholder="Your Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                          />
                           <label htmlFor="name">Your Name</label>
+                          {errors.name && <div className="invalid-feedback">{errors.name}</div>}
                         </div>
                       </div>
                       <div className="col-md-6">
                         <div className="form-floating">
-                          <input type="email" className="form-control" id="email" placeholder="Your Email" />
+                          <input
+                            type="email"
+                            className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                            id="email"
+                            placeholder="Your Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                          />
                           <label htmlFor="email">Your Email</label>
+                          {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="form-floating">
-                          <input type="text" className="form-control" id="subject" placeholder="Subject" />
+                          <input
+                            type="text"
+                            className={`form-control ${errors.subject ? 'is-invalid' : ''}`}
+                            id="subject"
+                            placeholder="Subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                          />
                           <label htmlFor="subject">Subject</label>
+                          {errors.subject && <div className="invalid-feedback">{errors.subject}</div>}
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="form-floating">
-                          <textarea className="form-control" placeholder="Leave a message here" id="message" style={{ height: '150px' }}></textarea>
+                          <textarea
+                            className={`form-control ${errors.message ? 'is-invalid' : ''}`}
+                            placeholder="Leave a message here"
+                            id="message"
+                            style={{ height: '150px' }}
+                            value={formData.message}
+                            onChange={handleChange}
+                          ></textarea>
                           <label htmlFor="message">Message</label>
+                          {errors.message && <div className="invalid-feedback">{errors.message}</div>}
                         </div>
                       </div>
                       <div className="col-12">
-                        <button className="btn w-100 py-3" type="submit" style={{backgroundColor:"#1e4f5c", color:'white'}}>Send Message</button>
+                        <button className="btn w-100 py-3" type="submit" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>
+                          Send Message
+                        </button>
                       </div>
                     </div>
                   </form>
@@ -103,7 +218,8 @@ function Contact() {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
+      <ToastContainer position="bottom-right" />
       <Footer />
     </>
   );

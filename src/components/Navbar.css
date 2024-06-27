@@ -113,6 +113,9 @@
 
 
 @media (max-width: 750px) {
+  .navbar{
+    column-gap: 0 !important;
+  }
   .nav-items {
     background-color: #eef3f0;
     margin-left: 0;
@@ -133,6 +136,7 @@
     margin-left: 1px;
   }
   .Navbar .nav-toggle {
+      /* margin-right: 20px; */
       margin-left: 0;
   }
 }

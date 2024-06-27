@@ -14,10 +14,10 @@ const Users = () => {
         dispatch(deleteLoggedInUser(userId));
     };
     return (
-        <div className="container-fluid" style={{ display: 'flex', margin: '0' }}>
-            <div className="sidebar" style={{ flex: '0 0 auto' }}>
-                <Sidebar />
-            </div>
+        <div className='container-fluid' style={{  display: "flex", height: "100vh"}}>
+        <div className="sidebar" style={{ flex:"0 0 200px" , borderRight: "1px solid #ddd"}}>
+            <Sidebar />
+        </div>
             <div className="users" style={{ flex: '1', marginLeft: "60px"}}>
                 <h2>Logged-in Users</h2>
                 <ul>

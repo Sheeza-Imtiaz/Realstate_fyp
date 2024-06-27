@@ -29,6 +29,17 @@ const CustomNavbar = () => {
     navigate('/');
   };
 
+  const checkit=(role)=>{
+    console.log(role)
+  //  const data= sessionStorage.getItem('logdata');
+  //  console.log(data.role)
+   if(role === "user"){
+     navigate('/Userprofile')
+   }else{
+     navigate('/Sidebar')
+   }
+  }
+
   return (
     <BootstrapNavbar expand="lg" className="Navbar">
       <BootstrapNavbar.Brand>
@@ -63,7 +74,7 @@ const CustomNavbar = () => {
                 </span>
               }
               id="basic-nav-dropdown" className="nav-link" >
-              <NavDropdown.Item className="custom-dropdown-item" onClick={() => navigate('/Userprofile')}>Profile</NavDropdown.Item>
+              <NavDropdown.Item className="custom-dropdown-item" onClick={()=>checkit(user.role)}>Profile</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item className="custom-dropdown-item" onClick={handleLogout}>Logout</NavDropdown.Item>
             </NavDropdown>

@@ -1,4 +1,8 @@
 import { Routes, Route} from 'react-router-dom';
+import "./index.css";
+import AdminRoute from './dashboard/Adminroute';
+import UserRoute from './user/Userroute';
+
 import Home from './components/Home';
 import About from './components/About';
 import Properties from './components/Properties';
@@ -21,11 +25,13 @@ import Prodetail from './dashboard/Prodetail';
 import Users from './dashboard/Users';
 import Pricingplan from './dashboard/Pricingplan';
 import Dashboard from './dashboard/Dashboard';
+import Message from './dashboard/Message';
 
 import Userbar from './user/Userbar';
 import Useradd from './user/Useradd';
 import Userprofile from './user/Userprofile';
 import Userpro from './user/Userpro';
+import Favorite from './user/Favorite';
 // import Priceing from './components/Pricecard';
 
 
@@ -48,24 +54,20 @@ function App() {
         <Route path='/Addpro' element={<Addpro/>}></Route>
         <Route path='/detailpro' element={<detailpro/>}></Route>
         <Route path='/Prodetail' element={<Prodetail/>}></Route>
-        <Route path='/mydetail' element={<Mydetail/>}></Route>
-        <Route path='/Sidebar' element={<Sidebar/>}></Route>
-        <Route path='/Dashboard' element={<Dashboard/>}></Route>
-        <Route path='/Users' element={<Users/>}></Route>
+        <Route path='/mydetail' element={<AdminRoute element={Mydetail}/>}></Route>
+        <Route path='/Sidebar' element={<AdminRoute element={Sidebar}/>}></Route>
+        <Route path='/Dashboard' element={<AdminRoute element={Dashboard}/>}></Route>
+        <Route path='/Users' element={ <AdminRoute element={Users}/>}></Route>
         <Route path='/Pricingplan' element={<Pricingplan/>}></Route>
+        <Route path='/Message' element={<Message/>}></Route>
 
 
-
-        <Route path='/Userbar' element={<Userbar/>}></Route>
-        <Route path='/Useradd' element={<Useradd/>}></Route>
-        <Route path='/Userprofile' element={<Userprofile/>}></Route>
-        <Route path='/Userpro' element={<Userpro/>}></Route>
-
-
-
-
-
-
+        <Route path='/Userbar' element={<UserRoute element={Userbar}/>}></Route>
+        <Route path='/Useradd' element={<UserRoute element={Useradd}/>}></Route>
+        <Route path='/Userprofile' element={<UserRoute element={Userprofile}/>}></Route>
+        {/* <Route path='/Userprofile' element={<Userprofile/>}></Route> */}
+        <Route path='/Userpro' element={<UserRoute element={Userpro}/>}></Route>
+        <Route path='/Favorite' element={<UserRoute element={Favorite}/>}></Route>
 
 
 

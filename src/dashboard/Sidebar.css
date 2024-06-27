@@ -1,30 +1,109 @@
+/* General Styles */
 aside {
   background-color: #eef3f0;
   float: left;
   margin-top: 5px;
-
+  width: 250px;
+  transition: all 0.3s ease-in-out;
 }
 
-nav ul { 
+nav ul {
   list-style: none;
-  padding: 0; 
-  
+  padding: 0;
 }
 
 nav ul li {
   padding: 10px;
   color: white !important;
-  /* gap: 50px !important; */
 }
 
 nav ul li a {
   font-size: 22px !important;
-  text-decoration: none; 
-  color: #236c7e;
+  text-decoration: none;
+  color: #1e4f5c;
 }
 
-nav ul li , a :hover {
-    font-size: 22px !important;
-    text-decoration: none; 
-    color: #fc9700;
+nav ul li a:hover {
+  font-size: 22px !important;
+  text-decoration: none;
+  color: #fc9700;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  aside {
+    width: 100%;
+    float: none;
   }
+  
+  .navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .navContent {
+    display: none;
+    flex-direction: column;
+    background-color: #eef3f0;
+  }
+
+  .navContent.toggled {
+    display: flex;
+  }
+
+  .navToggle {
+    display: none;
+  }
+
+  .navToggleLabel {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #1e4f5c;
+    color: white;
+    text-align: right;
+  }
+
+  .navToggleBurger {
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: white;
+    position: relative;
+  }
+
+  .navToggleBurger::before,
+  .navToggleBurger::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navToggleBurger::before {
+    top: -10px;
+  }
+
+  .navToggleBurger::after {
+    bottom: -10px;
+  }
+
+  .navToggle:checked ~ .navHeader .navToggleBurger {
+    background: transparent;
+  }
+
+  .navToggle:checked ~ .navHeader .navToggleBurger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .navToggle:checked ~ .navHeader .navToggleBurger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+}

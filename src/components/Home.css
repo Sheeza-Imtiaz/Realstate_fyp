@@ -169,7 +169,19 @@ a {
   font-size: 18px;
 }
 
-
+.Btn{
+border: 2px solid #1e4f5c;
+background-color: #1e4f5c;
+border-radius: 5px;
+color: #fc9700;
+padding: 10px 20px 10px 20px;
+}
+.Btn:hover{
+  border: none;
+  color: white;
+  background-color: #fc9700;
+  box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
+}
 
 @media (max-width: 750px) {
   .about{
@@ -185,10 +197,3 @@ a {
   }
 
 }
-
-
-
-
-
-
-

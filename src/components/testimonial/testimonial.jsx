@@ -53,7 +53,7 @@ const TestimonialSlider = () => {
     };
 
     return (
-        <div className="testimonial-slider-container">
+        <div className="testimonial-slider-container mt-3">
             <div className="testimonial-header">
                 <h3>What people Say about us</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam molestiae eum odio ex, dignissimos consequatur non, delectus atque, ea vel velit quod culpa! Facere eaque doloribus ullam iure quasi temporibus?lo</p>

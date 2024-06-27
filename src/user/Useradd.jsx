@@ -1,12 +1,13 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Userbar from '../user/Userbar';
+
+
 const Useradd = () => {
     const getdata = JSON.parse(sessionStorage.getItem('logdata'));
     const accessToken = getdata ? getdata.access : null;
-
     const [formData, setFormData] = useState({
         type: '',
         name: '',
@@ -38,17 +39,13 @@ const Useradd = () => {
         }
 
         try {
-            const response = await axios.post('http://192.168.0.117:8000/real_estate/products/', formDataToSend, {
+            const response = await axios.post('http://192.168.12.102:8001/real_estate/products/', formDataToSend, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
-
             if (response.data && response.data.user && response.data.user.id) {
-                toast.success('Property added successfully!', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                });
-
+                toast('Property added successfully!');
                 setFormData({
                     type: '',
                     name: '',
@@ -63,41 +60,33 @@ const Useradd = () => {
                     product_picture: null,
                 });
             } else {
-                toast.error('Sorry for the inconvenience', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                });
+                toast('Sorry for the inconvenience');
             }
         } catch (error) {
             debugger
             console.error('Error uploading data:', error);
-
             if (error.response && Array.isArray(error.response.data)) {
                 error.response.data.forEach(errMsg => {
                     alert(errMsg);
-                    // toast.error(`Error: ${errMsg}`, {
-                    //     position: toast.POSITION.BOTTOM_RIGHT,
-                    // });
                 });
             } else {
-                toast.error('Failed to add property. Please try again later.', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                });
+                toast('Failed to add property. Please try again later.');
             }
         }
     };
-
     if (!accessToken) {
-        return <div style={{fontSize:"30px"}}>Error: You must be logged in to add a property.</div>;
+        return <div style={{fontSize:"50px"}}>Error: You must be logged in to add a property.</div>;
     }
-
     return (
         <>
-            <div className='container' style={{  display: "flex", height: "100vh"}}>
-                <div className="userbar" style={{ flex:"0 0 200px" , borderRight: "1px solid #ddd"}}>
+            <div className='container-fluid' style={{  display: "flex", height: "100vh"}}>
+                <div className="userbar" style={{ flex:"0 0 250px" , borderRight: "1px solid #ddd"}}>
                     <Userbar />
                 </div>
-                <div className="form " style={{ flex: '1', padding: '35px', overflowY: 'auto' }}>
-                    <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <div className="form " style={{ flex: '', padding: '50px', overflowY: '', width:'100%' }}>
+                    <form onSubmit={handleSubmit} encType="multipart/form-data">    
+                                <h1>Add Property</h1>
+
                         <div className="mb-1">
                             <label htmlFor="type" className="form-label">Type</label>
                             <input type="text" className="form-control" name="type" value={formData.type} onChange={handleChange} id="type" placeholder="" />
@@ -142,8 +131,8 @@ const Useradd = () => {
                     </form>
                 </div>
             </div>
-            <ToastContainer />
-        </>
+            <ToastContainer position="bottom-right" />
+            </>
     );
 };
 

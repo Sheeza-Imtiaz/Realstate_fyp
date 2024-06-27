@@ -103,10 +103,10 @@ const Addpro = () => {
 
   return (
     <>
-      <div className="" style={{ display: 'flex', margin: '0' }}>
-        <div className="sidebar" style={{ flex: '0 0 auto' }}>
-          <Sidebar />
-        </div>
+      <div className='' style={{  display: "flex", height: "100vh"}}>
+                <div className="sidebar" style={{ flex:"0 0 200px" , borderRight: "1px solid #ddd"}}>
+                    <Sidebar />
+                </div>
         <div className="form" style={{ flex: '1', marginLeft: "60px"}}>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="mb-3">

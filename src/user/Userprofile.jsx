@@ -12,16 +12,17 @@ const Userprofile = () => {
 
     const [profileData, setProfileData] = useState({
         username: '',
-        email: '',
+        // email: '',
         password: '',
+        profile_picture: null,
     });
 
-    const [setUserProperties] = useState([]);
+    const [ setUserProperties] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (userId && accessToken) {
-            axios.get(`http://192.168.0.117:8000/real_estate/users/${userId}/`, {
+            axios.get(`http://192.168.12.102:8001/real_estate/users/${userId}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -31,6 +32,7 @@ const Userprofile = () => {
                         username: response.data.username,
                         email: response.data.email,
                         password: '',
+                        profile_picture: response.data.profile_picture,
                     });
                     setLoading(false);
                 })
@@ -40,7 +42,7 @@ const Userprofile = () => {
                 });
 
             // Fetch properties added by the user
-            axios.get(`http://192.168.0.117:8000/real_estate/products/?user_id=${userId}`, {
+            axios.get(`http://192.168.12.102:8001/real_estate/products/?user_id=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -52,7 +54,7 @@ const Userprofile = () => {
                     console.error('Error fetching user properties:', error);
                 });
         }
-    });
+    }, [userId, accessToken]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -62,22 +64,33 @@ const Userprofile = () => {
         }));
     };
 
+    const handleFileChange = (e) => {
+        setProfileData(prevState => ({
+            ...prevState,
+            profile_picture: e.target.files[0],
+        }));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const updatedData = {
-            username: profileData.username,
-            email: profileData.email,
-        };
+        const updatedData = new FormData();
+        updatedData.append('username', profileData.username);
+        // updatedData.append('email', profileData.email);
 
         if (profileData.password) {
-            updatedData.password = profileData.password;
+            updatedData.append('password', profileData.password);
+        }
+
+        if (profileData.profile_picture) {
+            updatedData.append('profile_picture', profileData.profile_picture);
         }
 
         try {
-            const response = await axios.put(`http://192.168.0.117:8000/real_estate/users/${userId}/`, updatedData, {
+            const response = await axios.patch(`http://192.168.12.102:8001/real_estate/users/${userId}/`, updatedData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
+                    'Content-Type': 'multipart/form-data',
                 },
             });
 
@@ -111,7 +124,26 @@ const Userprofile = () => {
                 <div className="main-content">
                     <div className="profile-section">
                         <h2>Edit Profile</h2>
+
                         <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="profile_picture" className="form-label">Profile Picture</label>
+                                <input
+                                    type="file"
+                                    className="form-control"
+                                    name="profile_picture"
+                                    onChange={handleFileChange}
+                                    id="profile_picture"
+                                />
+                                {profileData.profile_picture && (
+                                    <img
+                                        src={URL.createObjectURL(profileData.profile_picture)}
+                                        alt="Profile"
+                                        className="profile-picture"
+                                    />
+                                )}
+                            </div>
+
                             <div className="form-group">
                                 <label htmlFor="username" className="form-label">Username</label>
                                 <input
@@ -132,10 +164,11 @@ const Userprofile = () => {
                                     className="form-control"
                                     name="email"
                                     value={profileData.email}
-                                    onChange={handleChange}
+                                    // onChange={handleChange}
                                     id="email"
                                     placeholder="Email"
                                     required
+                                    readOnly
                                 />
                             </div>
                             <div className="form-group">
@@ -150,25 +183,10 @@ const Userprofile = () => {
                                     placeholder="New Password (if changing)"
                                 />
                             </div>
-                            <button type="submit" className="btn">Update Profile</button>
+
+                            <button type="submit" className="btn-profile">Update Profile</button>
                         </form>
                     </div>
-                    {/* <div className="properties-section">
-                        <h2>My Properties</h2>
-                        <ul className="property-list">
-                            {userProperties.map(property => (
-                                <li key={property.id} className="property-item">
-                                    <img src={property.product_picture}/> 
-                                    <h5>{property.name}</h5>
-                                    <p><strong>Location:</strong> {property.location}</p>
-                                    <p><strong>Price:</strong> {property.price}</p>
-                                    <p><strong>Size:</strong> {property.size}</p>
-                                    <p><strong>Beds:</strong> {property.beds} Beds, <strong>Baths:</strong> {property.baths} Baths</p>
-                                    <p><strong>Features:</strong> {property.features}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div> */}
                 </div>
             </div>
             <ToastContainer />

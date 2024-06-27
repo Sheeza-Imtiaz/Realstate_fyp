@@ -18,7 +18,7 @@ const PricingForm = () => {
         };
 
         try {
-            const response = await axios.post('http://192.168.0.117:8000/real_estate/plans/', pricingData);
+            const response = await axios.post('http://192.168.12.102:8001/real_estate/plans/', pricingData);
             console.log('Pricing data submitted successfully:', response.data);
             setName('');
             setPrice('');
@@ -30,10 +30,10 @@ const PricingForm = () => {
     };
 
     return (
-        <div className="" style={{ display: 'flex', margin: '0' }}>
-            <div className="sidebar" style={{ flex: '0 0 auto' }}>
-                <Sidebar />
-            </div>
+        <div className='' style={{  display: "flex", height: "100vh"}}>
+        <div className="sidebar" style={{ flex:"0 0 200px" , borderRight: "1px solid #ddd"}}>
+            <Sidebar />
+        </div>
             <div className="form" style={{ flex: '1', marginLeft: "60px" }}>
                 <form className="pricing-form" onSubmit={handleSubmit}>
                     <div>

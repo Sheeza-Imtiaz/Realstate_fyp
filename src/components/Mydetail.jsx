@@ -21,7 +21,7 @@ const Mydetail = () => {
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12} md={8}>
-                <Typography variant="h5" component="div" gutterBottom style={{ color: "#236c7e", fontWeight: "600" }}>
+                <Typography variant="h5" component="div" gutterBottom style={{ color: "#1e4f5c", fontWeight: "600" }}>
                   ${data.price}
                 </Typography>
                 <Typography variant="subtitle1" color="text.secondary">
@@ -41,13 +41,13 @@ const Mydetail = () => {
                     <Typography variant="h6">{data.size} Sqft</Typography>
                   </Grid>
                 </Grid>
-                <Typography variant="body1" color="text.primary" mt={2} style={{ color: "#236c7e", fontWeight: "600" }}>
+                <Typography variant="body1" color="text.primary" mt={2} style={{ color: "#1e4f5c", fontWeight: "600" }}>
                   ABOUT THIS PROPERTY
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {data.descriptions}
                 </Typography>
-                <Typography variant="body1" color="text.primary" mt={2} style={{ color: "#236c7e", fontWeight: "600" }}>
+                <Typography variant="body1" color="text.primary" mt={2} style={{ color: "#1e4f5c", fontWeight: "600" }}>
                   PROPERTY FEATURES
                 </Typography>
                 <Grid container spacing={2}>
@@ -91,7 +91,7 @@ const Mydetail = () => {
                     OPEN HOUSE AVAILABILITY
                   </Typography>
                   <Box mt={2}>
-                    <Button style={{ backgroundColor: "#236c7e" }} variant="contained" sx={{ mr: 2 }}>Register</Button>
+                    <Button style={{ backgroundColor: "#1e4f5c" }} variant="contained" sx={{ mr: 2 }}>Register</Button>
                   </Box>
                   <Typography variant="body1" fontWeight={600} mt={2}>
                     LISTED BY

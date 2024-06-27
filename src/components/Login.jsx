@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
+// import '../index.css'
 import axios from 'axios';
 import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import CustomNavbar from './Navbar';
@@ -23,30 +24,34 @@ function Login() {
     });
   };
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      toast.success('Login successful!', {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
-    }
-  }, [isLoggedIn]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.0.117:8000/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.12.102:8001/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       setIsLoggedIn(true);
       setUserData(resp.data);
-      if(resp.data.role === "user"){
-        navigate('/');
-      }else{
-        navigate('/Sidebar'); 
+      if (resp.data.role === "user") {
+        toast('User Login Successfuly' ,{
+        className: "toast-message"
+        });
+        setTimeout(() => {
+
+          navigate('/');
+        }, 3000);
+      } else {
+        toast('Admin Login Successfuly');
+        setTimeout(() => {
+
+          navigate('/dashboard');
+        }, 3000);
       }
 
     } catch (error) {
       console.error('Error occurred:', error);
+      toast.error('Login Failed')
     }
   };
 
@@ -59,7 +64,6 @@ function Login() {
     <>
       <CustomNavbar />
       <MDBContainer fluid>
-        <ToastContainer />
         <MDBRow>
           <MDBCol sm="6">
             <div className="d-flex flex-column justify-content-center h-custom-2 w-75 pt-4">
@@ -72,7 +76,7 @@ function Login() {
                   <MDBInput wrapperClass="mb-1 mx-5 w-100" id="email" name="username" type="text" size="lg" value={formData.username} onChange={handleChange} required />
 
                   <label htmlFor="password" className="mb-1 mx-5 w-100">Password</label>
-                  <MDBInput wrapperClass="mb-4 mx-5 w-100" id="password" name="password" type="password" size="lg" value={formData.password} onChange={handleChange} required/>
+                  <MDBInput wrapperClass="mb-4 mx-5 w-100" id="password" name="password" type="password" size="lg" value={formData.password} onChange={handleChange} required />
 
                   <button className="mb-1 px-5 p-2 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
                     {isLoggedIn ? 'Logout' : 'Login'}
@@ -86,9 +90,9 @@ function Login() {
                   )}
                   <p className="ms-5">
                     {!isLoggedIn && (
-                        <span> Don't have an account? 
-                        <NavLink to="/LoginReg" className="link-info">Register here</NavLink> 
-                        </span>
+                      <span> Don't have an account?
+                        <NavLink to="/LoginReg" className="link-info">Register here</NavLink>
+                      </span>
                     )}
                   </p>
                 </form>
@@ -109,6 +113,7 @@ function Login() {
             />
           </MDBCol>
         </MDBRow>
+        <ToastContainer position="bottom-right"/>
       </MDBContainer>
     </>
   );
