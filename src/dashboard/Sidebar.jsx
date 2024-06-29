@@ -22,7 +22,7 @@ const Sidebar = () => {
     };
 
     return (
-        <aside className={styles.navBar}>
+        <aside className={`${styles.navBar} ${styles.fullHeight}`}>
             <input
                 id="nav-toggle"
                 type="checkbox"
@@ -46,14 +46,14 @@ const Sidebar = () => {
                 <NavButton icon="fas fa-building" text="Properties" to="/prodetail" />
                 <NavButton icon="fas fa-comments" text="Messages" to="/Message" />
                 <NavButton icon="fas fa-plus" text="Pricing Plan" to="/pricingplan" />
-                <NavButton icon="fas fa-id-card" text="Pricing Cards" to="/price" />
-                <NavButton icon="fas fa-user-edit" text="Profile" to="/profile" />
+                <NavButton icon="fas fa-id-card" text="Pricing Cards" to="/Priceed" />
+                <NavButton icon="fas fa-user-edit" text="Profile" to="/Profile" />
                 <NavButton icon="fas fa-home" text="Home" to="/" />
                 
                 {isLoggedIn ? (
                     <NavButton onClick={handleLogout} className={`${styles.navButton}`}  icon="fas fa-lock-open" text="Logout"></NavButton>
                 ) : (
-                    <NavButton icon="fas fa-sign-in-alt" text="Login" to="/login" />
+                    <NavButton icon="fas fa-sign-in-alt" text="Login" to="" />
                 )}
                 <div id="nav-content-highlight" className={styles.navContentHighlight}></div>
             </div>

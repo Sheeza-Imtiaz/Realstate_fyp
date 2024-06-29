@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Userbar from '../user/Userbar';
-import './Userprofile.css';
+// import './Userprofile.css';
+import Sidebar from './Sidebar';
 
-const Userprofile = () => {
+const Profile = () => {
     const getdata = JSON.parse(sessionStorage.getItem('logdata'));
     const accessToken = getdata ? getdata.access : null;
     const userId = getdata ? getdata.id : null;
@@ -119,7 +119,7 @@ const Userprofile = () => {
         <>
             <div className="dashboard-container">
                 <div className="userbar-container">
-                    <Userbar />
+                    <Sidebar />
                 </div>
                 <div className="main-content">
                     <div className="profile-section">
@@ -194,4 +194,4 @@ const Userprofile = () => {
     );
 };
 
-export default Userprofile;
+export default Profile;

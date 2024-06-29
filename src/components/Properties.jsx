@@ -13,7 +13,7 @@ const Properties = () => {
   // Store favorite state for each property
 
   useEffect(() => {
-    axios.get('http://192.168.12.102:8001/real_estate/allproducts/')
+    axios.get('http://192.168.12.105:8001/real_estate/allproducts/')
       .then((res) => {
         upstated(res.data);
       })
@@ -23,7 +23,7 @@ const Properties = () => {
   }, []);
 
   const seeit = (id) => {
-    axios.get(`http://192.168.12.102:8001/real_estate/allproducts/${id}/`)
+    axios.get(`http://192.168.12.105:8001/real_estate/allproducts/${id}/`)
       .then((res) => {
         sessionStorage.setItem('editdata', JSON.stringify(res.data));
         navigate('/mydetail');
@@ -45,7 +45,7 @@ const Properties = () => {
   
   }
     axios.post(
-      'http://192.168.12.102:8001/real_estate/favorites/',body, 
+      'http://192.168.12.105:8001/real_estate/favorites/',body, 
       {
         headers: {
           'Authorization': `Bearer ${token}`, 

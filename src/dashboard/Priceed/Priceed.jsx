@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Price.css';
+import Sidebar from '../Sidebar';
+import './Priceed.css';
 
-const Pricing = () => {
+const Priceed = () => {
     const [pricingPlans, setPricingPlans] = useState([]);
 
     useEffect(() => {
@@ -18,6 +19,11 @@ const Pricing = () => {
     }, []);
 
     return (
+        <div className="d-flex">
+        <div className='sidebar' style={{ width: '250px' }}>
+            <Sidebar />
+        </div>
+        <div className="container mt-5" style={{ flex: 1 }}>
         <div className="pricing-container">
             {pricingPlans.map((plan) => (
                 <div className="card" key={plan.id}>
@@ -38,7 +44,9 @@ const Pricing = () => {
                 </div>
             ))}
         </div>
+        </div>
+        </div>
     );
 };
 
-export default Pricing;
+export default Priceed;

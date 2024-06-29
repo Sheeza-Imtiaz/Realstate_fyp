@@ -39,7 +39,7 @@ const Useradd = () => {
         }
 
         try {
-            const response = await axios.post('http://192.168.12.102:8001/real_estate/products/', formDataToSend, {
+            const response = await axios.post('http://192.168.12.105:8001/real_estate/products/', formDataToSend, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },

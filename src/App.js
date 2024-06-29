@@ -10,36 +10,36 @@ import Contact from './components/Contact';
 import Login from './components/Login';
 import LoginReg from './components/LoginReg';
 import Footer from './components/Footer';
-// import CustomNavbar from './components/Navbar';
 import TestimonialSlider from './components/testimonial/testimonial';
 import Mydetail from './components/Mydetail';
 import Pricing from './components/Pricecard/Price';
-// import Detailpro from './components/detailpro';
-// import Detailpro from './components/Detailpro';
-// import Sidebar from "./components/dashboard/Sidebar"
 
 
 import Sidebar from './dashboard/Sidebar';
 import Addpro from './dashboard/Addpro';
 import Prodetail from './dashboard/Prodetail';
 import Users from './dashboard/Users';
-import Pricingplan from './dashboard/Pricingplan';
+import Priceed from './dashboard/Priceed/Priceed';
 import Dashboard from './dashboard/Dashboard';
 import Message from './dashboard/Message';
+import Profile from './dashboard/profile';
+import Pricingplan from './dashboard/Pricingplan';
+
 
 import Userbar from './user/Userbar';
 import Useradd from './user/Useradd';
 import Userprofile from './user/Userprofile';
 import Userpro from './user/Userpro';
 import Favorite from './user/Favorite';
-// import Priceing from './components/Pricecard';
-
+import Package from './user/Package/Package';
 
 
 function App() {
   return (
     <div>
       <Routes>
+
+      {/* home page components  */}
         <Route path='/' exact element={<Home/>} />
         <Route path='/about' exact element={<About/>} />
         <Route path='/properties' exact element={<Properties/>} />
@@ -50,24 +50,28 @@ function App() {
         <Route path='/Footer' element={<Footer/>}></Route>
         <Route path='/Price' element={<Pricing/>}></Route>
 
-
+{/* admin side component  */}
         <Route path='/Addpro' element={<Addpro/>}></Route>
         <Route path='/detailpro' element={<detailpro/>}></Route>
         <Route path='/Prodetail' element={<Prodetail/>}></Route>
-        <Route path='/mydetail' element={<AdminRoute element={Mydetail}/>}></Route>
+        <Route path='/mydetail' element={<Mydetail/>}></Route>
         <Route path='/Sidebar' element={<AdminRoute element={Sidebar}/>}></Route>
         <Route path='/Dashboard' element={<AdminRoute element={Dashboard}/>}></Route>
         <Route path='/Users' element={ <AdminRoute element={Users}/>}></Route>
-        <Route path='/Pricingplan' element={<Pricingplan/>}></Route>
+        <Route path='/Pricingplan' element={ <AdminRoute element={Pricingplan}/>}></Route>
+        <Route path='/Priceed' element={<Priceed/>}></Route>
         <Route path='/Message' element={<Message/>}></Route>
+        <Route path='/Profile' element={<Profile/>}></Route>
 
-
+{/* user side componenets  */}
         <Route path='/Userbar' element={<UserRoute element={Userbar}/>}></Route>
         <Route path='/Useradd' element={<UserRoute element={Useradd}/>}></Route>
         <Route path='/Userprofile' element={<UserRoute element={Userprofile}/>}></Route>
-        {/* <Route path='/Userprofile' element={<Userprofile/>}></Route> */}
         <Route path='/Userpro' element={<UserRoute element={Userpro}/>}></Route>
         <Route path='/Favorite' element={<UserRoute element={Favorite}/>}></Route>
+        <Route path='/Package' element={<UserRoute element={Package}/>}></Route>
+
+
 
 
 

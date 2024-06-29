@@ -1,6 +1,5 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-// import '../index.css'
 import axios from 'axios';
 import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import CustomNavbar from './Navbar';
@@ -24,34 +23,30 @@ function Login() {
     });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.12.102:8001/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.12.105:8001/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       setIsLoggedIn(true);
       setUserData(resp.data);
       if (resp.data.role === "user") {
-        toast('User Login Successfuly' ,{
-        className: "toast-message"
+        toast.success('User Login Successful!', {
+          className: "toast-message"
         });
         setTimeout(() => {
-
           navigate('/');
         }, 3000);
       } else {
-        toast('Admin Login Successfuly');
+        toast.success('Admin Login Successful!');
         setTimeout(() => {
-
           navigate('/dashboard');
         }, 3000);
       }
-
     } catch (error) {
       console.error('Error occurred:', error);
-      toast.error('Login Failed')
+      toast.error('Incorrect username or password. Please try again.');
     }
   };
 
@@ -113,7 +108,7 @@ function Login() {
             />
           </MDBCol>
         </MDBRow>
-        <ToastContainer position="bottom-right"/>
+        <ToastContainer position="bottom-right" />
       </MDBContainer>
     </>
   );

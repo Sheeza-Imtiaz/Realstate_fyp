@@ -7,7 +7,7 @@ const Favorite = () => {
     const token = JSON.parse(sessionStorage.getItem('token'));
 
     useEffect(() => {
-        axios.get('http://192.168.12.102:8001/real_estate/favorites/', {
+        axios.get('http://192.168.12.105:8001/real_estate/favorites/', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -18,30 +18,30 @@ const Favorite = () => {
         });
     }, []);
 
-    const handleFavoriteClick = (e, id) => {
-        e.stopPropagation();
-        const newFavoriteStatus = !favorites[id];
-        axios.post('http://192.168.12.102:8001/real_estate/favorites/', { propertyId: id }, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((res) => {
-            if (res.status === 200) {
-                setFavorites((prevFavorites) => ({
-                    ...prevFavorites,
-                    [id]: newFavoriteStatus,
-                }));
-            } else {
-                console.error('Failed to update favorites:', res);
-            }
-        }).catch((error) => {
-            console.error('Error updating favorites:', error);
-        });
-    };
+    // const handleFavoriteClick = (e, id) => {
+    //     e.stopPropagation();
+    //     const newFavoriteStatus = !favorites[id];
+    //     axios.post('http://192.168.12.105:8001/real_estate/favorites/', { propertyId: id }, {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     }).then((res) => {
+    //         if (res.status === 200) {
+    //             setFavorites((prevFavorites) => ({
+    //                 ...prevFavorites,
+    //                 [id]: newFavoriteStatus,
+    //             }));
+    //         } else {
+    //             console.error('Failed to update favorites:', res);
+    //         }
+    //     }).catch((error) => {
+    //         console.error('Error updating favorites:', error);
+    //     });
+    // };
 
 
     const handleRemoveFavorite = (id) => {
-        axios.delete(`http://192.168.12.102:8001/real_estate/favorites/${id}/`, {
+        axios.delete(`http://192.168.12.105:8001/real_estate/favorites/${id}/`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
