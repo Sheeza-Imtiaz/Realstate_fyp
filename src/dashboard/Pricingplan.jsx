@@ -79,7 +79,7 @@ const Pricingplan = () => {
                     </form>
                 </div>
             </div>
-            <ToastContainer position="bottom-right" />
+            <ToastContainer position="top-right" />
         </>
     );
 };

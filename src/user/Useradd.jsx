@@ -127,11 +127,11 @@ const Useradd = () => {
                             <label>Profile Photo:</label>
                             <input className="form-control-file" type="file" name="product_picture" accept="image/*" onChange={handleChange} />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn">Submit</button>
                     </form>
                 </div>
             </div>
-            <ToastContainer position="bottom-right" />
+            <ToastContainer position="top-right" />
             </>
     );
 };

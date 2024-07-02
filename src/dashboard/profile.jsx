@@ -54,7 +54,7 @@ const Profile = () => {
                     console.error('Error fetching user properties:', error);
                 });
         }
-    }, [userId, accessToken]);
+    }, [userId, accessToken, setUserProperties]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;

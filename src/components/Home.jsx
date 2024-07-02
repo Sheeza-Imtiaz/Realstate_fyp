@@ -170,7 +170,7 @@ const Home = () => {
                       placeholder="Search by type"
                     />
                   </div>
-                  <button type="submit" className="Btn align-self-end">Search</button>
+                  <button type="submit" className="btn-b align-self-end">Search</button>
                 </form>
               </div>
             </div>

@@ -5,7 +5,6 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import CustomNavbar from './Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import './ToastStyles.css';
 
 const LoginReg = () => {
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ const LoginReg = () => {
       }, 3000);
     } catch (error) {
       console.error('Error uploading data:', error);
-      toast('Registration Failed');
+      toast.error('Registration Failed');
     }
   };
 
@@ -127,7 +126,7 @@ const LoginReg = () => {
             />
           </MDBCol>
         </MDBRow>
-        <ToastContainer position="bottom-right" />
+        <ToastContainer position="top-right" />
       </MDBContainer>
     </>
   );

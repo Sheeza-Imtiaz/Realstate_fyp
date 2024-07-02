@@ -54,7 +54,7 @@ const Userprofile = () => {
                     console.error('Error fetching user properties:', error);
                 });
         }
-    }, [userId, accessToken]);
+    }, [userId, accessToken, setUserProperties]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -64,12 +64,12 @@ const Userprofile = () => {
         }));
     };
 
-    const handleFileChange = (e) => {
-        setProfileData(prevState => ({
-            ...prevState,
-            profile_picture: e.target.files[0],
-        }));
-    };
+    // const handleFileChange = (e) => {
+    //     setProfileData(prevState => ({
+    //         ...prevState,
+    //         profile_picture: e.target.files[0],
+    //     }));
+    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -95,14 +95,12 @@ const Userprofile = () => {
             });
 
             if (response.data) {
-                toast.success('Profile updated successfully!', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
+                toast('Profile updated successfully!', {
                 });
             }
         } catch (error) {
             console.error('Error updating profile data:', error);
             toast.error('Failed to update profile. Please try again later.', {
-                position: toast.POSITION.BOTTOM_RIGHT,
             });
         }
     };
@@ -126,7 +124,7 @@ const Userprofile = () => {
                         <h2>Edit Profile</h2>
 
                         <form onSubmit={handleSubmit}>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label htmlFor="profile_picture" className="form-label">Profile Picture</label>
                                 <input
                                     type="file"
@@ -142,7 +140,7 @@ const Userprofile = () => {
                                         className="profile-picture"
                                     />
                                 )}
-                            </div>
+                            </div> */}
 
                             <div className="form-group">
                                 <label htmlFor="username" className="form-label">Username</label>
@@ -189,8 +187,8 @@ const Userprofile = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
-        </>
+            <ToastContainer position="top-right" />
+            </>
     );
 };
 

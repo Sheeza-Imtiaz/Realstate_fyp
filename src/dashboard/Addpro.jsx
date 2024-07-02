@@ -129,7 +129,7 @@ const Addpro = () => {
                     </form>
                 </div>
             </div>
-            <ToastContainer position="bottom-right" />
+            <ToastContainer position="top-right" />
         </>
     );
 };

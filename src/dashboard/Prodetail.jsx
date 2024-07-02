@@ -21,7 +21,7 @@ const Prodetail = () => {
             }
         };
         fetchit();
-    }, []);
+    }, [setUser]);
 
     const deleteProduct = (productId) => {
         axios.delete(`http://192.168.12.105:8001/real_estate/products/${productId}/`)

@@ -10,7 +10,6 @@ const Properties = () => {
   const navigate = useNavigate();
   const [stated, upstated] = useState([]);
   const [favorites, setFavorites] = useState({}); 
-  // Store favorite state for each property
 
   useEffect(() => {
     axios.get('http://192.168.12.105:8001/real_estate/allproducts/')
@@ -108,7 +107,7 @@ const Properties = () => {
                     placeholder="Search by type"
                   />
                 </div>
-                <button type="submit" className="Btn align-self-end">Search</button>
+                <button type="submit" className="btn-b align-self-end">Search</button>
               </form>
             </div>
           </div>
@@ -145,7 +144,7 @@ const Properties = () => {
           </div>
         </div>
       </div>
-      <ToastContainer position="bottom-right" />
+      <ToastContainer position="top-right" />
       <Footer />
     </>
   );

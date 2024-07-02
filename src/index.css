@@ -17,3 +17,7 @@ body {
   width: 34vw;
   padding: 30px 20px;
 }
+.btn{
+  background: #1e4f5c !important;
+  color: white !important;
+}

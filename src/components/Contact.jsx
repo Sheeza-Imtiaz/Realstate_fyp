@@ -219,7 +219,7 @@ function Contact() {
           </div>
         </div>
       </div>
-      <ToastContainer position="bottom-right" />
+      <ToastContainer position="top-right" />
       <Footer />
     </>
   );

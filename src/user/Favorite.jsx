@@ -16,7 +16,7 @@ const Favorite = () => {
         }).catch((error) => {
             console.error('Error fetching favorite properties:', error);
         });
-    }, []);
+    }, [token]);
 
     // const handleFavoriteClick = (e, id) => {
     //     e.stopPropagation();

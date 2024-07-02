@@ -169,14 +169,14 @@ a {
   font-size: 18px;
 }
 
-.Btn{
+.btn-b{
 border: 2px solid #1e4f5c;
 background-color: #1e4f5c;
 border-radius: 5px;
-color: #fc9700;
+color: white;
 padding: 10px 20px 10px 20px;
 }
-.Btn:hover{
+.btn-b:hover{
   border: none;
   color: white;
   background-color: #fc9700;

@@ -78,7 +78,7 @@ function Login() {
                   </button>
                   {!isLoggedIn && (
                     <p className="small mb-1 pb-lg-3 ms-5">
-                      <a className="text-muted" href="#!">
+                      <a className="text-muted" href="http://192.168.12.105:8001/real_estate/password_reset/">
                         Forgot password?
                       </a>
                     </p>
@@ -108,7 +108,7 @@ function Login() {
             />
           </MDBCol>
         </MDBRow>
-        <ToastContainer position="bottom-right" />
+        <ToastContainer position="top-right" />
       </MDBContainer>
     </>
   );

@@ -46,7 +46,7 @@ const Userprofile = () => {
                     console.error('Error fetching user properties:', error);
                 });
         }
-    }, [userId, accessToken]);
+    }, [userId, accessToken, setProfileData]);
 
     const handleDeleteProperty = async (propertyId) => {
         try {
