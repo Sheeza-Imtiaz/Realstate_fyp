@@ -58,7 +58,7 @@ function Contact() {
       return;
     }
 
-    fetch('http://192.168.12.105:8001/real_estate/contact/', {
+    fetch('http://192.168.12.108:8001/real_estate/contact/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ function Contact() {
           <div className="container">
             <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
               <h1 className="mb-3" style={{ color: "#1e4f5c", fontSize: "50px" }}>Contact Us</h1>
-              <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+              <p>If you need help with any aspect of our service, our customer support team is available to assist you. Feel free to reach out to us via email or phone, and we’ll get back to you as soon as possible.</p>
             </div>
             <div className="row g-4">
               <div className="col-12">
@@ -113,7 +113,7 @@ function Contact() {
                         <div className="icon me-3" style={{ width: '45px', height: '40px' }}>
                           <i className="fa fa-envelope-open" style={{ color: '#1e4f5c' }}></i>
                         </div>
-                        <span>info@example.com</span>
+                        <span>Realestate@gmail.com</span>
                       </div>
                     </div>
                   </div>

@@ -13,7 +13,6 @@ import Footer from './components/Footer';
 import TestimonialSlider from './components/testimonial/testimonial';
 import Mydetail from './components/Mydetail';
 import Pricing from './components/Pricecard/Price';
-import PaymentModal from './components/Pricecard/PaymentModal';
 
 
 import Sidebar from './dashboard/Sidebar';
@@ -25,6 +24,7 @@ import Dashboard from './dashboard/Dashboard';
 import Message from './dashboard/Message';
 import Profile from './dashboard/profile';
 import Pricingplan from './dashboard/Pricingplan';
+import ActivatePkg from './dashboard/ActivatedPkg';
 
 
 import Userbar from './user/Userbar';
@@ -35,7 +35,6 @@ import Favorite from './user/Favorite';
 import Package from './user/Package/Package';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import { Children } from 'react';
 const stripePromise=loadStripe('pk_test_51PXfTnHVVjRYq8uUfTLgoHZcubNYV6CqGl0fJcYejZyna849TPPs5h8Bw0SkFguIH7T3dskSEhWhmPgsk1Wcb2Ej00JJu2RcKa')
 
 const StripeWrapper=({children})=>{
@@ -55,9 +54,7 @@ function App() {
         <Route path="/Login" exact element={<Login/>} />
         <Route path='/LoginReg' element={<LoginReg/>}></Route>
         <Route path='/Footer' element={<Footer/>}></Route>
-        {/* <Route path='/Price' element={<Pricing/>}></Route> */}
         <Route path='/Price' element={<StripeWrapper><Pricing/></StripeWrapper>}></Route>
-        {/* <Route path='/PaymentModal' element={<PaymentModal/>}></Route> */}
 
 
 {/* admin side component  */}
@@ -72,6 +69,7 @@ function App() {
         <Route path='/Priceed' element={<Priceed/>}></Route>
         <Route path='/Message' element={<Message/>}></Route>
         <Route path='/Profile' element={<Profile/>}></Route>
+        <Route path='/ActivatedPkg' element={<ActivatePkg/>}></Route>
 
 {/* user side componenets  */}
         <Route path='/Userbar' element={<UserRoute element={Userbar}/>}></Route>
@@ -80,10 +78,6 @@ function App() {
         <Route path='/Userpro' element={<UserRoute element={Userpro}/>}></Route>
         <Route path='/Favorite' element={<UserRoute element={Favorite}/>}></Route>
         <Route path='/Package' element={<UserRoute element={Package}/>}></Route>
-
-
-
-
 
       </Routes>
     </div>

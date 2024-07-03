@@ -22,7 +22,7 @@ const Sidebar = () => {
     };
 
     return (
-        <aside className={`${styles.navBar} ${styles.fullHeight}`}>
+        <aside className={`${styles.navBar} ${styles.fullHeight}`} >
             <input
                 id="nav-toggle"
                 type="checkbox"
@@ -47,6 +47,7 @@ const Sidebar = () => {
                 <NavButton icon="fas fa-comments" text="Messages" to="/Message" />
                 <NavButton icon="fas fa-plus" text="Pricing Plan" to="/pricingplan" />
                 <NavButton icon="fas fa-id-card" text="Pricing Cards" to="/Priceed" />
+                <NavButton icon="fas fa-line-chart" text="ActivatedPkg" to="/ActivatedPkg" />
                 <NavButton icon="fas fa-user-edit" text="Profile" to="/Profile" />
                 <NavButton icon="fas fa-home" text="Home" to="/" />
                 

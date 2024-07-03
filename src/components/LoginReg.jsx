@@ -14,7 +14,7 @@ const LoginReg = () => {
     email: '',
     password: '',
     profile_photo: null,
-    // plan: 'Free'
+    // role: 'Admin'
   });
 
   const handleChange = (e) => {
@@ -34,7 +34,7 @@ const LoginReg = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.12.105:8001/real_estate/register/', formDataToSend);
+      const response = await axios.post('http://192.168.12.108:8001/real_estate/register/', formDataToSend);
       console.log(response.data);
       toast('Registration Successful');
       setTimeout(() => {

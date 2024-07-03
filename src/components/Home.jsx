@@ -46,9 +46,8 @@ const Home = () => {
             <div className=' intro' >
               <p>Looking For a Property !</p>
               <h1><span>Buy </span>and <span>Sell</span> Properties</h1>
-              <p className='detail'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, <br />
-                a aliquam nesciunt libero placeat sed commodi tempore repellat sint sequi eligendi <br />
-                incidunt consectetur autem veniam aperiam, vitae facere, saepe error!</p>
+              <p className='detail'>Welcome to Real Estate, where buying and selling properties is made easy.<br></br>Explore diverse listings, receive expert guidance, and enjoy a seamless user experience. Find your <br></br>perfect home or sell with confidence today!
+</p>
             </div>
           </div>
           <div className='child'>
@@ -63,7 +62,7 @@ const Home = () => {
             </Col>
             <Col lg={6} className='about-text'>
               <h2>We are the Best <br /><span> Real Estate Company</span></h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde vel, sit accusamus veritatis excepturi mollitia saepe laborum eos molestias nostrum dicta molestiae soluta, vitae voluptatibus. Animi voluptate voluptatum voluptates. Quisquam.</p>
+              <p>Discover excellence with Us, where we specialize in finding your perfect property and ensuring a seamless selling experience. Trusted for our expertise and dedication, we're committed to your satisfaction every step of the way</p>
               <Button>View More Details</Button>
             </Col>
           </Row>
@@ -74,7 +73,7 @@ const Home = () => {
             <div className="container property">
               <div className="text-center mx-auto mb-5">
                 <h1 className="mb-3">Property Types</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                <p>Discover a wide array of property types tailored to meet your unique preferences and needs. Whether you're seeking a cozy apartment, a spacious family home, or a luxurious estate, we have options to suit every lifestyle. Find the perfect property that fits your vision with ease at Real Estate</p>
               </div>
               <div className="row">
                 {/* Apartment */}
@@ -137,17 +136,17 @@ const Home = () => {
               <div>
                 <span className='fas fa-home'></span>
                 <h4>Find A Property</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem voluptas quia accusamus error neque tenetur facere optio, sequi quis numquam libero possimus ipsa id quibusdam consectetur. Perspiciatis excepturi labore pariatur!</p>
+                <p>Discover your ideal property effortlessly with us. Browse through our extensive listings and filter options to find homes that match your criteria. Whether you're looking for a cozy apartment, a family home, or a luxurious estate, we have something for everyone!</p>
               </div>
               <div>
                 <span className='fas fa-dollar-sign'></span>
                 <h4>Buy A Property</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem voluptas quia accusamus error neque tenetur facere optio, sequi quis numquam libero possimus ipsa id quibusdam consectetur. Perspiciatis excepturi labore pariatur!</p>
+                <p>Buying your dream property has never been easier. With our user-friendly platform, you can explore detailed property listings, schedule viewings, and connect with sellers directly. Our goal is to make your buying experience smooth and stress-free!</p>
               </div>
               <div>
                 <span className='fas fa-chart-line'></span>
                 <h4>Investing</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem voluptas quia accusamus error neque tenetur facere optio, sequi quis numquam libero possimus ipsa id quibusdam consectetur. Perspiciatis excepturi labore pariatur!</p>
+                <p>Explore investment opportunities with confidence. Whether you're a seasoned investor or new to the market, we provide insights and resources to help you make informed decisions. From rental properties to commercial ventures, we're here to support your investment journey!</p>
               </div>
             </div>
           </div>
@@ -159,7 +158,7 @@ const Home = () => {
               <div className="col-lg-6">
                 <div className="text-start mx-auto wow slideInLeft" data-wow-delay="0.1s">
                   <h1 className="mb-3">Property Listing</h1>
-                  <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
+                  <p>Explore our comprehensive property listings featuring a variety of options tailored to suit different lifestyles and preferences. Whether you're searching for apartments, villas, houses, or offices, each listing provides detailed information to help you find your ideal property.</p>
                 </div>
               </div>
               <div className="col-lg-6 justify-content-end ">
@@ -185,12 +184,12 @@ const Home = () => {
 
                   </div>
                   <div className="p-3 d-flex justify-content-between align-items-center">
-                    <h5 className="" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h5 className="" style={{ color: "#fc9700" }}>1,234,500</h5>
                     <i className="fa fa-heart" style={{ color: "#ccc", cursor: "pointer" }} onClick={(e) => e.target.style.color = e.target.style.color === 'rgb(252, 151, 0)' ? '#ccc' : '#fc9700'}></i>
                   </div>
                   <div className='ms-3'>
-                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>123 Street, New York, USA</p>
+                    <h4 className="d-block h5 mb-2">Golden Urban House</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>DHA phase4 Lahore, Pakistan</p>
                   </div>
                 </div>
               </div>
@@ -199,14 +198,16 @@ const Home = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House</h5>
                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                       <img className="img-fluid mb-3" src="images/property-1.jpg" alt="" />
-                      <p><strong>Price:</strong> $12,345</p>
-                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
-                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                      <p><strong>Price:</strong> 1,234,500</p>
+                      <p><strong>Location:</strong>DHA phase4 Lahore, Pakistan</p>
+                      <p><strong>Description:</strong> Located in DHA Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot. For more information contact us.
+
+</p>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button>

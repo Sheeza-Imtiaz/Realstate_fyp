@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { Modal} from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const stripePromise = loadStripe('pk_test_51PXfTnHVVjRYq8uUfTLgoHZcubNYV6CqGl0fJcYejZyna849TPPs5h8Bw0SkFguIH7T3dskSEhWhmPgsk1Wcb2Ej00JJu2RcKa');
@@ -20,10 +20,8 @@ const Pricing = () => {
     useEffect(() => {
         const fetchPricingPlans = async () => {
             try {
-                const response = await axios.get('http://192.168.12.105:8001/real_estate/plans/');
-                console.log(response.data)
-                const data=response.data.filter((item)=>item.name !=="Free");
-                console.log(data)
+                const response = await axios.get('http://192.168.12.108:8001/real_estate/plans/');
+                const data = response.data.filter((item) => item.name !== "Free");
                 setPricingPlans(data);
             } catch (error) {
                 console.error('Error fetching pricing plans:', error);
@@ -44,16 +42,16 @@ const Pricing = () => {
 
     const activatePlan = async (planId, paymentMethodId) => {
         try {
-            const response = await axios.post(`http://192.168.12.105:8001/real_estate/plans/${planId}/activate/`, {
+            const response = await axios.post(`http://192.168.12.108:8001/real_estate/plans/${planId}/activate/`, {
                 payment_method_id: paymentMethodId,
             });
             console.log('Plan activated successfully:', response.data);
             toast.success('Plan activated successfully!');
             
             const { id, username } = logdata;
-            await axios.post('http://192.168.12.105:8001/auth/logout/', { id, username });
+            await axios.post('http://192.168.12.108:8001/auth/logout/', { id, username });
 
-            sessionStorage.removeItem();
+            sessionStorage.removeItem('logdata');
             navigate('/login');
         } catch (error) {
             console.error('Error activating plan:', error);
@@ -136,13 +134,28 @@ const PaymentModal = ({ onRequestClose, plan, onActivate }) => {
             toast.error('Payment failed.');
         } else {
             try {
-                const response = await axios.patch(`http://192.168.12.105:8001/real_estate/users/${userId}/update-plan/`, {
+                const response = await axios.patch(`http://192.168.12.108:8001/real_estate/users/${userId}/update-plan/`, {
                     plan_name: plan.name,
                 });
 
-                if (response.data.plan === plan.id) {
+                if (response.data.plan.id === plan.id) {
                     console.log('Payment successful!');
-                    toast('Payment successful  Login Again');
+                    toast('Payment successful! Login Again');
+
+                    // Store relevant data in localStorage with expiration time
+                    const expirationTime = new Date().getTime() + (10 * 24 * 60 * 60 * 1000); // 10 days from now
+                    const planData = {
+                        id: plan.id,
+                        name: plan.name,
+                        price: plan.price,
+                        duration: plan.duration,
+                        number_of_post: plan.number_of_post,
+                        features: plan.features,
+                        address: address,
+                        expiration: expirationTime
+                    };
+                    localStorage.setItem('plan', JSON.stringify(planData));
+
                     sessionStorage.removeItem('logdata');
                     sessionStorage.removeItem('token');
                     setTimeout(() => {
@@ -191,5 +204,19 @@ const PaymentModal = ({ onRequestClose, plan, onActivate }) => {
         </Modal>
     );
 };
+
+// Function to retrieve the plan data and check expiration
+// const getPlanData = () => {
+//     const planData = JSON.parse(localStorage.getItem('plan'));
+//     if (planData) {
+//         const currentTime = new Date().getTime();
+//         if (currentTime > planData.expiration) {
+//             localStorage.removeItem('plan');
+//             return null;
+//         }
+//         return planData;
+//     }
+//     return null;
+// };
 
 export default Pricing;

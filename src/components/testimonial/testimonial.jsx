@@ -10,7 +10,7 @@ const testimonials = [
         name: 'Anna Deynah',
         role: 'UX Designer',
         image: 'https://www.zoho.com/inventory/case-study/images/jason-party-mojo.jpeg',
-        quote: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.',
+        quote: 'Listing our property with Real Estate was the best decision we made. Their market knowledge and marketing strategies ensured our property sold quickly and at a great price.',
         stars: 5,
     },
     {
@@ -18,7 +18,7 @@ const testimonials = [
         name: 'Deynah',
         role: 'UX Designer',
         image: 'https://www.ultimatebeaver.com/wp-content/uploads/bb-plugin/cache/photo-gallery-img-02-circle.jpg',
-        quote: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.',
+        quote: 'Exceptional service! Real Estate provided us with invaluable advice and support throughout our investment journey. Their insights into the market helped us make informed decisions.',
         stars: 4,
     },
     {
@@ -26,7 +26,7 @@ const testimonials = [
         name: 'Anna Deynah',
         role: 'UX Designer',
         image: 'https://www.zoho.com/inventory/case-study/images/jason-party-mojo.jpeg',
-        quote: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.',
+        quote: 'Listing our property with Real Estate was the best decision we made. Their market knowledge and marketing strategies ensured our property sold quickly and at a great price.',
         stars: 4.5,
     },
     {
@@ -34,7 +34,7 @@ const testimonials = [
         name: 'Anna Deynah',
         role: 'UX Designer',
         image: 'https://www.zoho.com/inventory/case-study/images/satyan-thukral.jpeg',
-        quote: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab hic tenetur.',
+        quote: 'Exceptional service! Real Estate provided us with invaluable advice and support throughout our investment journey. Their insights into the market helped us make informed decisions.',
         stars: 5,
     },
 
@@ -54,10 +54,10 @@ const TestimonialSlider = () => {
 
     return (
         <div className="testimonial-slider-container mt-3">
-            <div className="testimonial-header">
-                <h3>What people Say about us</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam molestiae eum odio ex, dignissimos consequatur non, delectus atque, ea vel velit quod culpa! Facere eaque doloribus ullam iure quasi temporibus?lo</p>
-            </div>
+          <div className="testimonial-header">
+    <h3>What People Say About Us</h3>
+    <p>Discover what our clients have to say about their experiences with Real Estate. From seamless transactions to exceptional service, we strive to exceed expectations in every real estate journey. Read on to learn why our clients trust us.</p>
+</div>
             <div className="testimonial-slider">
                 <Slider {...settings}>
                     {testimonials.map(testimonial => (

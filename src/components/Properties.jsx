@@ -8,13 +8,16 @@ import Footer from './Footer';
 
 const Properties = () => {
   const navigate = useNavigate();
-  const [stated, upstated] = useState([]);
-  const [favorites, setFavorites] = useState({}); 
+  const [properties, setProperties] = useState([]);
+  const [filteredProperties, setFilteredProperties] = useState([]);
+  const [favorites, setFavorites] = useState({});
+  const [type, setType] = useState('');
 
   useEffect(() => {
-    axios.get('http://192.168.12.105:8001/real_estate/allproducts/')
+    axios.get('http://192.168.12.108:8001/real_estate/allproducts/')
       .then((res) => {
-        upstated(res.data);
+        setProperties(res.data);
+        setFilteredProperties(res.data); // Set initially to all properties
       })
       .catch((error) => {
         console.error('Error fetching properties:', error);
@@ -22,7 +25,7 @@ const Properties = () => {
   }, []);
 
   const seeit = (id) => {
-    axios.get(`http://192.168.12.105:8001/real_estate/allproducts/${id}/`)
+    axios.get(`http://192.168.12.108:8001/real_estate/allproducts/${id}/`)
       .then((res) => {
         sessionStorage.setItem('editdata', JSON.stringify(res.data));
         navigate('/mydetail');
@@ -33,58 +36,48 @@ const Properties = () => {
   };
 
   const handleFavoriteClick = (e, id) => {
-    e.stopPropagation(); 
-    const token = JSON.parse(sessionStorage.getItem('token')); 
+    e.stopPropagation();
+    const token = JSON.parse(sessionStorage.getItem('token'));
     const data = JSON.parse(sessionStorage.getItem('logdata'));
-    console.log(data.id);
-  const body={
-  
-      product_id: id, 
-      user: data.id 
-  
-  }
+    const body = {
+      product_id: id,
+      user: data.id,
+    };
+
     axios.post(
-      'http://192.168.12.105:8001/real_estate/favorites/',body, 
+      'http://192.168.12.108:8001/real_estate/favorites/',
+      body,
       {
         headers: {
-          'Authorization': `Bearer ${token}`, 
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       }
     )
-    .then((res) => {
-      if (res.status === 200) {
-        setFavorites((prevFavorites) => ({
-          ...prevFavorites,
-          [id]: !prevFavorites[id],
-        }));
-        toast('Added to favorites successfully');
-      } else {
-        console.error('Failed to update favorites:', res);
-        toast('Failed to update favorites');
-      }
-    })
-    .catch((error) => {
-      console.error('Error updating favorites:', error);
-      toast.error('Error updating favorites');
-    });
+      .then((res) => {
+        if (res.status === 200) {
+          setFavorites((prevFavorites) => ({
+            ...prevFavorites,
+            [id]: !prevFavorites[id],
+          }));
+          toast('Added to favorites successfully');
+        } else {
+          console.error('Failed to update favorites:', res);
+          toast('Failed to update favorites');
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating favorites:', error);
+        toast.error('Error updating favorites');
+      });
   };
-  
 
-  const [type, setType] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    const properties = document.querySelectorAll('.property-item');
-    properties.forEach((property) => {
-      const propertyType = property.querySelector('.position-absolute').textContent.trim().toLowerCase();
-      if (
-        (type === '' || propertyType === type.toLowerCase())
-      ) {
-        property.style.display = 'block';
-      } else {
-        property.style.display = 'none';
-      }
-    });
+    const filtered = properties.filter((property) =>
+      property.type.toLowerCase().includes(type.toLowerCase())
+    );
+    setFilteredProperties(filtered);
   };
 
   return (
@@ -95,11 +88,11 @@ const Properties = () => {
           <div className="row g-0 gx-5 mb-4">
             <div className="col-lg-6">
               <div className="text-start mx-auto wow slideInLeft" data-wow-delay="0.1s">
-                <h1 className="mb-3">Property Listing</h1>
+                <h1 className="mb3">Property Listing</h1>
                 <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
               </div>
             </div>
-            <div className="col-lg-6 justify-content-end ">
+            <div className="col-lg-6 justify-content-end">
               <form id="searchForm" onSubmit={handleSubmit} className="justify-content-center d-flex">
                 <div className="me-2">
                   <input type="text" className="form-control" id="propertyType" value={type}
@@ -111,9 +104,9 @@ const Properties = () => {
               </form>
             </div>
           </div>
-          <div className='container-fluid'>
-            <div className='row'>
-              {stated.map((item) => (
+          <div className="container-fluid">
+            <div className="row">
+              {filteredProperties.map((item) => (
                 <div className="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="0.1s" key={item.id}>
                   <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="" data-bs-target="">
                     <div className="position-relative overflow-hidden">

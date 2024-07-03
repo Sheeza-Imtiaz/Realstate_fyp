@@ -27,7 +27,7 @@ const Pricingplan = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://192.168.12.105:8001/real_estate/plans/', formData, {
+            const response = await axios.post('http://192.168.12.108:8001/real_estate/plans/', formData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -75,7 +75,7 @@ const Pricingplan = () => {
                             <label htmlFor="number_of_post" className="form-label">Number of Posts:</label>
                             <input type="number" className="form-control" id="number_of_post" name="number_of_post" value={formData.number_of_post} onChange={handleChange} required />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn" style={{backgroundColor:"#1e4f5c"}}>Submit</button>
                     </form>
                 </div>
             </div>

@@ -39,7 +39,7 @@ const Useradd = () => {
         }
 
         try {
-            const response = await axios.post('http://192.168.12.105:8001/real_estate/products/', formDataToSend, {
+            const response = await axios.post('http://192.168.12.108:8001/real_estate/products/', formDataToSend, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -127,7 +127,7 @@ const Useradd = () => {
                             <label>Profile Photo:</label>
                             <input className="form-control-file" type="file" name="product_picture" accept="image/*" onChange={handleChange} />
                         </div>
-                        <button type="submit" className="btn">Submit</button>
+                        <button type="submit" className="btn" style={{ backgroundColor: "#1e4f5c" }}>Submit</button>
                     </form>
                 </div>
             </div>
