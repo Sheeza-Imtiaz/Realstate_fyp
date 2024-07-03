@@ -89,7 +89,7 @@ const Properties = () => {
             <div className="col-lg-6">
               <div className="text-start mx-auto wow slideInLeft" data-wow-delay="0.1s">
                 <h1 className="mb3">Property Listing</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
+                <p>Explore our comprehensive property listings featuring a variety of options tailored to suit different lifestyles and preferences. Whether you're searching for apartments, villas, houses, or offices, each listing provides detailed information to help you find your ideal property.</p>
               </div>
             </div>
             <div className="col-lg-6 justify-content-end">
