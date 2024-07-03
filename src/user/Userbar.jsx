@@ -14,7 +14,7 @@ const Userbar = () => {
             setIsLoggedIn(true);
             setUsername(loggedInUser.username); // Assuming username is stored in logdata
         }
-    }, []);
+    }, [setUsername]);
 
     const handleLogout = () => {
         sessionStorage.removeItem('logdata');
