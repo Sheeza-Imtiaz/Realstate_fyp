@@ -149,6 +149,8 @@
 
 .property {
   margin-bottom: 4rem;
+  /* height: 60vh; */
+  
 }
 
 .property h1 {
@@ -162,10 +164,10 @@
 }
 
 .row .cat-item {
-  height: 350px;
+  height: 320px;
 }
 .rounded {
-  height: 350px;
+  height: 290px;
 }
 a {
   text-decoration: none !important;

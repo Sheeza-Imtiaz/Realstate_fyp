@@ -20,10 +20,10 @@ function Dashboard() {
             setter(data.length);
         }
 
-        fetchData('http://192.168.12.108:8001/real_estate/users/', setUsers);
-        fetchData('http://192.168.12.108:8001/real_estate/allproducts/', setProperties);
-        fetchData('http://192.168.12.108:8001/real_estate/contact/', setMessages);
-        fetchData('http://192.168.12.108:8001/real_estate/plans/', setPricingCards);
+        fetchData('http://192.168.12.103:8001/real_estate/users/', setUsers);
+        fetchData('http://192.168.12.103:8001/real_estate/allproducts/', setProperties);
+        fetchData('http://192.168.12.103:8001/real_estate/contact/', setMessages);
+        fetchData('http://192.168.12.103:8001/real_estate/plans/', setPricingCards);
     }, []);
 
     const data = {

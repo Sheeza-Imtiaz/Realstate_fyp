@@ -14,7 +14,7 @@ const Properties = () => {
   const [type, setType] = useState('');
 
   useEffect(() => {
-    axios.get('http://192.168.12.108:8001/real_estate/allproducts/')
+    axios.get('http://192.168.12.103:8001/real_estate/allproducts/')
       .then((res) => {
         setProperties(res.data);
         setFilteredProperties(res.data); // Set initially to all properties
@@ -25,7 +25,7 @@ const Properties = () => {
   }, []);
 
   const seeit = (id) => {
-    axios.get(`http://192.168.12.108:8001/real_estate/allproducts/${id}/`)
+    axios.get(`http://192.168.12.103:8001/real_estate/allproducts/${id}/`)
       .then((res) => {
         sessionStorage.setItem('editdata', JSON.stringify(res.data));
         navigate('/mydetail');
@@ -45,7 +45,7 @@ const Properties = () => {
     };
 
     axios.post(
-      'http://192.168.12.108:8001/real_estate/favorites/',
+      'http://192.168.12.103:8001/real_estate/favorites/',
       body,
       {
         headers: {

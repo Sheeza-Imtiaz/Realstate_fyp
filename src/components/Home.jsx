@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from './Footer';
 import "./Home.css";
 import HoverCarousel from "hover-carousel";
 import { Row, Col, Button } from 'react-bootstrap';
 import TestimonialSlider from './testimonial/testimonial';
 import CustomNavbar from './Navbar';
+import { NavLink } from 'react-router-dom';
 // import Pricing from './Pricecard/Price';
 // import { useState } from 'react';
 
 const Home = () => {
+  
 
   const images = [
     "images/property-1.jpg",
@@ -33,7 +35,25 @@ const Home = () => {
       }
     });
   };
+  const [propertyTypes, setPropertyTypes] = useState([
+    { type: 'Apartment', count: 123, icon: '/images/icon-apartment.png' },
+    { type: 'Villa', count: 123, icon: '/images/icon-villa.png' },
+    { type: 'Home', count: 123, icon: '/images/icon-house.png' },
+    { type: 'Office', count: 123, icon: '/images/icon-deal.png' },
+  ]);
 
+  // Use effect to automatically increment and decrement counts
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setPropertyTypes((prevPropertyTypes) =>
+        prevPropertyTypes.map((property) => ({
+          ...property,
+          count: property.count + Math.floor(Math.random() * 3 - 1) // Random increment or decrement by 1
+        }))
+      );
+    }, 1000);
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, []);
 
 
   return (
@@ -63,71 +83,36 @@ const Home = () => {
             <Col lg={6} className='about-content'>
               <h2>We are the Best <br /><span> Real Estate Company</span></h2>
               <p>Discover excellence with Us, where we specialize in finding your perfect property and ensuring a seamless selling experience. Trusted for our expertise and dedication, we're committed to your satisfaction every step of the way</p>
-              <Button>View More Details</Button>
+              <NavLink to='/aboutdetail'><Button>View More Details</Button></NavLink>
             </Col>
           </Row>
         </div>
         {/* property type  */}
-
-        <div className="container-fluid py-3 ">
-          <div className="container property">
-            <div className="text-center mx-auto mb-5">
-              <h1 className="mb-3">Property Types</h1>
-              <p>Discover a wide array of property types tailored to meet your unique preferences and needs. Whether you're seeking a cozy apartment, a spacious family home, or a luxurious estate, we have options to suit every lifestyle. Find the perfect property that fits your vision with ease at Real Estate</p>
-            </div>
-            <div className="row">
-              {/* Apartment */}
-              <div className="col-lg-3 col-sm-6 ">
-                <div className="cat-item d-block bg-light text-center rounded p-3" >
-                  <div className="rounded p-4">
-                    <div className="icon mb-3">
-                      <img className="img-fluid" src="/images/icon-apartment.png" alt="Apartment" />
-                    </div>
-                    <h6>Apartment</h6>
-                    <span>123 Properties</span>
-                  </div>
-                </div>
-              </div>
-              {/* Villa */}
-              <div className="col-lg-3 col-sm-6">
-                <div className="cat-item dz-block bg-light text-center rounded p-3" >
-                  <div className="rounded p-4">
-                    <div className="icon mb-4">
-                      <img className="img-fluid" src="/images/icon-villa.png" alt="Villa Icon" />
-                    </div>
-                    <h6>Villa</h6>
-                    <span>123 Properties</span>
-                  </div>
-                </div>
-              </div>
-              {/* House */}
-              <div className="col-lg-3 col-sm-6">
-                <div className="cat-item d-block bg-light text-center rounded p-3" >
-                  <div className="rounded p-4">
-                    <div className="icon mb-4">
-                      <img className="img-fluid" src="/images/icon-house.png" alt="House Icon" />
-                    </div>
-                    <h6>Home</h6>
-                    <span>123 Properties</span>
-                  </div>
-                </div>
-              </div>
-              {/* Office */}
-              <div className="col-lg-3 col-sm-6">
-                <div className="cat-item d-block bg-light text-center rounded p-3">
-                  <div className="rounded p-4">
-                    <div className="icon mb-4">
-                      <img className="img-fluid" src="/images/icon-deal.png" alt="Office Icon" />
-                    </div>
-                    <h6 >Office</h6>
-                    <span>123 Properties</span>
-                  </div>
-                </div>
-              </div>
-              {/* Repeat the same structure for other property types */}
-            </div>
-          </div>
+        <div className="container-fluid py-2">
+      <div className="container property">
+        <div className="text-center mx-auto mb-5">
+          <h1 className="mb-3">Property Types</h1>
+          <p>
+            Discover a wide array of property types tailored to meet your unique preferences and needs. Whether you're seeking a cozy apartment, a spacious family home, or a luxurious estate, we have options to suit every lifestyle. Find the perfect property that fits your vision with ease at Real Estate.
+          </p>
         </div>
+        <div className="row">
+          {propertyTypes.map((property, index) => (
+            <div key={index} className="col-lg-3 col-sm-6">
+              <div className="cat-item d-block bg-light text-center rounded p-3">
+                <div className="rounded p-4">
+                  <div className="icon mb-3">
+                    <img className="img-fluid" src={property.icon} alt={`${property.type} Icon`} />
+                  </div>
+                  <h6>{property.type}</h6>
+                  <span>{property.count} Properties</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
 
         {/* how it works section  */}
         <div className="how-it-works">
@@ -220,18 +205,19 @@ const Home = () => {
 
               {/* card 2 */}
               <div className="car col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal2">
-                  <div className="position-relative overflowhidden">
+                <div className="property-item rounded" style={{ height: "100%", position: "relative" }} data-bs-toggle="modal" data-bs-target="#propertyModal1">
+                  <div className="position-relative overflow-hidden">
                     <img className="img-fluid" src="images/property-2.jpg" alt="" />
-                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#1e4f5c", fontSize: "18px", fontWeight: "600" }}>Vella</div>
+                    <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#1e4f5c", fontSize: "18px", fontWeight: "600" }}>Apartment</div>
+
                   </div>
                   <div className="p-3 d-flex justify-content-between align-items-center">
-                    <h5 className="" style={{ color: "#fc9700" }}>12,345,000</h5>
+                    <h5 className="" style={{ color: "#fc9700" }}>11,234,500</h5>
                     <i className="fa fa-heart" style={{ color: "#ccc", cursor: "pointer" }} onClick={(e) => e.target.style.color = e.target.style.color === 'rgb(252, 151, 0)' ? '#ccc' : '#fc9700'}></i>
                   </div>
                   <div className='ms-3'>
-                    <h4 className="d-block h5 mb-2">Pool Flat House</h4>
-                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>123 Street, Gulburg Lahore</p>
+                    <h4 className="d-block h5 mb-2">Pool House</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>DHA phase6 Lahore, Pakistan</p>
                   </div>
                 </div>
               </div>
@@ -240,14 +226,14 @@ const Home = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <h5 className="modal-title" id="propertyModalLabel">Pool House</h5>
                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                       <img className="img-fluid mb-3" src="images/property-2.jpg" alt="" />
-                      <p><strong>Price:</strong> $12,34567</p>
-                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
-                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                      <p><strong>Price:</strong>11,234,500</p>
+                      <p><strong>Location:</strong>DHA phase6 Lahore, Pakistan </p>
+                      <p><strong>Description:</strong> Located in DHA Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
@@ -263,12 +249,12 @@ const Home = () => {
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#1e4f5c", fontSize: "18px", fontWeight: "600" }}>Home</div>
                   </div>
                   <div className="p-3 d-flex justify-content-between align-items-center">
-                    <h5 className="" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h5 className="" style={{ color: "#fc9700" }}>544,322,000</h5>
                     <i className="fa fa-heart" style={{ color: "#ccc", cursor: "pointer" }} onClick={(e) => e.target.style.color = e.target.style.color === 'rgb(252, 151, 0)' ? '#ccc' : '#fc9700'}></i>
                   </div>
                   <div className='ms-3'>
-                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>123 Street, New York, USA</p>
+                    <h4 className="d-block h5 mb-2">Garden Pool House</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>23 Street, Gullburg, LHR</p>
                   </div>
                 </div>
               </div>
@@ -277,14 +263,14 @@ const Home = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <h5 className="modal-title" id="propertyModalLabel">Garden Pool House</h5>
                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                       <img className="img-fluid mb-3" src="images/property-3.jpg" alt="" />
-                      <p><strong>Price:</strong> $12,345</p>
-                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
-                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                      <p><strong>Price:</strong> 544,322,000</p>
+                      <p><strong>Location:</strong>23 Street, Gullburg, LHR</p>
+                      <p><strong>Description:</strong>  Located in Gullburg Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
@@ -292,7 +278,6 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-
               {/* card 4  */}
               <div className="car col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal4">
@@ -301,12 +286,12 @@ const Home = () => {
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#1e4f5c", fontSize: "18px", fontWeight: "600" }}>Villa</div>
                   </div>
                   <div className="p-3 d-flex justify-content-between align-items-center">
-                    <h5 className="" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h5 className="" style={{ color: "#fc9700" }}>33,345,000</h5>
                     <i className="fa fa-heart" style={{ color: "#ccc", cursor: "pointer" }} onClick={(e) => e.target.style.color = e.target.style.color === 'rgb(252, 151, 0)' ? '#ccc' : '#fc9700'}></i>
                   </div>
                   <div className='ms-3'>
-                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>123 Street, New York, USA</p>
+                    <h4 className="d-block h5 mb-2">USA design House</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>Block 4 DHA phase2, Lahore</p>
                   </div>
                 </div>
               </div>
@@ -315,14 +300,14 @@ const Home = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <h5 className="modal-title" id="propertyModalLabel">USA design House</h5>
                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                       <img className="img-fluid mb-3" src="images/property-4.jpg" alt="" />
-                      <p><strong>Price:</strong> $12,345</p>
-                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
-                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                      <p><strong>Price:</strong>33,345,000 </p>
+                      <p><strong>Location:</strong>Block 4 DHA phase2, Lahore </p>
+                      <p><strong>Description:</strong>  Located in DHA Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
@@ -330,7 +315,6 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-
               {/* card 5 */}
               <div className="car col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal5">
@@ -339,12 +323,12 @@ const Home = () => {
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#1e4f5c", fontSize: "18px", fontWeight: "600" }}>office</div>
                   </div>
                   <div className="p-3 d-flex justify-content-between align-items-center">
-                    <h5 className="" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h5 className="" style={{ color: "#fc9700" }}>90,738,300</h5>
                     <i className="fa fa-heart" style={{ color: "#ccc", cursor: "pointer" }} onClick={(e) => e.target.style.color = e.target.style.color === 'rgb(252, 151, 0)' ? '#ccc' : '#fc9700'}></i>
                   </div>
                   <div className='ms-3'>
-                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>123 Street, New York, USA</p>
+                    <h4 className="d-block h5 mb-2">Asian Design House</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>1Muslim Town Near Nehar</p>
                   </div>
                 </div>
               </div>
@@ -353,14 +337,14 @@ const Home = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="propertyModalLabel">Golden Urban House For Sell</h5>
+                      <h5 className="modal-title" id="propertyModalLabel">Asian Design House</h5>
                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                       <img className="img-fluid mb-3" src="images/property-5.jpg" alt="" />
-                      <p><strong>Price:</strong> $12,345</p>
-                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
-                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                      <p><strong>Price:</strong>90,738,300 </p>
+                      <p><strong>Location:</strong> Muslim Town Near Nehar</p>
+                      <p><strong>Description:</strong>  Located in muslim town Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
@@ -368,7 +352,6 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-
               {/* card 6 */}
               <div className="car col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="property-item rounded" style={{ height: "100%" }} data-bs-toggle="modal" data-bs-target="#propertyModal6">
@@ -377,12 +360,12 @@ const Home = () => {
                     <div className="bg-white rounded-top position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style={{ color: "#1e4f5c", fontSize: "18px", fontWeight: "600" }}>Villa</div>
                   </div>
                   <div className="p-3 d-flex justify-content-between align-items-center">
-                    <h5 className="" style={{ color: "#fc9700" }}>$12,345</h5>
+                    <h5 className="" style={{ color: "#fc9700" }}>222,443,400</h5>
                     <i className="fa fa-heart" style={{ color: "#ccc", cursor: "pointer" }} onClick={(e) => e.target.style.color = e.target.style.color === 'rgb(252, 151, 0)' ? '#ccc' : '#fc9700'}></i>
                   </div>
                   <div className='ms-3'>
-                    <h4 className="d-block h5 mb-2">Golden Urban House For Sell</h4>
-                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>123 Street, New York, USA</p>
+                    <h4 className="d-block h5 mb-2">Double Story Style</h4>
+                    <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i> Defance Raya Lahore</p>
                   </div>
                 </div>
               </div>
@@ -391,14 +374,14 @@ const Home = () => {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="propertyModalLabel6">Golden Urban House For Sell</h5>
+                      <h5 className="modal-title" id="propertyModalLabel6">Double Story Style</h5>
                       <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
                       <img className="img-fluid mb-3" src="images/property-6.jpg" alt="" />
-                      <p><strong>Price:</strong> $12,345</p>
-                      <p><strong>Location:</strong> 123 Street, New York, USA</p>
-                      <p><strong>Description:</strong> Detailed description about the property. This could include information about the number of bedrooms, bathrooms, square footage, unique features, and any other relevant details that make this property special.</p>
+                      <p><strong>Price:</strong> 222,443,40</p>
+                      <p><strong>Location:</strong> Defance Raya Lahore</p>
+                      <p><strong>Description:</strong>  Located in dafence Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }} >Contact Agent</button>

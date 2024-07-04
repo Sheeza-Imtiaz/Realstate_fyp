@@ -20,7 +20,7 @@ const Pricing = () => {
     useEffect(() => {
         const fetchPricingPlans = async () => {
             try {
-                const response = await axios.get('http://192.168.12.108:8001/real_estate/plans/');
+                const response = await axios.get('http://192.168.12.103:8001/real_estate/plans/');
                 const data = response.data.filter((item) => item.name !== "Free");
                 setPricingPlans(data);
             } catch (error) {
@@ -42,14 +42,14 @@ const Pricing = () => {
 
     const activatePlan = async (planId, paymentMethodId) => {
         try {
-            const response = await axios.post(`http://192.168.12.108:8001/real_estate/plans/${planId}/activate/`, {
+            const response = await axios.post(`http://192.168.12.103:8001/real_estate/plans/${planId}/activate/`, {
                 payment_method_id: paymentMethodId,
             });
             console.log('Plan activated successfully:', response.data);
             toast.success('Plan activated successfully!');
             
             const { id, username } = logdata;
-            await axios.post('http://192.168.12.108:8001/auth/logout/', { id, username });
+            await axios.post('http://192.168.12.103:8001/auth/logout/', { id, username });
 
             sessionStorage.removeItem('logdata');
             navigate('/login');
@@ -134,7 +134,7 @@ const PaymentModal = ({ onRequestClose, plan, onActivate }) => {
             toast.error('Payment failed.');
         } else {
             try {
-                const response = await axios.patch(`http://192.168.12.108:8001/real_estate/users/${userId}/update-plan/`, {
+                const response = await axios.patch(`http://192.168.12.103:8001/real_estate/users/${userId}/update-plan/`, {
                     plan_name: plan.name,
                 });
 

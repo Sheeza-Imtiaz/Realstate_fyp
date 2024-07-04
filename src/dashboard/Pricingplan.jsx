@@ -27,7 +27,7 @@ const Pricingplan = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://192.168.12.108:8001/real_estate/plans/', formData, {
+            const response = await axios.post('http://192.168.12.103:8001/real_estate/plans/', formData, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },

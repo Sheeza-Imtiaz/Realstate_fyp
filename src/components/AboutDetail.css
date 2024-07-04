@@ -1,0 +1,78 @@
+.about-detail {
+    padding: 20px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.left-content, .right-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.center-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.agent-carousel {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.agent-carousel .agent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.agent-carousel .agent img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.agent-carousel .agent-details {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.agent-carousel .agent-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.agent-carousel .agent-phone,
+.agent-carousel .agent-location {
+    font-size: 16px;
+}
+
+/* Media Query for small screens */
+@media (max-width: 600px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-content, .center-image, .right-content {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .center-image img {
+        max-width: 90%;
+    }
+}

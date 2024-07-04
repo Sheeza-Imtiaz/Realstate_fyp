@@ -8,9 +8,9 @@ const Footer = () => {
         <div className="row ">
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Get In Touch</h5>
-            <p className="mb-2 fs-7"><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+            <p className="mb-2 fs-7"><i className="fa fa-map-marker-alt me-3"></i>123 Street, Lahore, Pakistan</p>
             <p className="mb-2 fs-7"><i className="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-            <p className="mb-2 fs-7"><i className="fa fa-envelope me-3"></i>info@example.com</p>
+            <p className="mb-2 fs-7"><i className="fa fa-envelope me-3"></i>Realestate@gmail.com</p>
             <div className="d-flex pt-2" >
               <button className="btn btn-outline-light btn-social" style={{backgroundColor:"#1e4f5c"}}><i className="fab fa-twitter"></i></button>
               <button className="btn btn-outline-light btn-social" style={{backgroundColor:"#1e4f5c"}}><i className="fab fa-facebook-f"></i></button>
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text mb-4 fs-4">Newsletter</h5>
-            <p className='fs-7'>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+            <p className='fs-7'>Try to sell and buy a property in best prices with us.</p>
             <div className="position-relative mx-auto" style={{ maxWidth: "400px" }}>
               <input className="form-control w-100 py-2 ps-4 pe-3 fs-7" type="text" placeholder="Your email" />
               <button style={{ backgroundColor: '#1e4f5c', color: 'white' }} type="button" className="btn py-1 position-absolute top-0 end-0 mt-1 me-6">SignUp</button>

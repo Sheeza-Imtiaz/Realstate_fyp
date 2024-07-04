@@ -5,6 +5,7 @@ import UserRoute from './user/Userroute';
 
 import Home from './components/Home';
 import About from './components/About';
+import AboutDetail from './components/AboutDetail';
 import Properties from './components/Properties';
 import Contact from './components/Contact';
 import Login from './components/Login';
@@ -48,6 +49,7 @@ function App() {
       {/* home page components  */}
         <Route path='/' exact element={<Home/>} />
         <Route path='/about' exact element={<About/>} />
+        <Route path='/AboutDetail' exact element={<AboutDetail/>} />
         <Route path='/properties' exact element={<Properties/>} />
         <Route path='/testimonial' element={<TestimonialSlider/>}></Route>
         <Route path='/contact' exact element={<Contact/>} />

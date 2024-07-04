@@ -12,7 +12,7 @@ const Prodetail = () => {
         }
         const fetchit = async () => {
             try {
-                const response = await fetch('http://192.168.12.108:8001/real_estate/allproducts/');
+                const response = await fetch('http://192.168.12.103:8001/real_estate/allproducts/');
                 const resu = await response.json();
                 upstated(resu);
                 console.log(resu)
@@ -24,7 +24,7 @@ const Prodetail = () => {
     }, [setUser]);
 
     const deleteProduct = (productId) => {
-        axios.delete(`http://192.168.12.108:8001/real_estate/products/${productId}/`)
+        axios.delete(`http://192.168.12.103:8001/real_estate/products/${productId}/`)
             .then((res) => {
                 console.log(res.data);
                 upstated(prevState => prevState.filter(item => item.id !== productId));

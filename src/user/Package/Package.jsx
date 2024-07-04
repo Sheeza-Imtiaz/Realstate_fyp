@@ -15,7 +15,7 @@ const Package = () => {
         const userConfirmed = window.confirm('Are you sure you want to deactivate your current plan?');
         if (userConfirmed) {
             try {
-                const response = await axios.patch(`http://192.168.12.108:8001/real_estate/users/${userId}/update-plan/`, {
+                const response = await axios.patch(`http://192.168.12.103:8001/real_estate/users/${userId}/update-plan/`, {
                     plan_name: 'Free',
                 });
                 console.log(response);
@@ -31,7 +31,7 @@ const Package = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://192.168.12.108:8001/real_estate/user_data/');
+                const response = await axios.get('http://192.168.12.103:8001/real_estate/user_data/');
                 setUsername(response.data.username);
             } catch (error) {
                 console.error('Error fetching user data:', error);
