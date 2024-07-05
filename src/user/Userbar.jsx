@@ -5,7 +5,7 @@ import styles from './Userbar.module.css';
 const Userbar = () => {
     const [navToggled, setNavToggled] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [username,setUsername] = useState('');
+    const [setUsername] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
