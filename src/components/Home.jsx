@@ -197,7 +197,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button>
+                    <NavLink to='/aboutdetail'>  <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>
                     </div>
                   </div>
                 </div>
@@ -236,8 +236,7 @@ const Home = () => {
                       <p><strong>Description:</strong> Located in DHA Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
-                    </div>
+                    <NavLink to='/aboutdetail'>  <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>                    </div>
                   </div>
                 </div>
               </div>
@@ -273,7 +272,7 @@ const Home = () => {
                       <p><strong>Description:</strong>  Located in Gullburg Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
+                    <NavLink to='/aboutdetail'>  <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>
                     </div>
                   </div>
                 </div>
@@ -310,8 +309,7 @@ const Home = () => {
                       <p><strong>Description:</strong>  Located in DHA Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
-                    </div>
+                    <NavLink to='/aboutdetail'>  <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>                    </div>
                   </div>
                 </div>
               </div>
@@ -347,8 +345,7 @@ const Home = () => {
                       <p><strong>Description:</strong>  Located in muslim town Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}  >Contact Agent</button>
-                    </div>
+                    <NavLink to='/aboutdetail'>  <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>                    </div>
                   </div>
                 </div>
               </div>
@@ -384,8 +381,7 @@ const Home = () => {
                       <p><strong>Description:</strong>  Located in dafence Lhr, this 5 bedrooms, 3 bathroom home offers 24 sqft of living space. Recently constructed, it features have garden. Conveniently situated near Airpot.</p>
                     </div>
                     <div className="modal-footer">
-                      <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }} >Contact Agent</button>
-                    </div>
+                    <NavLink to='/aboutdetail'>  <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>                    </div>
                   </div>
                 </div>
               </div>

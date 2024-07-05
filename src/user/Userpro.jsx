@@ -18,7 +18,7 @@ const Userprofile = () => {
 
     useEffect(() => {
         if (userId && accessToken) {
-            axios.get(`http://192.168.12.103:8001/real_estate/users/${userId}/`, {
+            axios.get(`http://192.168.12.107:8001/real_estate/users/${userId}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -34,7 +34,7 @@ const Userprofile = () => {
                     console.error('Error fetching user profile data:', error);
                 });
 
-            axios.get(`http://192.168.12.103:8001/real_estate/products/?user_id=${userId}`, {
+            axios.get(`http://192.168.12.107:8001/real_estate/products/?user_id=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -50,7 +50,7 @@ const Userprofile = () => {
 
     const handleDeleteProperty = async (propertyId) => {
         try {
-            await axios.delete(`http://192.168.12.103:8001/real_estate/products/${propertyId}/`, {
+            await axios.delete(`http://192.168.12.107:8001/real_estate/products/${propertyId}/`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },

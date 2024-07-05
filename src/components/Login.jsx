@@ -26,8 +26,8 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post('http://192.168.12.103:8001/real_estate/login/', formData);
-      // const resp = await axios.post('http://192.168.12.103:8001/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.12.107:8001/real_estate/login/', formData);
+      // const resp = await axios.post('http://192.168.12.107:8001/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       setIsLoggedIn(true);
@@ -79,7 +79,7 @@ function Login() {
                   </button>
                   {!isLoggedIn && (
                     <p className="small mb-1 pb-lg-3 ms-5">
-                      <a className="text-muted" href="http://192.168.12.103:8001/real_estate/password_reset/">
+                      <a className="text-muted" href="http://192.168.12.107:8001/real_estate/password_reset/">
                         Forgot password?
                       </a>
                     </p>

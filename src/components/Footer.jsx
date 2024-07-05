@@ -22,7 +22,7 @@ const Footer = () => {
             <h5 className="text mb-4 fs-4">Quick Links</h5>
             <Link to="/about"> <h4 className="btn btn-link text-dark bg-transparent">About Us</h4> </Link>
             <Link to="/contact"><h4 className="btn btn-link text-dark bg-transparent">Contact Us</h4></Link>
-            <h4 className="btn btn-link text-dark bg-transparent">Our Services</h4>
+            <Link to="/aboutdetail"><h4 className="btn btn-link text-dark bg-transparent">Our Services</h4></Link>
             <h4 className="btn btn-link text-dark bg-transparent">Privacy Policy</h4>
             <h4 className="btn btn-link text-dark bg-transparent">Terms & Condition</h4>
           </div>
@@ -54,7 +54,7 @@ const Footer = () => {
             <p className='fs-7'>Try to sell and buy a property in best prices with us.</p>
             <div className="position-relative mx-auto" style={{ maxWidth: "400px" }}>
               <input className="form-control w-100 py-2 ps-4 pe-3 fs-7" type="text" placeholder="Your email" />
-              <button style={{ backgroundColor: '#1e4f5c', color: 'white' }} type="button" className="btn py-1 position-absolute top-0 end-0 mt-1 me-6">SignUp</button>
+              <Link to='/loginreg'><button style={{ backgroundColor: '#1e4f5c', color: 'white' }} type="button" className="btn py-1 position-absolute top-0 end-0 mt-1 me-6">SignUp</button></Link> 
             </div>
           </div>
         </div>

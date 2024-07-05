@@ -8,7 +8,7 @@ const ActivatePkg = () => {
     useEffect(() => {
         const fetchActivatedPackages = async () => {
             try {
-                const response = await axios.get('http://192.168.12.103:8001/real_estate/users/');
+                const response = await axios.get('http://192.168.12.107:8001/real_estate/users/');
                 const data = response.data.filter(user => user.role !== 'admin');
                 const filteredPackages = data.filter(user => user.plan && user.plan.name !== 'Free');
                 setActivatedPackages(filteredPackages);

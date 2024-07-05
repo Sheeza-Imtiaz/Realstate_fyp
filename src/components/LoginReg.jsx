@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import CustomNavbar from './Navbar';
 import { ToastContainer, toast } from 'react-toastify';
@@ -34,7 +34,7 @@ const LoginReg = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.12.103:8001/real_estate/register/', formDataToSend);
+      const response = await axios.post('http://192.168.12.107:8001/real_estate/register/', formDataToSend);
       console.log(response.data);
       toast('Registration Successful');
       setTimeout(() => {
@@ -113,8 +113,11 @@ const LoginReg = () => {
                 </button>
               </form>
               <div className="mx-5 w-100 mt-3">
-                Already have an account? <Link to="/Login">Login here</Link>
+              <span>Already have an account?
+                        <NavLink to="/Login" className="link-info">Login here</NavLink>
+                      </span>
               </div>
+            
             </div>
           </MDBCol>
           <MDBCol sm="6" className="d-none d-sm-block px-0">

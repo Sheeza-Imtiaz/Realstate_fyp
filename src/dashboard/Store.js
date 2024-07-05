@@ -27,7 +27,7 @@ export const selectLoggedInUsers = state => state.users.loggedInUsers;
 
 export const fetchLoggedInUsers = () => async dispatch => {
   try {
-    const response = await axios.get('http://192.168.12.103:8001/real_estate/users/');
+    const response = await axios.get('http://192.168.12.107:8001/real_estate/users/');
     dispatch(fetchLoggedInUsersSuccess(response.data));
   } catch (error) {
     dispatch(fetchLoggedInUsersFailure(error.message));
@@ -36,7 +36,7 @@ export const fetchLoggedInUsers = () => async dispatch => {
 
 export const deleteLoggedInUser = userId => async dispatch => {
   try {
-    await axios.delete(`http://192.168.12.103:8001/real_estate/users/${userId}/`);
+    await axios.delete(`http://192.168.12.107:8001/real_estate/users/${userId}/`);
     dispatch(deleteUser(userId));
   } catch (error) {
     console.error('Error deleting user:', error);

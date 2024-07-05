@@ -9,7 +9,7 @@ const Priceed = () => {
     useEffect(() => {
         const fetchPricingPlans = async () => {
             try {
-                const response = await axios.get('http://192.168.12.103:8001/real_estate/plans/');
+                const response = await axios.get('http://192.168.12.107:8001/real_estate/plans/');
                 setPricingPlans(response.data);
             } catch (error) {
                 console.error('Error fetching pricing plans:', error);
@@ -20,7 +20,7 @@ const Priceed = () => {
 
     const handleDeleteClick = async (planId) => {
         try {
-            await axios.delete(`http://192.168.12.103:8001/real_estate/plans/${planId}/`);
+            await axios.delete(`http://192.168.12.107:8001/real_estate/plans/${planId}/`);
             setPricingPlans(pricingPlans.filter((plan) => plan.id !== planId));
             alert('Plan deleted successfully!');
         } catch (error) {

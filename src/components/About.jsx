@@ -95,7 +95,7 @@ const ImageGrid = styled.div`
 `;
 
 const AboutContent = styled.div`
-  max-width: 660px;
+  max-width: 540px;
   h2 {
     font-size: 40px;
     color: #1e4f5c;
@@ -184,7 +184,7 @@ const Steps = styled.div`
 
 const AboutUsContainerFluid = styled.div`
   .about {
-    padding: 1rem;
+    padding: 3rem;
     margin-top:60px !important;
 
     @media (min-width: 600px) {
@@ -231,8 +231,8 @@ const About = () => {
               About <span>Us</span>
             </h2>
             <p>
-            We exceptional real estate service meets unwavering commitment. With a deep-rooted passion for real estate, our team is dedicated to exceeding your expectations. Whether you're buying, selling, or managing properties, we offer personalized solutions tailored to your unique needs. Backed by years of industry expertise and a client-first approach, we strive to deliver seamless transactions and optimal results. Discover why Real Estate is your trusted partner in real estate—contact us today to embark on your journey towards your real estate goals.</p>
-           <NavLink to='/aboutdetail'><Button>Learn More</Button></NavLink> 
+              We exceptional real estate service meets unwavering commitment. With a deep-rooted passion for real estate, our team is dedicated to exceeding your expectations. Whether you're buying, selling, or managing properties, we offer personalized solutions tailored to your unique needs. Backed by years of industry expertise and a client-first approach, we strive to deliver seamless transactions and optimal results. Discover why Real Estate is your trusted partner in real estate—contact us today to embark on your journey towards your real estate goals.</p>
+            <NavLink to='/aboutdetail'><Button>Learn More</Button></NavLink>
           </AboutContent>
         </AboutUsContainer>
         <WhyChooseUs>
@@ -270,25 +270,25 @@ const About = () => {
           </Steps>
         </WhyChooseUs>
 
-  <AboutUsContainerFluid>
-    <Container fluid className="about">
-      <Row>
-        <Col lg={6} className="about-content">
-          <h2>
-            We are the Best <br />
-            <span> Real Estate Company</span>
-          </h2>
-          <p>
-          Welcome to Resl Estate, where real estate expertise meets personalized service. We specialize in guiding clients through seamless buying, selling, and property management experiences. With a commitment to excellence and a deep understanding of local markets, we are dedicated to achieving your real estate goals efficiently and effectively.
-          </p>
-         <NavLink to='/aboutdetail'><Button>View More Details</Button></NavLink> 
-        </Col>
-        <Col lg={6} className="about-model">
-          <img src="/images/about.jpg" alt="our team" />
-        </Col>
-      </Row>
-    </Container>
-  </AboutUsContainerFluid>
+        <AboutUsContainerFluid>
+          <Container fluid className="about">
+            <Row>
+              <Col lg={6} className="about-content">
+                <h2>
+                  We are the Best <br />
+                  <span> Real Estate Company</span>
+                </h2>
+                <p>
+                  Welcome to Resl Estate, where real estate expertise meets personalized service. We specialize in guiding clients through seamless buying, selling, and property management experiences. With a commitment to excellence and a deep understanding of local markets, we are dedicated to achieving your real estate goals efficiently and effectively.
+                </p>
+                <NavLink to='/aboutdetail'><Button>View More Details</Button></NavLink>
+              </Col>
+              <Col lg={6} className="about-model">
+                <img src="/images/about.jpg" alt="our team" />
+              </Col>
+            </Row>
+          </Container>
+        </AboutUsContainerFluid>
       </div>
 
       <div>

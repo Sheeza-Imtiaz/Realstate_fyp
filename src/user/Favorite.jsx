@@ -7,7 +7,7 @@ const Favorite = () => {
     const token = JSON.parse(sessionStorage.getItem('token'));
 
     useEffect(() => {
-        axios.get('http://192.168.12.103:8001/real_estate/favorites/', {
+        axios.get('http://192.168.12.107:8001/real_estate/favorites/', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -21,7 +21,7 @@ const Favorite = () => {
     // const handleFavoriteClick = (e, id) => {
     //     e.stopPropagation();
     //     const newFavoriteStatus = !favorites[id];
-    //     axios.post('http://192.168.12.103:8001/real_estate/favorites/', { propertyId: id }, {
+    //     axios.post('http://192.168.12.107:8001/real_estate/favorites/', { propertyId: id }, {
     //         headers: {
     //             Authorization: `Bearer ${token}`
     //         }
@@ -41,7 +41,7 @@ const Favorite = () => {
 
 
     const handleRemoveFavorite = (id) => {
-        axios.delete(`http://192.168.12.103:8001/real_estate/favorites/${id}/`, {
+        axios.delete(`http://192.168.12.107:8001/real_estate/favorites/${id}/`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

@@ -20,10 +20,10 @@ function Dashboard() {
             setter(data.length);
         }
 
-        fetchData('http://192.168.12.103:8001/real_estate/users/', setUsers);
-        fetchData('http://192.168.12.103:8001/real_estate/allproducts/', setProperties);
-        fetchData('http://192.168.12.103:8001/real_estate/contact/', setMessages);
-        fetchData('http://192.168.12.103:8001/real_estate/plans/', setPricingCards);
+        fetchData('http://192.168.12.107:8001/real_estate/users/', setUsers);
+        fetchData('http://192.168.12.107:8001/real_estate/allproducts/', setProperties);
+        fetchData('http://192.168.12.107:8001/real_estate/contact/', setMessages);
+        fetchData('http://192.168.12.107:8001/real_estate/plans/', setPricingCards);
     }, []);
 
     const data = {
@@ -56,32 +56,36 @@ function Dashboard() {
                 <div className={styles.dashboardContent}>
                     <div className="row p-5">
                         <div className="col-md-4 mb-5">
-                            <div className="card" style={{ backgroundColor: "#e3ffd7" }}>
-                                <div className="card-body">
+                            <div className="card" style={{ backgroundColor: " #eef3f0" }}>
+                                <div className="card-body"> 
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
                                     <h5 className="card-title">Number Of Users</h5>
                                     <p className="card-text">{users}</p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4 mb-5">
-                            <div className="card" style={{ backgroundColor: "#ddc2ff" }}>
+                            <div className="card" style={{ backgroundColor: " #eef3f0" }}>
                                 <div className="card-body">
+                                <i class="fas fa-building" aria-hidden="true"></i>
                                     <h5 className="card-title">Property Listing</h5>
                                     <p className="card-text">{properties}</p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4 mb-5">
-                            <div className="card" style={{ backgroundColor: "#cdd3ff" }}>
+                            <div className="card" style={{ backgroundColor: " #eef3f0" }}>
                                 <div className="card-body">
+                                <i class="fas fa-comments" aria-hidden="true"></i>
                                     <h5 className="card-title">Messages</h5>
                                     <p className="card-text">{messages}</p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-4 mb-5">
-                            <div className="card" style={{ backgroundColor: "	#e4fff6" }}>
+                            <div className="card" style={{ backgroundColor: " #eef3f0" }}>
                                 <div className="card-body">
+                                <i class="fas fa-id-card" aria-hidden="true"></i>
                                     <h5 className="card-title">Pricing Cards</h5>
                                     <p className="card-text">{pricingCards}</p>
                                 </div>

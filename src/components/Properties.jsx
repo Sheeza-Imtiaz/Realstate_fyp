@@ -14,10 +14,10 @@ const Properties = () => {
   const [type, setType] = useState('');
 
   useEffect(() => {
-    axios.get('http://192.168.12.103:8001/real_estate/allproducts/')
+    axios.get('http://192.168.12.107:8001/real_estate/allproducts/')
       .then((res) => {
         setProperties(res.data);
-        setFilteredProperties(res.data); // Set initially to all properties
+        setFilteredProperties(res.data);
       })
       .catch((error) => {
         console.error('Error fetching properties:', error);
@@ -25,7 +25,7 @@ const Properties = () => {
   }, []);
 
   const seeit = (id) => {
-    axios.get(`http://192.168.12.103:8001/real_estate/allproducts/${id}/`)
+    axios.get(`http://192.168.12.107:8001/real_estate/allproducts/${id}/`)
       .then((res) => {
         sessionStorage.setItem('editdata', JSON.stringify(res.data));
         navigate('/mydetail');
@@ -41,11 +41,11 @@ const Properties = () => {
     const data = JSON.parse(sessionStorage.getItem('logdata'));
     const body = {
       product_id: id,
-      user: data.id,
+      user: data?data.id:'',
     };
 
     axios.post(
-      'http://192.168.12.103:8001/real_estate/favorites/',
+      'http://192.168.12.107:8001/real_estate/favorites/',
       body,
       {
         headers: {
@@ -55,7 +55,7 @@ const Properties = () => {
       }
     )
       .then((res) => {
-        if (res.status === 200) {
+        if (res.status === 201) {
           setFavorites((prevFavorites) => ({
             ...prevFavorites,
             [id]: !prevFavorites[id],
@@ -68,6 +68,7 @@ const Properties = () => {
       })
       .catch((error) => {
         console.error('Error updating favorites:', error);
+        
         toast.error('Error updating favorites');
       });
   };

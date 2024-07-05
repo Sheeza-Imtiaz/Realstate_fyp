@@ -10,7 +10,7 @@ const Message = () => {
 
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this message?")) {
-            axios.delete(`http://192.168.12.103:8001/real_estate/contact/${id}/`)
+            axios.delete(`http://192.168.12.107:8001/real_estate/contact/${id}/`)
                 .then((res) => {
                     console.log(res.data);
                     // Refresh the message list after deletion
@@ -24,7 +24,7 @@ const Message = () => {
     };
 
     useEffect(() => {
-        axios.get('http://192.168.12.103:8001/real_estate/contact/')
+        axios.get('http://192.168.12.107:8001/real_estate/contact/')
             .then((res) => {
                 console.log(res.data);
                 setMessage(res.data);

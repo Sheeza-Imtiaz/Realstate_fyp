@@ -37,7 +37,7 @@
 //         } else {
 //             try {
 //                 const plan_id=plan.id;
-//                 const response = await axios.patch(`http://192.168.12.103:8001/real_estate/users/${id}/update-plan/`, {
+//                 const response = await axios.patch(`http://192.168.12.107:8001/real_estate/users/${id}/update-plan/`, {
 //                     plan_name: plan.name,
 //                 });
 
