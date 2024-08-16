@@ -6,11 +6,44 @@ import { Row, Col, Button } from 'react-bootstrap';
 import TestimonialSlider from './testimonial/testimonial';
 import CustomNavbar from './Navbar';
 import { NavLink } from 'react-router-dom';
-// import Pricing from './Pricecard/Price';
-// import { useState } from 'react';
+
 
 const Home = () => {
+
+  const [type, setType] = useState('');
+  const [propertyTypes, setPropertyTypes] = useState([
+    { type: 'Apartment', count: 123, icon: '/images/icon-apartment.png' },
+    { type: 'Villa', count: 123, icon: '/images/icon-villa.png' },
+    { type: 'Home', count: 123, icon: '/images/icon-house.png' },
+    { type: 'Office', count: 123, icon: '/images/icon-deal.png' },
+  ]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setPropertyTypes(prevPropertyTypes =>
+        prevPropertyTypes.map(property => ({
+          ...property,
+          count: property.count + Math.floor(Math.random() * 3 - 1)
+        }))
+      );
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+
   
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const properties = document.querySelectorAll('.property-item');
+    properties.forEach((property) => {
+      const propertyType = property.querySelector('.position-absolute').textContent.trim().toLowerCase();
+      if (type === '' || propertyType === type.toLowerCase()) {
+        property.style.display = 'block';
+        property.style.alignItems = 'start';
+      } else {
+        property.style.display = 'none';
+      }
+    });
+  };
 
   const images = [
     "images/property-1.jpg",
@@ -19,42 +52,7 @@ const Home = () => {
     "images/property-4.jpg",
     "images/property-5.jpg",
     "images/property-6.jpg",
-  ]
-  const [type, setType] = useState('');
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const properties = document.querySelectorAll('.property-item');
-    properties.forEach((property) => {
-      const propertyType = property.querySelector('.position-absolute').textContent.trim().toLowerCase();
-      if (
-        (type === '' || propertyType === type.toLowerCase())
-      ) {
-        property.style.display = 'block';
-      } else {
-        property.style.display = 'none';
-      }
-    });
-  };
-  const [propertyTypes, setPropertyTypes] = useState([
-    { type: 'Apartment', count: 123, icon: '/images/icon-apartment.png' },
-    { type: 'Villa', count: 123, icon: '/images/icon-villa.png' },
-    { type: 'Home', count: 123, icon: '/images/icon-house.png' },
-    { type: 'Office', count: 123, icon: '/images/icon-deal.png' },
-  ]);
-
-  // Use effect to automatically increment and decrement counts
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setPropertyTypes((prevPropertyTypes) =>
-        prevPropertyTypes.map((property) => ({
-          ...property,
-          count: property.count + Math.floor(Math.random() * 3 - 1) // Random increment or decrement by 1
-        }))
-      );
-    }, 1000);
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, []);
-
+  ];
 
   return (
     <>
@@ -197,7 +195,7 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="modal-footer">
-                    <NavLink to='/aboutdetail'>  <button type="button" className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>
+                    <NavLink to='/aboutdetail'>  <button  className="btn" style={{ backgroundColor: "#1e4f5c", color: 'white' }}>Contact Agent</button> </NavLink>
                     </div>
                   </div>
                 </div>

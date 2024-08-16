@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import axios from 'axios';
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput} from 'mdb-react-ui-kit'; // Assuming you have MDBSpinner imported
 import CustomNavbar from './Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Footer';
 
 function Login() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function Login() {
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(false); // State to manage loading state
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,9 +27,9 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when form is submitted
     try {
-      const resp = await axios.post('http://192.168.12.107:8001/real_estate/login/', formData);
-      // const resp = await axios.post('http://192.168.12.107:8001/real_estate/login/', formData);
+      const resp = await axios.post('http://192.168.12.110:8000/real_estate/login/', formData);
       sessionStorage.setItem('logdata', JSON.stringify(resp.data));
       sessionStorage.setItem('token', JSON.stringify(resp.data.access));
       setIsLoggedIn(true);
@@ -48,6 +50,8 @@ function Login() {
     } catch (error) {
       console.error('Error occurred:', error);
       toast.error('Incorrect username or password. Please try again.');
+    } finally {
+      setLoading(false); // Set loading to false after login attempt (whether success or failure)
     }
   };
 
@@ -74,23 +78,34 @@ function Login() {
                   <label htmlFor="password" className="mb-1 mx-5 w-100">Password</label>
                   <MDBInput wrapperClass="mb-4 mx-5 w-100" id="password" name="password" type="password" size="lg" value={formData.password} onChange={handleChange} required />
 
-                  <button className="mb-1 px-5 p-2 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
-                    {isLoggedIn ? 'Logout' : 'Login'}
-                  </button>
-                  {!isLoggedIn && (
-                    <p className="small mb-1 pb-lg-3 ms-5">
-                      <a className="text-muted" href="http://192.168.12.107:8001/real_estate/password_reset/">
-                        Forgot password?
-                      </a>
-                    </p>
+                  {loading ? (
+                    {/* <div className="text-center">
+                      <MDBSpinner color="primary" />
+                    </div> */}
+                  ) : (
+                    <>
+                      <button className="mb-1 px-5 p-2 text-white mx-5 w-100" size="lg" type="submit" style={{ backgroundColor: "#1e4f5c", borderRadius: "5px" }}>
+
+                      {/* <MDBSpinner color="light" small /> */}
+                      {isLoggedIn ? 'Logout' : 'Login'}
+                      </button>
+                    
+                      {!isLoggedIn && (
+                        <p className="small mb-1 pb-lg-3 ms-5">
+                          <a className="text-muted" href="http://192.168.12.110:8000/real_estate/password_reset/">
+                            Forgot password?
+                          </a>
+                        </p>
+                      )}
+                      <p className="ms-5">
+                        {!isLoggedIn && (
+                          <span> Don't have an account?
+                            <NavLink to="/LoginReg" className="link-info">Register here</NavLink>
+                          </span>
+                        )}
+                      </p>
+                    </>
                   )}
-                  <p className="ms-5">
-                    {!isLoggedIn && (
-                      <span> Don't have an account?
-                        <NavLink to="/LoginReg" className="link-info">Register here</NavLink>
-                      </span>
-                    )}
-                  </p>
                 </form>
               )}
               {isLoggedIn && (
@@ -111,6 +126,7 @@ function Login() {
         </MDBRow>
         <ToastContainer position="top-right" />
       </MDBContainer>
+      <Footer />
     </>
   );
 }

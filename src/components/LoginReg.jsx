@@ -5,6 +5,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import CustomNavbar from './Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Footer';
 
 const LoginReg = () => {
   const navigate = useNavigate();
@@ -14,11 +15,20 @@ const LoginReg = () => {
     email: '',
     password: '',
     profile_photo: null,
-    // role: 'Admin'
   });
+
+  const [profilePhotoPreview, setProfilePhotoPreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
+    if (name === 'profile_photo' && files.length > 0) {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePhotoPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
     setFormData(prevState => ({
       ...prevState,
       [name]: files ? files[0] : value
@@ -34,11 +44,10 @@ const LoginReg = () => {
     }
 
     try {
-      const response = await axios.post('http://192.168.12.107:8001/real_estate/register/', formDataToSend);
+      const response = await axios.post('http://192.168.12.110:8000/real_estate/register/', formDataToSend);
       console.log(response.data);
       toast('Registration Successful');
       setTimeout(() => {
-        
         navigate('/Login');
       }, 3000);
     } catch (error) {
@@ -58,7 +67,7 @@ const LoginReg = () => {
                 Registration
               </h3>
               <form onSubmit={handleSubmit} method="post" encType="multipart/form-data">
-                <div className="form-group mb-2 mx-5 w-100">
+                <div className="pic form-group mb-2 mx-5 w-100">
                   <label htmlFor="profile_photo">Profile Photo:</label>
                   <input
                     className="form-control-file"
@@ -68,6 +77,21 @@ const LoginReg = () => {
                     accept="image/*"
                     onChange={handleChange}
                   />
+                  {profilePhotoPreview && (
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
+                      <img
+                        src={profilePhotoPreview}
+                        alt="Profile"
+                        style={{
+                          width: '150px', // Adjust the size as needed
+                          height: '150px', // Adjust the size as needed
+                          borderRadius: '50%',
+                          objectFit: 'cover',
+                          border: '2px solid #ddd' // Optional: Add a border
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className="form-group mb-1 mx-5 w-100">
                   <label htmlFor="username">Username:</label>
@@ -113,11 +137,8 @@ const LoginReg = () => {
                 </button>
               </form>
               <div className="mx-5 w-100 mt-3">
-              <span>Already have an account?
-                        <NavLink to="/Login" className="link-info">Login here</NavLink>
-                      </span>
+                <span>Already have an account? <NavLink to="/Login" className="link-info">Login here</NavLink></span>
               </div>
-            
             </div>
           </MDBCol>
           <MDBCol sm="6" className="d-none d-sm-block px-0">
@@ -131,6 +152,7 @@ const LoginReg = () => {
         </MDBRow>
         <ToastContainer position="top-right" />
       </MDBContainer>
+      <Footer />
     </>
   );
 };

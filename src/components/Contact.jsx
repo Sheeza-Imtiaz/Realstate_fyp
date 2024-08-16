@@ -58,7 +58,7 @@ function Contact() {
       return;
     }
 
-    fetch('http://192.168.12.107:8001/real_estate/contact/', {
+    fetch('http://192.168.12.110:8000/real_estate/contact/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

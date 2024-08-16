@@ -14,7 +14,7 @@ const Properties = () => {
   const [type, setType] = useState('');
 
   useEffect(() => {
-    axios.get('http://192.168.12.107:8001/real_estate/allproducts/')
+    axios.get('http://192.168.12.110:8000/real_estate/allproducts/')
       .then((res) => {
         setProperties(res.data);
         setFilteredProperties(res.data);
@@ -25,7 +25,7 @@ const Properties = () => {
   }, []);
 
   const seeit = (id) => {
-    axios.get(`http://192.168.12.107:8001/real_estate/allproducts/${id}/`)
+    axios.get(`http://192.168.12.110:8000/real_estate/allproducts/${id}/`)
       .then((res) => {
         sessionStorage.setItem('editdata', JSON.stringify(res.data));
         navigate('/mydetail');
@@ -45,7 +45,7 @@ const Properties = () => {
     };
 
     axios.post(
-      'http://192.168.12.107:8001/real_estate/favorites/',
+      'http://192.168.12.110:8000/real_estate/favorites/',
       body,
       {
         headers: {
@@ -126,7 +126,7 @@ const Properties = () => {
                           onClick={(e) => handleFavoriteClick(e, item.id)}
                         ></i>
                       </div>
-                      <h4 className="d-block h5 mb-2">{item.size}</h4>
+                      <h4 className="d-block h5 mb-2">{item.size} Sqft</h4>
                       <p><i className="fa fa-map-marker-alt me-2" style={{ color: "#1e4f5c" }}></i>{item.location}</p>
                       <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <button className="btn" style={{ backgroundColor: "#1e4f5c", color: "white" }} onClick={() => seeit(item.id)}>Details</button>

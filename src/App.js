@@ -1,4 +1,4 @@
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import "./index.css";
 import AdminRoute from './dashboard/Adminroute';
 import UserRoute from './user/Userroute';
@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import TestimonialSlider from './components/testimonial/testimonial';
 import Mydetail from './components/Mydetail';
 import Pricing from './components/Pricecard/Price';
+import Subscription from './components/Sub/Subscription';
 
 
 import Sidebar from './dashboard/Sidebar';
@@ -36,9 +37,9 @@ import Favorite from './user/Favorite';
 import Package from './user/Package/Package';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-const stripePromise=loadStripe('pk_test_51PXfTnHVVjRYq8uUfTLgoHZcubNYV6CqGl0fJcYejZyna849TPPs5h8Bw0SkFguIH7T3dskSEhWhmPgsk1Wcb2Ej00JJu2RcKa')
+const stripePromise = loadStripe('pk_test_51PXfTnHVVjRYq8uUfTLgoHZcubNYV6CqGl0fJcYejZyna849TPPs5h8Bw0SkFguIH7T3dskSEhWhmPgsk1Wcb2Ej00JJu2RcKa')
 
-const StripeWrapper=({children})=>{
+const StripeWrapper = ({ children }) => {
   return <Elements stripe={stripePromise}>{children}</Elements>
 }
 function App() {
@@ -46,40 +47,41 @@ function App() {
     <div>
       <Routes>
 
-      {/* home page components  */}
-        <Route path='/' exact element={<Home/>} />
-        <Route path='/about' exact element={<About/>} />
-        <Route path='/AboutDetail' exact element={<AboutDetail/>} />
-        <Route path='/properties' exact element={<Properties/>} />
-        <Route path='/testimonial' element={<TestimonialSlider/>}></Route>
-        <Route path='/contact' exact element={<Contact/>} />
-        <Route path="/Login" exact element={<Login/>} />
-        <Route path='/LoginReg' element={<LoginReg/>}></Route>
-        <Route path='/Footer' element={<Footer/>}></Route>
-        <Route path='/Price' element={<StripeWrapper><Pricing/></StripeWrapper>}></Route>
+        {/* home page components  */}
+        <Route path='/' exact element={<Home />} />
+        <Route path='/about' exact element={<About />} />
+        <Route path='/AboutDetail' exact element={<AboutDetail />} />
+        <Route path='/properties' exact element={<Properties />} />
+        <Route path='/testimonial' element={<TestimonialSlider />}></Route>
+        <Route path='/contact' exact element={<Contact />} />
+        <Route path="/Login" exact element={<Login />} />
+        <Route path="/Subscription" exact element={<Subscription />} />
+        <Route path='/LoginReg' element={<LoginReg />}></Route>
+        <Route path='/Footer' element={<Footer />}></Route>
+        <Route path='/Price' element={<StripeWrapper><Pricing /></StripeWrapper>}></Route>
 
 
-{/* admin side component  */}
-        <Route path='/Addpro' element={<Addpro/>}></Route>
-        <Route path='/detailpro' element={<detailpro/>}></Route>
-        <Route path='/Prodetail' element={<Prodetail/>}></Route>
-        <Route path='/mydetail' element={<Mydetail/>}></Route>
-        <Route path='/Sidebar' element={<AdminRoute element={Sidebar}/>}></Route>
-        <Route path='/Dashboard' element={<AdminRoute element={Dashboard}/>}></Route>
-        <Route path='/Users' element={ <AdminRoute element={Users}/>}></Route>
-        <Route path='/Pricingplan' element={ <AdminRoute element={Pricingplan}/>}></Route>
-        <Route path='/Priceed' element={<Priceed/>}></Route>
-        <Route path='/Message' element={<Message/>}></Route>
-        <Route path='/Profile' element={<Profile/>}></Route>
-        <Route path='/ActivatedPkg' element={<ActivatePkg/>}></Route>
+        {/* admin side component  */}
+        <Route path='/Addpro' element={<Addpro />}></Route>
+        <Route path='/detailpro' element={<detailpro />}></Route>
+        <Route path='/Prodetail' element={<Prodetail />}></Route>
+        <Route path='/mydetail' element={<Mydetail />}></Route>
+        <Route path='/Sidebar' element={<AdminRoute element={Sidebar} />}></Route>
+        <Route path='/Dashboard' element={<AdminRoute element={Dashboard} />}></Route>
+        <Route path='/Users' element={<AdminRoute element={Users} />}></Route>
+        <Route path='/Pricingplan' element={<AdminRoute element={Pricingplan} />}></Route>
+        <Route path='/Priceed' element={<Priceed />}></Route>
+        <Route path='/Message' element={<Message />}></Route>
+        <Route path='/Profile' element={<Profile />}></Route>
+        <Route path='/ActivatedPkg' element={<ActivatePkg />}></Route>
 
-{/* user side componenets  */}
-        <Route path='/Userbar' element={<UserRoute element={Userbar}/>}></Route>
-        <Route path='/Useradd' element={<UserRoute element={Useradd}/>}></Route>
-        <Route path='/Userprofile' element={<UserRoute element={Userprofile}/>}></Route>
-        <Route path='/Userpro' element={<UserRoute element={Userpro}/>}></Route>
-        <Route path='/Favorite' element={<UserRoute element={Favorite}/>}></Route>
-        <Route path='/Package' element={<UserRoute element={Package}/>}></Route>
+        {/* user side componenets  */}
+        <Route path='/Userbar' element={<UserRoute element={Userbar} />}></Route>
+        <Route path='/Useradd' element={<UserRoute element={Useradd} />}></Route>
+        <Route path='/Userprofile' element={<UserRoute element={Userprofile} />}></Route>
+        <Route path='/Userpro' element={<UserRoute element={Userpro} />}></Route>
+        <Route path='/Favorite' element={<UserRoute element={Favorite} />}></Route>
+        <Route path='/Package' element={<UserRoute element={Package} />}></Route>
 
       </Routes>
     </div>

@@ -62,6 +62,9 @@ const CustomNavbar = () => {
           <NavLink to={"/properties"} onClick={handleNavClick} activeClassName="bold" className="nav-link">
             Properties
           </NavLink>
+          <NavLink to={"/Subscription"} onClick={handleNavClick} activeClassName="bold" className="nav-link">
+            Subscriptions
+          </NavLink>
           <NavLink to={"/contact"} onClick={handleNavClick} activeClassName="bold" className="nav-link">
             Contact
           </NavLink>

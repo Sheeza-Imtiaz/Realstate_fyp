@@ -1,0 +1,76 @@
+.fixed-background {
+  position: relative;
+  padding: 20px;
+  min-height: 70vh; /* Ensures div is tall enough to demonstrate scrolling */
+  color: white;
+  background: url("./ss.jpg") center center / cover fixed
+    no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0, 100% 77%, 50% 100%, 0 79%);
+}
+
+.fixed-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Inherit the background from the parent */
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+.pp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+.pp h2{
+  font-size: 40px;
+  color: #fc9700;
+  font-weight: 600;
+}
+
+.pp p{
+  font-size: 18px;
+}
+.pp ul{
+  text-align: left;
+}
+.fifth {
+  padding: 0;
+}
+
+button {
+  background-color: #1e4f5c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #fc9700;
+  box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
+}
+@media (max-width: 768px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Adjust the order of columns in each pair */
+  .row > .col-md-6:nth-child(odd) {
+    order: 2; /* Text will appear after images */
+  }
+
+  .row > .col-md-6:nth-child(even) {
+    order: 1; /* Images will appear first */
+  }
+}

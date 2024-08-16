@@ -42,6 +42,7 @@ const Users = () => {
                                 <tr>
                                     <th>#</th>
                                     <th>Username</th>
+                                    {/* <th>Email</th> */}
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -50,6 +51,7 @@ const Users = () => {
                                     <tr key={user.id}>
                                         <td>{index + 1}</td>
                                         <td>{user.username}</td>
+                                        {/* <td>{user.email}</td> */}
                                         <td>
                                             <button className="btn btn-sm btn-warning me-3 fs-5" onClick={() => handleView(user)}>
                                                 View
@@ -77,6 +79,7 @@ const Users = () => {
                             <div className="modal-body">
                                 <p><strong>ID:</strong> {selectedUser.id}</p>
                                 <p><strong>Username:</strong> {selectedUser.username}</p>
+                                <p><strong>Username:</strong> {selectedUser.email}</p>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>

@@ -20,7 +20,7 @@ const Pricing = () => {
     useEffect(() => {
         const fetchPricingPlans = async () => {
             try {
-                const response = await axios.get('http://192.168.12.107:8001/real_estate/plans/');
+                const response = await axios.get('http://192.168.12.110:8000/real_estate/plans/');
                 const data = response.data.filter((item) => item.name !== "Free");
                 setPricingPlans(data);
             } catch (error) {
@@ -41,23 +41,6 @@ const Pricing = () => {
     };
 
     const activatePlan = async (planId, paymentMethodId, activationDate) => {
-        try {
-            const response = await axios.post(`http://192.168.12.107:8001/real_estate/plans/${planId}/activate/`, {
-                payment_method_id: paymentMethodId,
-                activation_date: activationDate,
-            });
-            console.log('Plan activated successfully:', response.data);
-            toast.success('Plan activated successfully!');
-            
-            const { id, username } = logdata;
-            await axios.post('http://192.168.12.107:8001/auth/logout/', { id, username });
-
-            sessionStorage.removeItem('logdata');
-            navigate('/login');
-        } catch (error) {
-            console.error('Error activating plan:', error);
-            toast.error('Failed to activate plan.');
-        }
     };
 
     return (
@@ -134,10 +117,13 @@ const PaymentModal = ({ onRequestClose, plan, onActivate }) => {
             console.error(error);
             toast.error('Payment failed.');
         } else {
-            const currentDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }); // Format the date as "day month year"
+            const currentDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
             try {
-                const response = await axios.patch(`http://192.168.12.107:8001/real_estate/users/${userId}/update-plan/`, {
+                // const name = JSON.parse(sessionStorage.getItem('logdata'));
+
+
+                const response = await axios.patch(`http://192.168.12.110:8000/real_estate/users/${userId}/update-plan/`, {
                     plan_name: plan.name,
                     date: currentDate,
                 });
@@ -158,6 +144,9 @@ const PaymentModal = ({ onRequestClose, plan, onActivate }) => {
                     console.error('Plan update failed');
                     toast.error('Plan update failed.');
                 }
+
+
+
             } catch (error) {
                 console.error('Error processing payment:', error);
                 toast.error('Error processing payment.');
@@ -188,7 +177,7 @@ const PaymentModal = ({ onRequestClose, plan, onActivate }) => {
                         <label>Card Details</label>
                         <CardElement className="form-control" />
                     </div>
-                    <button type="submit" className="btn" disabled={!stripe}>
+                    <button type="submit" className="btn" disabled={!stripe} style={{ backgroundColor: '#1e4f5c' }}>
                         Pay ${plan?.price}
                     </button>
                 </form>

@@ -14,7 +14,12 @@ const agents = [
     { name: 'Usman Ali', image: '/images/Avatar.webp', phone: '+92347-XXXXXX5', location: 'Cantt, LHR' },
 ];
 
+
 const AboutDetail = () => {
+    
+    // useEffect(()=>{
+    //     window.location.reload();
+    // },[])
     return (
         <>
             <CustomNavbar />
